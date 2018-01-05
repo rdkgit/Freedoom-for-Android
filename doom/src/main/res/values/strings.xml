@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">GZDoom</string>
+    <string name="app_name">Freedoom</string>
     <string name="start_full">Launch</string>
     <string name="start_wads">Addons</string>
 

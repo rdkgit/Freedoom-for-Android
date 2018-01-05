@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.nullsum.doom;
+package net.nullsum.freedoom;
 
 import android.app.Activity;
 import android.content.Context;
@@ -32,10 +32,6 @@ import com.bda.controller.Controller;
 import com.bda.controller.ControllerListener;
 import com.bda.controller.StateEvent;
 import com.beloko.libsdl.SDLLib;
-import net.nullsum.doom.AppSettings;
-import net.nullsum.doom.BestEglChooser;
-import net.nullsum.doom.MyGLSurfaceView;
-import net.nullsum.doom.Utils;
 import com.beloko.touchcontrols.ControlInterpreter;
 import com.beloko.touchcontrols.MogaHack;
 import com.beloko.touchcontrols.ShowKeyboard;
