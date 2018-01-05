@@ -235,7 +235,7 @@ public class ModSelectDialog {
 		Collections.sort(filesArray);
 
 		if (filesArray.size() == 0)
-			infoTextView.setText("Please copy wad/mods to here: \"" + basePath + "/" + path + "\"");
+			infoTextView.setText("Please copy addon wad/mods to here: \"" + basePath + "/" + path + "\"");
 		else
 			infoTextView.setText("");
 

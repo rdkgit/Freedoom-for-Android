@@ -109,6 +109,7 @@ public class DirectoryChooserDialog
 		}
 		catch (IOException ioe)
 		{
+		    Log.d("dir", "an exception happened while trying to get a cannon. path");
 			return;
 		}
 
@@ -191,9 +192,11 @@ public class DirectoryChooserDialog
 		File newDirFile = new File(newDir);
 		if (! newDirFile.exists() )
 		{
+			Log.d("dir", "createSubDir: " + newDir + " success");
 			return newDirFile.mkdir();
 		}
 
+        Log.d("dir", "createSubDir: " + newDir + " failure");
 		return false;
 	}
 

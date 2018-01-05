@@ -2,6 +2,8 @@
 <resources>
 
     <string name="app_name">GZDoom</string>
+    <string name="start_full">Launch</string>
+    <string name="start_wads">Addons</string>
 
     <string-array name="double_tap_actions">
         <item>None</item>

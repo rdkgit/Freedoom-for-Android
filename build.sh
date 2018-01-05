@@ -35,5 +35,5 @@ while read -r line; do
     fi
 done <<< $patches
 
-
-NDK_PROJECT_PATH=doom/src/main ndk-build $@
+# use ndk-build if on linux, ndk-build.cmd if on windows possibly?
+NDK_PROJECT_PATH=doom/src/main ndk-build.cmd $@

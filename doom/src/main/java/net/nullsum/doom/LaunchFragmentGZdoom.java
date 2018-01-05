@@ -81,6 +81,12 @@ public class LaunchFragmentGZdoom extends Fragment{
             Bundle savedInstanceState) {
         View mainView = inflater.inflate(R.layout.fragment_launch_gzdoom, null);
 
+        // Freedoom additions
+        Utils.copyAsset(getActivity(), "freedoom1.wad", fullBaseDir);
+        Utils.copyAsset(getActivity(), "freedoom2.wad", fullBaseDir);
+        // Freedoom licence and credits
+        Utils.copyAsset(getActivity(), "COPYING.txt", fullBaseDir);
+        Utils.copyAsset(getActivity(), "CREDITS.txt", fullBaseDir);
 
         argsEditText = (EditText)mainView.findViewById(R.id.extra_args_edittext);
         gameArgsTextView = (TextView)mainView.findViewById(R.id.extra_args_textview);
@@ -184,6 +190,7 @@ public class LaunchFragmentGZdoom extends Fragment{
             Utils.copyAsset(getActivity(),"gzdoom.sf2",base);
             //Utils.copyAsset(getActivity(),"lights_dt.pk3",base);
             //Utils.copyAsset(getActivity(),"brightmaps_dt.pk3",base);
+
         }
 
         //File[] files = new File(basePath ).listFiles();
