@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class AppSettings {
 
-    public static String gzdoomBaseDir;
+    public static String freedoomBaseDir;
 
     public static String musicBaseDir;
 
@@ -24,8 +24,8 @@ public class AppSettings {
 
     public static void resetBaseDir(Context ctx)
     {
-        gzdoomBaseDir  =  Environment.getExternalStorageDirectory().toString() + "/GZDoom";
-        setStringOption(ctx, "base_path", gzdoomBaseDir);
+        freedoomBaseDir  =  Environment.getExternalStorageDirectory().toString() + "/Freedoom";
+        setStringOption(ctx, "base_path", freedoomBaseDir);
     }
 
     public static void reloadSettings(Context ctx)
@@ -34,8 +34,8 @@ public class AppSettings {
 
         TouchSettings.reloadSettings(ctx);
 
-        gzdoomBaseDir = getStringOption(ctx, "base_path", null);
-        if (gzdoomBaseDir == null)
+        freedoomBaseDir = getStringOption(ctx, "base_path", null);
+        if (freedoomBaseDir == null)
         {
             resetBaseDir(ctx);
         }
@@ -43,7 +43,7 @@ public class AppSettings {
         String music = getStringOption(ctx, "music_path", null);
         if (music == null)
         {
-            music  =  gzdoomBaseDir + "/org.krupczak.org.krupczak.freedoom/Music";
+            music  =  freedoomBaseDir + "/doom/Music";
             setStringOption(ctx, "music_path", music);
         }
 
@@ -58,7 +58,7 @@ public class AppSettings {
 
     public static String getQuakeFullDir()
     {
-        String quakeFilesDir = AppSettings.gzdoomBaseDir;
+        String quakeFilesDir = AppSettings.freedoomBaseDir;
         return quakeFilesDir + "/config";
     }
 

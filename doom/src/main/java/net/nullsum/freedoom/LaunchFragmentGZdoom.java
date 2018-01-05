@@ -204,7 +204,7 @@ public class LaunchFragmentGZdoom extends Fragment{
             Utils.saveArgs(getActivity(),argsHistory);
         }
 
-        AppSettings.setStringOption(getActivity(), "last_tab", "gzdoom");
+        AppSettings.setStringOption(getActivity(), "last_tab", "Freedoom");
 
         String args =  gameArgsTextView.getText().toString() + " " + argsEditText.getText().toString();
 
@@ -217,7 +217,7 @@ public class LaunchFragmentGZdoom extends Fragment{
         intent.putExtra("res_div",resDiv);
 
         intent.putExtra("game_path",base);
-        intent.putExtra("game", "org.krupczak.org.krupczak.freedoom");
+        intent.putExtra("game", "net.nullsum.freedoom");
 
         if (moreArgs != null)
             args = args + " " + moreArgs;

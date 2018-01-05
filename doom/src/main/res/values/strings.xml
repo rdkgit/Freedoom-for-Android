@@ -4,6 +4,7 @@
     <string name="app_name">Freedoom</string>
     <string name="start_full">Launch</string>
     <string name="start_wads">Addons</string>
+    <string name="folder_name_prompt">Freedoom Folder</string>
 
     <string-array name="double_tap_actions">
         <item>None</item>

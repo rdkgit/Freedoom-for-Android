@@ -71,7 +71,7 @@ public class OptionsFragment extends Fragment{
 
         basePathTextView = (TextView)mainView.findViewById(R.id.base_path_textview);
 
-        basePathTextView.setText(AppSettings.gzdoomBaseDir);
+        basePathTextView.setText(AppSettings.freedoomBaseDir);
 
         Button chooseDir = (Button)mainView.findViewById(R.id.choose_base_button);
         chooseDir.setOnClickListener(new OnClickListener() {
@@ -89,7 +89,7 @@ public class OptionsFragment extends Fragment{
                             }
                         });
 
-                directoryChooserDialog.chooseDirectory(AppSettings.gzdoomBaseDir);
+                directoryChooserDialog.chooseDirectory(AppSettings.freedoomBaseDir);
             }
         });
 
@@ -100,7 +100,7 @@ public class OptionsFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 AppSettings.resetBaseDir(getActivity());
-                updateBaseDir(AppSettings.gzdoomBaseDir);
+                updateBaseDir(AppSettings.freedoomBaseDir);
             }
         });
 
@@ -198,11 +198,11 @@ public class OptionsFragment extends Fragment{
         }
 
 
-        AppSettings.gzdoomBaseDir = dir;
-        AppSettings.setStringOption(getActivity(), "base_path", AppSettings.gzdoomBaseDir);
+        AppSettings.freedoomBaseDir = dir;
+        AppSettings.setStringOption(getActivity(), "base_path", AppSettings.freedoomBaseDir);
         AppSettings.createDirectories(getActivity());
 
-        basePathTextView.setText(AppSettings.gzdoomBaseDir);
+        basePathTextView.setText(AppSettings.freedoomBaseDir);
     }
 
     private void showError(String error)
