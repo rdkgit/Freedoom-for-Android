@@ -2,7 +2,8 @@
 
 buildscript {
     repositories {
-        jcenter()
+        //jcenter() // PIECE OF CRAP WITH DEAD LINKS
+        google() // pray to google to make code work
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
