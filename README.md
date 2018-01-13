@@ -44,8 +44,6 @@ GZDoom folder is not created properly on first launch of app
 
 The default FMOD virtual MIDI device fails to initialize (no music with default audio settings)
 
-Trying to open the map or switching weapons will cause a crash
-
 
 ## DISCLAIMER
 This project is not affiliated with Doom or its publishers, Id Software or parent companies, or Bethesda. This project is not officially endorsed by the Freedoom project or GZDoom project.
