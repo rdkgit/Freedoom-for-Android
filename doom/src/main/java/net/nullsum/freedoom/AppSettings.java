@@ -75,6 +75,9 @@ public class AppSettings {
         //create folder gzdoom_dev where we store a modified ini
         new File(getQuakeFullDir() + "/gzdoom_dev").mkdirs();
 
+        //create a folder for wads I guess?
+        new File(getQuakeFullDir() + "/wads").mkdirs();
+
         //This is totally stupid, need to do this so folder shows up in explorer!
         if (scan)
         {
