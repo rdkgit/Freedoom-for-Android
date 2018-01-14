@@ -45,6 +45,27 @@ import java.util.zip.ZipInputStream;
 ;
 
 public class Utils {
+    public static void copyFreedoomFilesToSD(Activity responsibleActivity) {
+        String iniFolderName = "/gzdoom_dev";
+        String iniFileName = "zdoom.ini";
+        String fullBaseDir = AppSettings.getQuakeFullDir();
+
+        // Freedoom additions
+        Utils.copyAsset(responsibleActivity, "freedoom1.wad", fullBaseDir);
+        Utils.copyAsset(responsibleActivity, "freedoom2.wad", fullBaseDir);
+        // Freedoom licence and credits
+        Utils.copyAsset(responsibleActivity, "COPYING.txt", fullBaseDir);
+        Utils.copyAsset(responsibleActivity, "CREDITS.txt", fullBaseDir);
+        // copy a custom gzdoom iniFile to set midi device to fluidsynth
+        File tester = new File(fullBaseDir + iniFolderName + "/" + iniFileName);
+        if (!tester.exists()) {
+            Log.d(LOG, "zdoom.ini file not present, copying custom one");
+            Utils.copyAsset(responsibleActivity, iniFileName, fullBaseDir + iniFolderName);
+        } else {
+            Log.d(LOG, "zdoom.ini file is already present");
+        }
+    }
+
     static String LOG = "Utils";
 
     static public void copyFile(InputStream in, OutputStream out) throws IOException {
@@ -423,8 +444,10 @@ public class Utils {
             out.flush();
             out.close();
             out = null;
-        } catch(IOException e) {
+        }
+        catch(IOException e) {
             Log.e("tag", "Failed to copy asset file: " + file);
+            e.printStackTrace();
         }
     }
 

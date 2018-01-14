@@ -9,6 +9,7 @@ import android.support.annotation.StringRes;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MotionEvent;
@@ -17,10 +18,13 @@ import static android.Manifest.*;
 
 import com.beloko.touchcontrols.GamePadFragment;
 
+import java.util.Arrays;
+
 
 public class EntryActivity extends FragmentActivity  {
 
     GamePadFragment gamePadFrag;
+    String LOG = "EntryActivity";
 
     /**
      * The serialization (saved instance state) Bundle key representing the
@@ -71,6 +75,7 @@ public class EntryActivity extends FragmentActivity  {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         // Serialize the current tab position.
+        super.onSaveInstanceState(outState);
         outState.putInt(STATE_SELECTED_NAVIGATION_ITEM, getActionBar()
                 .getSelectedNavigationIndex());
     }
@@ -198,11 +203,17 @@ public class EntryActivity extends FragmentActivity  {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        // copy over Freedoom files
+        Log.d(LOG, "Got permissions request result: " + Arrays.toString(permissions));
+        Log.d(LOG, "grant results: " + Arrays.toString(grantResults));
+        AppSettings.createDirectories(this);
+        Utils.copyFreedoomFilesToSD(this);
         switch (requestCode) {
             case PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // dirty hack :(
                     final ActionBar actionBar = getActionBar();
+
                     actionBar.setSelectedNavigationItem(1);
                     actionBar.setSelectedNavigationItem(0);
                 }
