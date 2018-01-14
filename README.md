@@ -37,13 +37,5 @@ The Freedoom authors for an excellent set of open-source assets. Please also loo
 
 Anyone else I haven't mentioned
 
-## Known Bugs
-freedoom wads don't appear on first launch of app
-
-GZDoom folder is not created properly on first launch of app
-
-The default FMOD virtual MIDI device fails to initialize (no music with default audio settings)
-
-
 ## DISCLAIMER
 This project is not affiliated with Doom or its publishers, Id Software or parent companies, or Bethesda. This project is not officially endorsed by the Freedoom project or GZDoom project.
