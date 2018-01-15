@@ -3,7 +3,7 @@
 A fork of nvllsvm's GZDoom-Android port. My idea for this fork was to bundle this app with the open source Freedoom (freedoom1.wad and freedoom2.wad) assets to publish a completely open source android game running on the doom engine. I hope this "bundling" will allow it to reach a more diverse audience of users whom either don't own Doom or are averse to having to find and copy their legally-owned Doom resource files onto their phones.
 
 Play store link:
-[https://github.com/mkrupczak3/GZDoom-Android]
+https://github.com/mkrupczak3/GZDoom-Android
 
 # Why Freedoom?
 While the Doom engine and its many spinoffs are open-sourced, most of the Doom's "assets" such as textures, sounds, and game levels are copywrited and not legal to redistribute. The Freedoom project offers an alternative set of assets and game levels that are open source and can be used with most Doom engines in place of the originals. In addition, Freedoom is compatible with most of the vast library of fan-made "WADs" (i.e. game levels) as indexed in the idgames archive.
