@@ -32,7 +32,7 @@ public class ControlConfig implements Serializable{
 	final String LOG = "QuakeControlConfig";
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -118,7 +118,7 @@ public class ControlConfig implements Serializable{
 	public static final int   PORT_ACT_FORCE_HEAL      = 78;
 	public static final int   PORT_ACT_FORCE_GRIP      = 79;
 	public static final int   PORT_ACT_FORCE_SPEED     = 80;
-	public static final int   PORT_ACT_FORCE_PUSH      = 81;	
+	public static final int   PORT_ACT_FORCE_PUSH      = 81;
 	public static final int   PORT_ACT_SABER_SEL       = 87; //Just chooses weapon 1 so show/hide saber.
 
 	//Choloate
@@ -139,7 +139,7 @@ public class ControlConfig implements Serializable{
 	public static final int PORT_ACT_CUSTOM_7          = 157;
 
 
-	
+
 	//Menu
 	public static final int MENU_UP                 = 0x200;
 	public static final int MENU_DOWN               = 0x201;
@@ -158,8 +158,18 @@ public class ControlConfig implements Serializable{
 
 	public ControlConfig(String file,ArrayList<ActionInput> gamepadActions)
 	{
+            // Conditional null check hotfix to prevent crashing
+            //     no idea how to reproduce crash or what this may do
+            if (gamepadActions != null)
+            {
 		actions.addAll(gamepadActions);
 		filename = file;
+            }
+            else
+            {
+                Log.d(LOG, "TouchControls gamepadActions was null!");
+                filename = file;
+            }
 	}
 
 	public void setTextView(Context c,TextView tv)
@@ -196,7 +206,7 @@ public class ControlConfig implements Serializable{
 		if (TouchSettings.DEBUG) Log.d(LOG,"loadControls, file = " + file.toString());
 
 		InputStream fis = null;
-		ObjectInputStream in = null; 
+		ObjectInputStream in = null;
 
 		fis = new FileInputStream(file);
 
@@ -255,7 +265,7 @@ public class ControlConfig implements Serializable{
 		}
 	}
 
-	ArrayList<ActionInput> actions = new ArrayList<ActionInput>(); 
+	ArrayList<ActionInput> actions = new ArrayList<ActionInput>();
 
 	ActionInput actionMontor=null;
 
@@ -381,7 +391,7 @@ public class ControlConfig implements Serializable{
 
 						updated();
 						return true;
-					}	
+					}
 				}
 			}
 		}
@@ -436,7 +446,7 @@ public class ControlConfig implements Serializable{
 	public boolean onKeyUp(int keyCode, KeyEvent event)
 	{
 		return false;
-	} 
+	}
 
 
 	public int getSize()
@@ -457,7 +467,7 @@ public class ControlConfig implements Serializable{
 
 		if ((ai.actionType == Type.BUTTON) || (ai.actionType == Type.MENU))
 		{
-			
+
 			if (ai.sourceType == Type.ANALOG)
 				binding.setText(MotionEvent.axisToString(ai.source));
 			else
@@ -487,7 +497,7 @@ public class ControlConfig implements Serializable{
 			});
 			name.setTextColor(0xFFf7941d); //ORANGE
 		}
-		
+
 		/*
 		if (ai.actionType == Type.BUTTON)
 		{
