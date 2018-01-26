@@ -160,15 +160,14 @@ public class ControlConfig implements Serializable{
 	{
             // Conditional null check hotfix to prevent crashing
             //     no idea how to reproduce crash or what this may do
-            if (gamepadActions != null)
+            if (gamepadActions != null && file != null)
             {
-		actions.addAll(gamepadActions);
-		filename = file;
+            	actions.addAll(gamepadActions);
+				filename = file;
             }
             else
             {
-                Log.d(LOG, "TouchControls gamepadActions was null!");
-                filename = file;
+                Log.d(LOG, "TouchControls gamepadActions or file was null!");
             }
 	}
 
