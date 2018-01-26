@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.v4.app.FragmentActivity;
@@ -14,6 +15,8 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.content.pm.PackageManager;
+import android.widget.Toast;
+
 import static android.Manifest.*;
 
 import com.beloko.touchcontrols.GamePadFragment;
@@ -119,6 +122,10 @@ public class EntryActivity extends FragmentActivity  {
             return super.onKeyUp(keyCode, event);
     }
 
+    public Context getActivity() {
+        return this;
+    }
+
     public static class TabListener<T extends Fragment> implements ActionBar.TabListener {
         private final FragmentActivity mActivity;
         private final String mTag;
@@ -206,16 +213,21 @@ public class EntryActivity extends FragmentActivity  {
         // copy over Freedoom files
         Log.d(LOG, "Got permissions request result: " + Arrays.toString(permissions));
         Log.d(LOG, "grant results: " + Arrays.toString(grantResults));
-        AppSettings.createDirectories(this);
-        Utils.copyFreedoomFilesToSD(this);
+
         switch (requestCode) {
             case PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    AppSettings.createDirectories(this);
+                    Utils.copyFreedoomFilesToSD(this);
+
                     // dirty hack :(
                     final ActionBar actionBar = getActionBar();
 
                     actionBar.setSelectedNavigationItem(1);
                     actionBar.setSelectedNavigationItem(0);
+                } else {
+                    Toast.makeText(getActivity(), getResources().getString(R.string.file_permission_fail_toast),
+                            Toast.LENGTH_LONG).show();
                 }
             }
         }
