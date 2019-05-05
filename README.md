@@ -5,7 +5,7 @@ A fork of nvllsvm's GZDoom-Android port. My idea for this fork was to bundle thi
 Play store link:
 https://play.google.com/store/apps/details?id=net.nullsum.freedoom
 
-#PENDING DEPRECATION NOTICE
+# PENDING DEPRECATION NOTICE
 Starting August 1st, Google will require apps to be released with 64bit native binaries for phones with 64bit processors. Current goals include localizing the app into as many different languages as possible before this requirement makes publishing new versions infeasible. 
 
 # Why Freedoom?
