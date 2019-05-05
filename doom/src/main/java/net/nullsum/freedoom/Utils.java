@@ -45,6 +45,12 @@ import java.util.zip.ZipInputStream;
 ;
 
 public class Utils {
+    private Resources res;
+
+    public Utils(Resources res) {
+        this.res=res;
+    }
+
     public static void copyFreedoomFilesToSD(Activity responsibleActivity) {
         String iniFolderName = "/gzdoom_dev";
         String iniFileName = "zdoom.ini";
@@ -605,58 +611,58 @@ public class Utils {
         }
     }
 
-    public static ArrayList<ActionInput> getGameGamepadConfig()
+    public static ArrayList<ActionInput> getGameGamepadConfig(Resources res)
     {
         ArrayList<ActionInput> actions = new ArrayList<ActionInput>();
 
-        actions.add(new ActionInput("analog_look_pitch","Look Up/Look Down",ControlConfig.ACTION_ANALOG_PITCH,Type.ANALOG));
-        actions.add(new ActionInput("analog_look_yaw","Look Left/Look Right",ControlConfig.ACTION_ANALOG_YAW,Type.ANALOG));
-        actions.add(new ActionInput("analog_move_fwd","Forward/Back", ControlConfig.ACTION_ANALOG_FWD, Type.ANALOG));
-        actions.add(new ActionInput("analog_move_strafe","Strafe",ControlConfig.ACTION_ANALOG_STRAFE,Type.ANALOG));
-        actions.add(new ActionInput("attack","Attack",ControlConfig.PORT_ACT_ATTACK,Type.BUTTON));
-        actions.add(new ActionInput("attack_alt","Alt Attack (GZ)",ControlConfig.PORT_ACT_ALT_ATTACK,Type.BUTTON));
-        actions.add(new ActionInput("back","Move Backwards",ControlConfig.PORT_ACT_BACK,Type.BUTTON));
-        actions.add(new ActionInput("crouch","Crouch (GZ)",ControlConfig.PORT_ACT_DOWN,Type.BUTTON));
-        actions.add(new ActionInput("custom_0","Custom A (GZ)",ControlConfig.PORT_ACT_CUSTOM_0,Type.BUTTON));
-        actions.add(new ActionInput("custom_1","Custom B (GZ)",ControlConfig.PORT_ACT_CUSTOM_1,Type.BUTTON));
-        actions.add(new ActionInput("custom_2","Custom C (GZ)",ControlConfig.PORT_ACT_CUSTOM_2,Type.BUTTON));
-        actions.add(new ActionInput("custom_3","Custom D (GZ)",ControlConfig.PORT_ACT_CUSTOM_3,Type.BUTTON));
-        actions.add(new ActionInput("custom_4","Custom E (GZ)",ControlConfig.PORT_ACT_CUSTOM_4,Type.BUTTON));
-        actions.add(new ActionInput("custom_5","Custom F (GZ)",ControlConfig.PORT_ACT_CUSTOM_5,Type.BUTTON));
-        actions.add(new ActionInput("fly_down","Fly Down",ControlConfig.PORT_ACT_FLY_DOWN,Type.BUTTON));
-        actions.add(new ActionInput("fly_up","Fly Up",ControlConfig.PORT_ACT_FLY_UP,Type.BUTTON));
-        actions.add(new ActionInput("fwd","Move Forward",ControlConfig.PORT_ACT_FWD,Type.BUTTON));
-        actions.add(new ActionInput("inv_drop","Drop Item",ControlConfig.PORT_ACT_INVDROP,Type.BUTTON));
-        actions.add(new ActionInput("inv_next","Next Item",ControlConfig.PORT_ACT_INVNEXT,Type.BUTTON));
-        actions.add(new ActionInput("inv_prev","Prev Item",ControlConfig.PORT_ACT_INVPREV,Type.BUTTON));
-        actions.add(new ActionInput("inv_use","Use Item",ControlConfig.PORT_ACT_INVUSE,Type.BUTTON));
-        actions.add(new ActionInput("jump","Jump (GZ)",ControlConfig.PORT_ACT_JUMP,Type.BUTTON));
-        actions.add(new ActionInput("left","Strafe Left",ControlConfig.PORT_ACT_MOVE_LEFT,Type.BUTTON));
-        actions.add(new ActionInput("look_left","Look Left",ControlConfig.PORT_ACT_LEFT,Type.BUTTON));
-        actions.add(new ActionInput("look_right","Look Right",ControlConfig.PORT_ACT_RIGHT,Type.BUTTON));
-        actions.add(new ActionInput("map_down","Automap Down",ControlConfig.PORT_ACT_MAP_DOWN,Type.BUTTON));
-        actions.add(new ActionInput("map_left","Automap Left",ControlConfig.PORT_ACT_MAP_LEFT,Type.BUTTON));
-        actions.add(new ActionInput("map_right","Automap Right",ControlConfig.PORT_ACT_MAP_RIGHT,Type.BUTTON));
-        actions.add(new ActionInput("map_show","Show Automap",ControlConfig.PORT_ACT_MAP,Type.BUTTON));
-        actions.add(new ActionInput("map_up","Automap Up",ControlConfig.PORT_ACT_MAP_UP,Type.BUTTON));
-        actions.add(new ActionInput("map_zoomin","Automap Zoomin",ControlConfig.PORT_ACT_MAP_ZOOM_IN,Type.BUTTON));
-        actions.add(new ActionInput("map_zoomout","Automap Zoomout",ControlConfig.PORT_ACT_MAP_ZOOM_OUT,Type.BUTTON));
-        actions.add(new ActionInput("menu_back","Menu Back",ControlConfig.MENU_BACK,Type.MENU));
-        actions.add(new ActionInput("menu_down","Menu Down",ControlConfig.MENU_DOWN,Type.MENU));
-        actions.add(new ActionInput("menu_left","Menu Left",ControlConfig.MENU_LEFT,Type.MENU));
-        actions.add(new ActionInput("menu_right","Menu Right",ControlConfig.MENU_RIGHT,Type.MENU));
-        actions.add(new ActionInput("menu_select","Menu Select",ControlConfig.MENU_SELECT,Type.MENU));
-        actions.add(new ActionInput("menu_up","Menu Up",ControlConfig.MENU_UP,Type.MENU));
-        actions.add(new ActionInput("next_weapon","Next Weapon",ControlConfig.PORT_ACT_NEXT_WEP,Type.BUTTON));
-        actions.add(new ActionInput("prev_weapon","Previous Weapon",ControlConfig.PORT_ACT_PREV_WEP,Type.BUTTON));
-        actions.add(new ActionInput("quick_load","Quick Load (GZ)",ControlConfig.PORT_ACT_QUICKLOAD,Type.BUTTON));
-        actions.add(new ActionInput("quick_save","Quick Save (GZ)",ControlConfig.PORT_ACT_QUICKSAVE,Type.BUTTON));
-        actions.add(new ActionInput("right","Strafe Right",ControlConfig.PORT_ACT_MOVE_RIGHT,Type.BUTTON));
-        actions.add(new ActionInput("show_keys","Show Keys",ControlConfig.PORT_ACT_SHOW_KEYS,Type.BUTTON));
-        actions.add(new ActionInput("show_weap","Show Stats/Weapons",ControlConfig.PORT_ACT_SHOW_WEAPONS,Type.BUTTON));
-        actions.add(new ActionInput("speed","Run On",ControlConfig.PORT_ACT_SPEED,Type.BUTTON));
-        actions.add(new ActionInput("strafe_on","Strafe On",ControlConfig.PORT_ACT_STRAFE,Type.BUTTON));
-        actions.add(new ActionInput("use","Use/Open",ControlConfig.PORT_ACT_USE,Type.BUTTON));
+        actions.add(new ActionInput("analog_look_pitch",res.getString(R.string.look_up_down_option),ControlConfig.ACTION_ANALOG_PITCH,Type.ANALOG));
+        actions.add(new ActionInput("analog_look_yaw",res.getString(R.string.look_left_right_option),ControlConfig.ACTION_ANALOG_YAW,Type.ANALOG));
+        actions.add(new ActionInput("analog_move_fwd",res.getString(R.string.forward_back_option), ControlConfig.ACTION_ANALOG_FWD, Type.ANALOG));
+        actions.add(new ActionInput("analog_move_strafe",res.getString(R.string.strafe_option),ControlConfig.ACTION_ANALOG_STRAFE,Type.ANALOG));
+        actions.add(new ActionInput("attack",res.getString(R.string.attack_option),ControlConfig.PORT_ACT_ATTACK,Type.BUTTON));
+        actions.add(new ActionInput("attack_alt",res.getString(R.string.attack_alt_option),ControlConfig.PORT_ACT_ALT_ATTACK,Type.BUTTON));
+        actions.add(new ActionInput("back",res.getString(R.string.move_back_option),ControlConfig.PORT_ACT_BACK,Type.BUTTON));
+        actions.add(new ActionInput("crouch",res.getString(R.string.crouch_option),ControlConfig.PORT_ACT_DOWN,Type.BUTTON));
+        actions.add(new ActionInput("custom_0",res.getString(R.string.custom_0_option),ControlConfig.PORT_ACT_CUSTOM_0,Type.BUTTON));
+        actions.add(new ActionInput("custom_1",res.getString(R.string.custom_1_option),ControlConfig.PORT_ACT_CUSTOM_1,Type.BUTTON));
+        actions.add(new ActionInput("custom_2",res.getString(R.string.custom_2_option),ControlConfig.PORT_ACT_CUSTOM_2,Type.BUTTON));
+        actions.add(new ActionInput("custom_3",res.getString(R.string.custom_3_option),ControlConfig.PORT_ACT_CUSTOM_3,Type.BUTTON));
+        actions.add(new ActionInput("custom_4",res.getString(R.string.custom_4_option),ControlConfig.PORT_ACT_CUSTOM_4,Type.BUTTON));
+        actions.add(new ActionInput("custom_5",res.getString(R.string.custom_5_option),ControlConfig.PORT_ACT_CUSTOM_5,Type.BUTTON));
+        actions.add(new ActionInput("fly_down",res.getString(R.string.fly_down_option),ControlConfig.PORT_ACT_FLY_DOWN,Type.BUTTON));
+        actions.add(new ActionInput("fly_up",res.getString(R.string.fly_up_option),ControlConfig.PORT_ACT_FLY_UP,Type.BUTTON));
+        actions.add(new ActionInput("fwd",res.getString(R.string.fwd_option),ControlConfig.PORT_ACT_FWD,Type.BUTTON));
+        actions.add(new ActionInput("inv_drop",res.getString(R.string.inv_drop_option),ControlConfig.PORT_ACT_INVDROP,Type.BUTTON));
+        actions.add(new ActionInput("inv_next",res.getString(R.string.inv_next_option),ControlConfig.PORT_ACT_INVNEXT,Type.BUTTON));
+        actions.add(new ActionInput("inv_prev",res.getString(R.string.inv_prev_option),ControlConfig.PORT_ACT_INVPREV,Type.BUTTON));
+        actions.add(new ActionInput("inv_use",res.getString(R.string.inv_use_option),ControlConfig.PORT_ACT_INVUSE,Type.BUTTON));
+        actions.add(new ActionInput("jump",res.getString(R.string.jump_option),ControlConfig.PORT_ACT_JUMP,Type.BUTTON));
+        actions.add(new ActionInput("left",res.getString(R.string.left_option),ControlConfig.PORT_ACT_MOVE_LEFT,Type.BUTTON));
+        actions.add(new ActionInput("look_left",res.getString(R.string.look_left_option),ControlConfig.PORT_ACT_LEFT,Type.BUTTON));
+        actions.add(new ActionInput("look_right",res.getString(R.string.look_right_option),ControlConfig.PORT_ACT_RIGHT,Type.BUTTON));
+        actions.add(new ActionInput("map_down",res.getString(R.string.map_down_option),ControlConfig.PORT_ACT_MAP_DOWN,Type.BUTTON));
+        actions.add(new ActionInput("map_left",res.getString(R.string.map_left_option),ControlConfig.PORT_ACT_MAP_LEFT,Type.BUTTON));
+        actions.add(new ActionInput("map_right",res.getString(R.string.map_right_option),ControlConfig.PORT_ACT_MAP_RIGHT,Type.BUTTON));
+        actions.add(new ActionInput("map_show",res.getString(R.string.map_show_option),ControlConfig.PORT_ACT_MAP,Type.BUTTON));
+        actions.add(new ActionInput("map_up",res.getString(R.string.map_up_option),ControlConfig.PORT_ACT_MAP_UP,Type.BUTTON));
+        actions.add(new ActionInput("map_zoomin",res.getString(R.string.map_zoomin_option),ControlConfig.PORT_ACT_MAP_ZOOM_IN,Type.BUTTON));
+        actions.add(new ActionInput("map_zoomout",res.getString(R.string.map_zoomout_option),ControlConfig.PORT_ACT_MAP_ZOOM_OUT,Type.BUTTON));
+        actions.add(new ActionInput("menu_back",res.getString(R.string.menu_back_option),ControlConfig.MENU_BACK,Type.MENU));
+        actions.add(new ActionInput("menu_down",res.getString(R.string.menu_down_option),ControlConfig.MENU_DOWN,Type.MENU));
+        actions.add(new ActionInput("menu_left",res.getString(R.string.menu_left_option),ControlConfig.MENU_LEFT,Type.MENU));
+        actions.add(new ActionInput("menu_right",res.getString(R.string.menu_right_option),ControlConfig.MENU_RIGHT,Type.MENU));
+        actions.add(new ActionInput("menu_select",res.getString(R.string.menu_select_option),ControlConfig.MENU_SELECT,Type.MENU));
+        actions.add(new ActionInput("menu_up",res.getString(R.string.menu_up_option),ControlConfig.MENU_UP,Type.MENU));
+        actions.add(new ActionInput("next_weapon",res.getString(R.string.next_weapon_option),ControlConfig.PORT_ACT_NEXT_WEP,Type.BUTTON));
+        actions.add(new ActionInput("prev_weapon",res.getString(R.string.prev_weapon_option),ControlConfig.PORT_ACT_PREV_WEP,Type.BUTTON));
+        actions.add(new ActionInput("quick_load",res.getString(R.string.quick_load_option),ControlConfig.PORT_ACT_QUICKLOAD,Type.BUTTON));
+        actions.add(new ActionInput("quick_save",res.getString(R.string.quick_save_option),ControlConfig.PORT_ACT_QUICKSAVE,Type.BUTTON));
+        actions.add(new ActionInput("right",res.getString(R.string.right_option),ControlConfig.PORT_ACT_MOVE_RIGHT,Type.BUTTON));
+        actions.add(new ActionInput("show_keys",res.getString(R.string.show_keys_option),ControlConfig.PORT_ACT_SHOW_KEYS,Type.BUTTON));
+        actions.add(new ActionInput("show_weap",res.getString(R.string.show_weap_option),ControlConfig.PORT_ACT_SHOW_WEAPONS,Type.BUTTON));
+        actions.add(new ActionInput("speed",res.getString(R.string.speed_option),ControlConfig.PORT_ACT_SPEED,Type.BUTTON));
+        actions.add(new ActionInput("strafe_on",res.getString(R.string.strafe_on_option),ControlConfig.PORT_ACT_STRAFE,Type.BUTTON));
+        actions.add(new ActionInput("use",res.getString(R.string.use_option),ControlConfig.PORT_ACT_USE,Type.BUTTON));
 
         return actions;
     }

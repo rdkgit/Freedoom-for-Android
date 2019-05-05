@@ -103,9 +103,9 @@ public class LaunchFragmentGZdoom extends Fragment{
                 if (selectedMod == null)
                 {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setMessage("Please select an IWAD file. Copy IWAD files to: " + fullBaseDir)
+                    builder.setMessage(R.string.no_iwads_err + fullBaseDir)
                     .setCancelable(true)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    .setPositiveButton(R.string.ok_confirm, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
 
                         }

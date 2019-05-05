@@ -60,8 +60,8 @@ public abstract class ResourceDragSortCursorAdapter extends DragSortCursorAdapte
     
     /**
      * Constructor with default behavior as per
-     * {@link CursorAdapter#CursorAdapter(Context, Cursor, boolean)}; it is recommended
-     * you not use this, but instead {@link #ResourceCursorAdapter(Context, int, Cursor, int)}.
+     * ; it is recommended
+     * you not use this, but instead .
      * When using this constructor, {@link #FLAG_REGISTER_CONTENT_OBSERVER}
      * will always be set.
      *
@@ -89,7 +89,7 @@ public abstract class ResourceDragSortCursorAdapter extends DragSortCursorAdapte
      *            define both the item views and the drop down views.
      * @param c The cursor from which to get the data.
      * @param flags Flags used to determine the behavior of the adapter,
-     * as per {@link CursorAdapter#CursorAdapter(Context, Cursor, int)}.
+     * as per .
      */
     public ResourceDragSortCursorAdapter(Context context, int layout, Cursor c, int flags) {
         super(context, c, flags);

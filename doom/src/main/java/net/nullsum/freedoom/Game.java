@@ -116,7 +116,7 @@ public class Game extends Activity implements Handler.Callback
 		NativeLib engine = new NativeLib();
 
 
-		controlInterp = new ControlInterpreter(engine,Utils.getGameGamepadConfig(), TouchSettings.gamePadControlsFile, TouchSettings.gamePadEnabled);
+		controlInterp = new ControlInterpreter(engine,Utils.getGameGamepadConfig(this.getResources()), TouchSettings.gamePadControlsFile, TouchSettings.gamePadEnabled);
 
 		TouchControlsSettings.setup(act, engine);
 		TouchControlsSettings.loadSettings(act);

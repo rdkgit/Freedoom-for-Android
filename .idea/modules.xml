@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GZDoom-Android.iml" filepath="$PROJECT_DIR$/GZDoom-Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/doom/doom.iml" filepath="$PROJECT_DIR$/doom/doom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TouchControls/touchcontrols/touchcontrols.iml" filepath="$PROJECT_DIR$/TouchControls/touchcontrols/touchcontrols.iml" />
     </modules>
   </component>
 </project>

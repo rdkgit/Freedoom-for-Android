@@ -18,7 +18,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Configuration and content (WAD, DEH, etc.) directory."
+            android:text="@string/wad_dir_prompt"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
@@ -41,21 +41,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="SDCard" />
+                android:text="@string/sdcard_button_text" />
 
             <Button
                 android:id="@+id/reset_base_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="Reset" />
+                android:text="@string/reset_button_text" />
 
             <Button
                 android:id="@+id/choose_base_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="Choose" />
+                android:text="@string/choose_button_text" />
         </LinearLayout>
 
         <LinearLayout
@@ -67,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
-                android:text="Divide resolution by:"
+                android:text="@string/divide_resolution_by_prompt"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <Spinner

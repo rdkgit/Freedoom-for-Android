@@ -5,6 +5,7 @@ import android.app.ActionBar.Tab;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.v4.app.FragmentActivity;
@@ -35,6 +36,7 @@ public class EntryActivity extends FragmentActivity  {
      */
     private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
     private static final int PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
+    private Resources res;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +54,12 @@ public class EntryActivity extends FragmentActivity  {
 
         AppSettings.reloadSettings(getApplication());
 
-        GamePadFragment.gamepadActions = Utils.getGameGamepadConfig();
+        res = this.getResources();
+        GamePadFragment.gamepadActions = Utils.getGameGamepadConfig(res);
 
-        actionBar.addTab(actionBar.newTab().setText("Freedoom").setTabListener(new TabListener<LaunchFragmentGZdoom>(this, "Gzdoom", LaunchFragmentGZdoom.class)));
-        actionBar.addTab(actionBar.newTab().setText("gamepad").setTabListener(new TabListener<GamePadFragment>(this, "gamepad", GamePadFragment.class)));
-        actionBar.addTab(actionBar.newTab().setText("options").setTabListener(new TabListener<OptionsFragment>(this, "options", OptionsFragment.class)));
+        actionBar.addTab(actionBar.newTab().setText(R.string.app_name).setTabListener(new TabListener<LaunchFragmentGZdoom>(this, "Gzdoom", LaunchFragmentGZdoom.class)));
+        actionBar.addTab(actionBar.newTab().setText(R.string.gamepad_tab).setTabListener(new TabListener<GamePadFragment>(this, "gamepad", GamePadFragment.class)));
+        actionBar.addTab(actionBar.newTab().setText(R.string.options_tab).setTabListener(new TabListener<OptionsFragment>(this, "options", OptionsFragment.class)));
 
 
         String last_tab = AppSettings.getStringOption(getApplicationContext(), "last_tab", "");

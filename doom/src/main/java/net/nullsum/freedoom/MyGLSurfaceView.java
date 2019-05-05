@@ -984,7 +984,6 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
 		/**
 		 * Initialize EGL for a given configuration spec.
-		 * @param configSpec
 		 */
 		public void start() {
 			if (LOG_EGL) {
