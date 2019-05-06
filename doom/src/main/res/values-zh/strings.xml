@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">游戏手柄</string>
+    <string name="options_tab">选项</string>
+    <string name="no_iwads_err">请选择IWAD文件。将IWAD文件复制到：</string>
+    <string name="ok_confirm">好</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Freedoom</string>
+    <string name="start_full">发射</string>
+    <string name="start_wads">插件</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">启用游戏手柄</string>
+    <string name="hide_touch_controls_toggle">隐藏触摸控件</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">向上看/向下看</string>
+    <string name="look_left_right_option">向左看/向右看</string>
+    <string name="forward_back_option">前进/后退</string>
+    <string name="strafe_option">扫射</string>
+    <string name="attack_option">攻击</string>
+    <string name="attack_alt_option">Alt攻击（GZ）</string>
+    <string name="move_back_option">向后移动</string>
+    <string name="crouch_option">克劳奇（GZ）</string>
+    <string name="custom_0_option">定制A（GZ）</string>
+    <string name="custom_1_option">定制B（GZ）</string>
+    <string name="custom_2_option">定制C（GZ）</string>
+    <string name="custom_3_option">定制D（GZ）</string>
+    <string name="custom_4_option">自定义E（GZ）</string>
+    <string name="custom_5_option">定制F（GZ）</string>
+    <string name="fly_down_option">颃</string>
+    <string name="fly_up_option">起飞</string>
+    <string name="fwd_option">前进</string>
+    <string name="inv_drop_option">删除项目</string>
+    <string name="inv_next_option">下一个项目</string>
+    <string name="inv_prev_option">上一个项目</string>
+    <string name="inv_use_option">使用项目</string>
+    <string name="jump_option">跳（GZ）</string>
+    <string name="left_option">左扫射</string>
+    <string name="look_left_option">看左边</string>
+    <string name="look_right_option">向右看</string>
+    <string name="map_down_option">Automap Down</string>
+    <string name="map_left_option">Automap Left</string>
+    <string name="map_right_option">Automap Right</string>
+    <string name="map_show_option">显示Automap</string>
+    <string name="map_up_option">自动启动</string>
+    <string name="map_zoomin_option">Automap Zoomin</string>
+    <string name="map_zoomout_option">Automap Zoomout</string>
+    <string name="menu_back_option">菜单返回</string>
+    <string name="menu_down_option">菜单向下</string>
+    <string name="menu_left_option">菜单左</string>
+    <string name="menu_right_option">菜单权利</string>
+    <string name="menu_select_option">菜单选择</string>
+    <string name="menu_up_option">菜单了</string>
+    <string name="next_weapon_option">接下来的武器</string>
+    <string name="prev_weapon_option">先前的武器</string>
+    <string name="quick_load_option">快速装载（GZ）</string>
+    <string name="quick_save_option">快速保存（GZ）</string>
+    <string name="right_option">Strafe Right</string>
+    <string name="show_keys_option">显示键</string>
+    <string name="show_weap_option">显示统计/武器</string>
+    <string name="speed_option">运行</string>
+    <string name="strafe_on_option">Strafe On</string>
+    <string name="use_option">使用/打开</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Freedoom文件夹</string>
+    <string name="wad_dir_prompt">配置和内容（WAD，DEH等）目录。</string>
+    <string name="divide_resolution_by_prompt">除以分辨率：</string>
+    <string name="reset_button_text">重启</string>
+    <string name="choose_button_text">选择</string>
+
+    <string-array name="double_tap_actions">
+        <item>没有</item>
+        <item>射击</item>
+        <item>跳</item>
+        <item>使用</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>没有</item>
+        <item>射击</item>
+        <item>跳</item>
+        <item>使用</item>
+        <item>使用力量</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>大</item>
+        <item>介质</item>
+        <item>小</item>
+    </string-array>
+</resources>
