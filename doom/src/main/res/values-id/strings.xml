@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">gamepad</string>
+    <string name="options_tab">pilihan</string>
+    <string name="no_iwads_err">Silakan pilih file IWAD. Salin file IWAD ke:</string>
+    <string name="ok_confirm">Baik</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Freedoom</string>
+    <string name="start_full">Meluncurkan</string>
+    <string name="start_wads">Addons</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">Aktifkan Game Pad</string>
+    <string name="hide_touch_controls_toggle">Sembunyikan Kontrol Sentuh</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Lihat ke Atas / Lihat ke Bawah</string>
+    <string name="look_left_right_option">Lihat Kiri / Lihat Kanan</string>
+    <string name="forward_back_option">Maju / Kembali</string>
+    <string name="strafe_option">Memberondong</string>
+    <string name="attack_option">Menyerang</string>
+    <string name="attack_alt_option">Alt Attack (GZ)</string>
+    <string name="move_back_option">Bergerak mundur</string>
+    <string name="crouch_option">Crouch (GZ)</string>
+    <string name="custom_0_option">Kustom A (GZ)</string>
+    <string name="custom_1_option">B Kustom (GZ)</string>
+    <string name="custom_2_option">Kustom C (GZ)</string>
+    <string name="custom_3_option">Kustom D (GZ)</string>
+    <string name="custom_4_option">Kustom E (GZ)</string>
+    <string name="custom_5_option">F Kustom (GZ)</string>
+    <string name="fly_down_option">Terbang ke bawah</string>
+    <string name="fly_up_option">Terbang tinggi</string>
+    <string name="fwd_option">Maju kedepan</string>
+    <string name="inv_drop_option">Jatuhkan Barang</string>
+    <string name="inv_next_option">Barang selanjutnya</string>
+    <string name="inv_prev_option">Item Sebelumnya</string>
+    <string name="inv_use_option">Gunakan Item</string>
+    <string name="jump_option">Lompat (GZ)</string>
+    <string name="left_option">Membereskan Kiri</string>
+    <string name="look_left_option">Lihat ke kiri</string>
+    <string name="look_right_option">Terlihat Benar</string>
+    <string name="map_down_option">Automap Down</string>
+    <string name="map_left_option">Automap Kiri</string>
+    <string name="map_right_option">Automap Kanan</string>
+    <string name="map_show_option">Tampilkan Automap</string>
+    <string name="map_up_option">Otomatis</string>
+    <string name="map_zoomin_option">Zoom Otomatis</string>
+    <string name="map_zoomout_option">Zoom Otomatis</string>
+    <string name="menu_back_option">Menu Kembali</string>
+    <string name="menu_down_option">Menu Turun</string>
+    <string name="menu_left_option">Menu Kiri</string>
+    <string name="menu_right_option">Menu Kanan</string>
+    <string name="menu_select_option">Pilih Menu</string>
+    <string name="menu_up_option">Menu Atas</string>
+    <string name="next_weapon_option">Senjata Selanjutnya</string>
+    <string name="prev_weapon_option">Senjata sebelumnya</string>
+    <string name="quick_load_option">Quick Load (GZ)</string>
+    <string name="quick_save_option">Hemat Cepat (GZ)</string>
+    <string name="right_option">Membereskan Right</string>
+    <string name="show_keys_option">Tampilkan Kunci</string>
+    <string name="show_weap_option">Tampilkan Statistik / Senjata</string>
+    <string name="speed_option">Jalankan</string>
+    <string name="strafe_on_option">Memberondong On</string>
+    <string name="use_option">Gunakan / Buka</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Folder Freedoom</string>
+    <string name="wad_dir_prompt">Direktori konfigurasi dan konten (WAD, DEH, dll.).</string>
+    <string name="divide_resolution_by_prompt">Membagi resolusi dengan:</string>
+    <string name="reset_button_text">atur ulang</string>
+    <string name="choose_button_text">memilih</string>
+
+    <string-array name="double_tap_actions">
+        <item>Tidak ada</item>
+        <item>Menembak</item>
+        <item>Melompat</item>
+        <item>Menggunakan</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>Tidak ada</item>
+        <item>Menembak</item>
+        <item>Melompat</item>
+        <item>Menggunakan</item>
+        <item>Berkeras</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>Besar</item>
+        <item>Medium</item>
+        <item>Kecil</item>
+    </string-array>
+</resources>
