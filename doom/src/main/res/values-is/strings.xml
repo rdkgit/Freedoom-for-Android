@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">gamepad</string>
+    <string name="options_tab">valkostir</string>
+    <string name="no_iwads_err">Vinsamlegast veldu IWAD skrá. Afritaðu IWAD skrár á:</string>
+    <string name="ok_confirm">Allt í lagi</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Freedoom</string>
+    <string name="start_full">Sjósetja</string>
+    <string name="start_wads">Addons</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">Virkja Game Pad</string>
+    <string name="hide_touch_controls_toggle">Fela snertiskjá</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Horfðu upp / horfðu niður</string>
+    <string name="look_left_right_option">Horfðu til vinstri / líta til hægri</string>
+    <string name="forward_back_option">Framsenda / Aftur</string>
+    <string name="strafe_option">Strafe</string>
+    <string name="attack_option">Árás</string>
+    <string name="attack_alt_option">Alt Attack (GZ)</string>
+    <string name="move_back_option">Færa afturábak</string>
+    <string name="crouch_option">Crouch (GZ)</string>
+    <string name="custom_0_option">Sérsniðin A (GZ)</string>
+    <string name="custom_1_option">Sérsniðin B (GZ)</string>
+    <string name="custom_2_option">Sérsniðin C (GZ)</string>
+    <string name="custom_3_option">Sérsniðin D (GZ)</string>
+    <string name="custom_4_option">Sérsniðið E (GZ)</string>
+    <string name="custom_5_option">Sérsniðin F (GZ)</string>
+    <string name="fly_down_option">Fljúga niður</string>
+    <string name="fly_up_option">Fljúga upp</string>
+    <string name="fwd_option">Halda áfram</string>
+    <string name="inv_drop_option">Sendu hlut</string>
+    <string name="inv_next_option">Næsta atriði</string>
+    <string name="inv_prev_option">Fyrra atriði</string>
+    <string name="inv_use_option">Notaðu hlut</string>
+    <string name="jump_option">Jump (GZ)</string>
+    <string name="left_option">Strafe vinstri</string>
+    <string name="look_left_option">Horfðu til vinstri</string>
+    <string name="look_right_option">Horfðu til hægri</string>
+    <string name="map_down_option">Automap Down</string>
+    <string name="map_left_option">Automap Vinstri</string>
+    <string name="map_right_option">Automap Hægri</string>
+    <string name="map_show_option">Sýna Automap</string>
+    <string name="map_up_option">Automap Up</string>
+    <string name="map_zoomin_option">Automap Zoomin</string>
+    <string name="map_zoomout_option">Automap Zoomout</string>
+    <string name="menu_back_option">Valmynd Til baka</string>
+    <string name="menu_down_option">Valmynd Niður</string>
+    <string name="menu_left_option">Valmynd Vinstri</string>
+    <string name="menu_right_option">Valmynd Hægri</string>
+    <string name="menu_select_option">Valmynd Veldu</string>
+    <string name="menu_up_option">Valmynd upp</string>
+    <string name="next_weapon_option">Næsta vopn</string>
+    <string name="prev_weapon_option">Fyrra vopn</string>
+    <string name="quick_load_option">Quick Load (GZ)</string>
+    <string name="quick_save_option">Quick Save (GZ)</string>
+    <string name="right_option">Strafe rétt</string>
+    <string name="show_keys_option">Sýna lykla</string>
+    <string name="show_weap_option">Sýna tölfræði / vopn</string>
+    <string name="speed_option">Hlaupa á</string>
+    <string name="strafe_on_option">Strafe On</string>
+    <string name="use_option">Notaðu / opna</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Freedoom Folder</string>
+    <string name="wad_dir_prompt">Stilling og innihald (WAD, DEH, osfrv) skrá.</string>
+    <string name="divide_resolution_by_prompt">Skiptu upp ályktun af:</string>
+    <string name="reset_button_text">endurstilla</string>
+    <string name="choose_button_text">veldu</string>
+
+    <string-array name="double_tap_actions">
+        <item>Enginn</item>
+        <item>Skjóta</item>
+        <item>Hoppa</item>
+        <item>Notaðu</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>Enginn</item>
+        <item>Skjóta</item>
+        <item>Hoppa</item>
+        <item>Notaðu</item>
+        <item>Notaðu gildi</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>Stórt</item>
+        <item>Miðlungs</item>
+        <item>Lítil</item>
+    </string-array>
+</resources>
