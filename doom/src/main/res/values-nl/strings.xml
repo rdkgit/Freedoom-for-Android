@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">gamepad</string>
+    <string name="options_tab">opties</string>
+    <string name="no_iwads_err">Selecteer een IWAD-bestand. Kopieer IWAD-bestanden naar:</string>
+    <string name="ok_confirm">OK</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Freedoom</string>
+    <string name="start_full">Lancering</string>
+    <string name="start_wads">addons</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">Schakel gamepad</string>
+    <string name="hide_touch_controls_toggle">Touch Controls verbergen</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Kijk omhoog / kijk naar beneden</string>
+    <string name="look_left_right_option">Kijk naar links / kijk goed</string>
+    <string name="forward_back_option">Vooruit terug</string>
+    <string name="strafe_option">straffe</string>
+    <string name="attack_option">Aanval</string>
+    <string name="attack_alt_option">Alt Aanval (GZ)</string>
+    <string name="move_back_option">Achteruit gaan</string>
+    <string name="crouch_option">Crouch (GZ)</string>
+    <string name="custom_0_option">Aangepast A (GZ)</string>
+    <string name="custom_1_option">Aangepast B (GZ)</string>
+    <string name="custom_2_option">Aangepast C (GZ)</string>
+    <string name="custom_3_option">Aangepast D (GZ)</string>
+    <string name="custom_4_option">Aangepast E (GZ)</string>
+    <string name="custom_5_option">Aangepast F (GZ)</string>
+    <string name="fly_down_option">Vlieg naar beneden</string>
+    <string name="fly_up_option">Vlieg omhoog</string>
+    <string name="fwd_option">Ga vooruit</string>
+    <string name="inv_drop_option">Laat het voorwerp vallen</string>
+    <string name="inv_next_option">Volgende item</string>
+    <string name="inv_prev_option">Vorig item</string>
+    <string name="inv_use_option">Gebruik voorwerp</string>
+    <string name="jump_option">Skok (GZ)</string>
+    <string name="left_option">tah verliet</string>
+    <string name="look_left_option">Kijk naar links</string>
+    <string name="look_right_option">Kijk rechts</string>
+    <string name="map_down_option">mapa dolů</string>
+    <string name="map_left_option">mapa Links</string>
+    <string name="map_right_option">mapa Rechts</string>
+    <string name="map_show_option">Show mapa</string>
+    <string name="map_up_option">Automap Up</string>
+    <string name="map_zoomin_option">Automap Zoomin</string>
+    <string name="map_zoomout_option">Automap Zoomout</string>
+    <string name="menu_back_option">Menu Terug</string>
+    <string name="menu_down_option">Menu omlaag</string>
+    <string name="menu_left_option">Menu links</string>
+    <string name="menu_right_option">Menu Rechts</string>
+    <string name="menu_select_option">Menu Selecteren</string>
+    <string name="menu_up_option">Menu Omhoog</string>
+    <string name="next_weapon_option">Volgende wapen</string>
+    <string name="prev_weapon_option">Vorige wapen</string>
+    <string name="quick_load_option">Snel laden (GZ)</string>
+    <string name="quick_save_option">Snel opslaan (GZ)</string>
+    <string name="right_option">Strafe Juist</string>
+    <string name="show_keys_option">Toon sleutels</string>
+    <string name="show_weap_option">Statistieken / wapens weergeven</string>
+    <string name="speed_option">Rennen</string>
+    <string name="strafe_on_option">Strafe On</string>
+    <string name="use_option">Gebruik / Open</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Freedoom-map</string>
+    <string name="wad_dir_prompt">Configuratie en inhoud (WAD, DEH, etc.) directory.</string>
+    <string name="divide_resolution_by_prompt">Verdeel de resolutie door:</string>
+    <string name="reset_button_text">reset</string>
+    <string name="choose_button_text">Kiezen</string>
+
+    <string-array name="double_tap_actions">
+        <item>Geen</item>
+        <item>Schieten</item>
+        <item>Springen</item>
+        <item>Gebruik</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>Geen</item>
+        <item>Schieten</item>
+        <item>Springen</item>
+        <item>Gebruik</item>
+        <item>Gebruik Force</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>Groot</item>
+        <item>Medium</item>
+        <item>Klein</item>
+    </string-array>
+</resources>
