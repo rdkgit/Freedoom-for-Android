@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">gamepad</string>
+    <string name="options_tab">galimybės</string>
+    <string name="no_iwads_err">Pasirinkite IWAD failą. Kopijuoti IWAD failus į:</string>
+    <string name="ok_confirm">Gerai</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">„Freedoom“</string>
+    <string name="start_full">papildymai</string>
+    <string name="start_wads">papildymai</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">Įgalinti „Game Pad“</string>
+    <string name="hide_touch_controls_toggle">Slėpti jutiklinius valdiklius</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Žiūrėkite žemyn</string>
+    <string name="look_left_right_option">Pažvelkite į kairę / žiūrėkite dešinę</string>
+    <string name="forward_back_option">Pirmyn / atgal</string>
+    <string name="strafe_option">judėkite į kairę ir į dešinę</string>
+    <string name="attack_option">Ataka</string>
+    <string name="attack_alt_option">Alt Ataka (GZ)</string>
+    <string name="move_back_option">Perkelti atgal</string>
+    <string name="crouch_option">sukti</string>
+    <string name="custom_0_option">Priskirtas A (GZ)</string>
+    <string name="custom_1_option">Priskirtas B (GZ)</string>
+    <string name="custom_2_option">Pasirinktinis C (GZ)</string>
+    <string name="custom_3_option">Pasirinktinis D (GZ)</string>
+    <string name="custom_4_option">Pasirinktinis E (GZ)</string>
+    <string name="custom_5_option">Pasirinktinis F (GZ)</string>
+    <string name="fly_down_option">Skristi žemyn</string>
+    <string name="fly_up_option">skristi į viršų</string>
+    <string name="fwd_option">Judėti į priekį</string>
+    <string name="inv_drop_option">išskleidžiamajame elemente</string>
+    <string name="inv_next_option">Kitas elementą</string>
+    <string name="inv_prev_option">Ankstesnis daiktas</string>
+    <string name="inv_use_option">Naudoti daiktą</string>
+    <string name="jump_option">šokinėti (GZ)</string>
+    <string name="left_option">judėkite į kairę ir į dešinę</string>
+    <string name="look_left_option">Žiūrėk kairėn</string>
+    <string name="look_right_option">Žiūrėk į dešine</string>
+    <string name="map_down_option">perkelkite žemėlapį žemyn</string>
+    <string name="map_left_option">perkelti žemėlapį į kairę</string>
+    <string name="map_right_option">perkelti žemėlapį į dešinę</string>
+    <string name="map_show_option">rodyti atmintį</string>
+    <string name="map_up_option">perkelti žemėlapį aukštyn</string>
+    <string name="map_zoomin_option">priartinti žemėlapį</string>
+    <string name="map_zoomout_option">priartinti žemėlapį</string>
+    <string name="menu_back_option">Meniu Atgal</string>
+    <string name="menu_down_option">Meniu žemyn</string>
+    <string name="menu_left_option">Meniu kairėn</string>
+    <string name="menu_right_option">Meniu Teisė</string>
+    <string name="menu_select_option">Meniu Pasirinkite</string>
+    <string name="menu_up_option">Meniu aukštyn</string>
+    <string name="next_weapon_option">Sekantis ginklas</string>
+    <string name="prev_weapon_option">Ankstesnis ginklas</string>
+    <string name="quick_load_option">greitai atkurti (GZ)</string>
+    <string name="quick_save_option">greitai įrašyti (GZ)</string>
+    <string name="right_option">perkelti į dešinę</string>
+    <string name="show_keys_option">rodyti klaviatūrą</string>
+    <string name="show_weap_option">Rodyti statistiką / ginklus</string>
+    <string name="speed_option">paleisti</string>
+    <string name="strafe_on_option">įjungti judėti į kairę / į dešinę</string>
+    <string name="use_option">naudoti / atidaryti</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Freedoom aplanką</string>
+    <string name="wad_dir_prompt">Konfigūracijos ir turinio (WAD ir tt) aplankas</string>
+    <string name="divide_resolution_by_prompt">aPadalinkite rezoliuciją:</string>
+    <string name="reset_button_text">atstatyti</string>
+    <string name="choose_button_text">pasirinkti</string>
+
+    <string-array name="double_tap_actions">
+        <item>Nė vienas</item>
+        <item>Šaudyti</item>
+        <item>Šokinėti</item>
+        <item>Naudokite</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>Nė vienas</item>
+        <item>Šaudyti</item>
+        <item>Šokinėti</item>
+        <item>Naudokite</item>
+        <item>Naudokite jėgą</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>Didelis</item>
+        <item>Vidutinis</item>
+        <item>Mažas</item>
+    </string-array>
+</resources>
