@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">گیم پیڈ</string>
+    <string name="options_tab">اختیارات</string>
+    <string name="no_iwads_err">براہ کرم IWAD فائل منتخب کریں. IWAD فائلوں کو کاپی کریں:</string>
+    <string name="ok_confirm">ٹھیک ہے</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Freedoom</string>
+    <string name="start_full">شروع کریں</string>
+    <string name="start_wads">Addons</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">گیم پیڈ کو فعال کریں</string>
+    <string name="hide_touch_controls_toggle">ٹچ کنٹرول چھپائیں</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">دیکھو / نیچے دیکھو</string>
+    <string name="look_left_right_option">دیکھو بائیں / دائیں دیکھو</string>
+    <string name="forward_back_option">آگے / پیچھے</string>
+    <string name="strafe_option">سٹرراف</string>
+    <string name="attack_option">حملہ</string>
+    <string name="attack_alt_option">Alt Attack (GZ)</string>
+    <string name="move_back_option">پیچھے کی طرف منتقل</string>
+    <string name="crouch_option">Crouch (GZ)</string>
+    <string name="custom_0_option">اپنی مرضی کے مطابق A (GZ)</string>
+    <string name="custom_1_option">اپنی مرضی کے مطابق B (GZ)</string>
+    <string name="custom_2_option">اپنی مرضی کے مطابق C (GZ)</string>
+    <string name="custom_3_option">اپنی مرضی کے مطابق D (GZ)</string>
+    <string name="custom_4_option">اپنی مرضی کے مطابق E (GZ)</string>
+    <string name="custom_5_option">اپنی مرضی کے مطابق F (GZ)</string>
+    <string name="fly_down_option">نیچے پرواز</string>
+    <string name="fly_up_option">فلائی</string>
+    <string name="fwd_option">آگے بڑھو</string>
+    <string name="inv_drop_option">ڈراپ آئٹم</string>
+    <string name="inv_next_option">اگلا آئٹم</string>
+    <string name="inv_prev_option">پچھلا آئٹم</string>
+    <string name="inv_use_option">آئٹم کا استعمال کریں</string>
+    <string name="jump_option">چھلانگ (GZ)</string>
+    <string name="left_option">سٹرراف بائیں</string>
+    <string name="look_left_option">بائیں دیکھیں</string>
+    <string name="look_right_option">ٹھیک دیکھو</string>
+    <string name="map_down_option">خود کار طریقے سے نیچے</string>
+    <string name="map_left_option">آٹوپ بائیں</string>
+    <string name="map_right_option">خود کار طریقے سے</string>
+    <string name="map_show_option">آٹوپ دکھائیں</string>
+    <string name="map_up_option">آٹوپ اپ</string>
+    <string name="map_zoomin_option">آٹوپ زوموم</string>
+    <string name="map_zoomout_option">آٹوپ زوموم آؤٹ</string>
+    <string name="menu_back_option">مینو واپس</string>
+    <string name="menu_down_option">مینو نیچے</string>
+    <string name="menu_left_option">مینو بائیں</string>
+    <string name="menu_right_option">مینو دائیں</string>
+    <string name="menu_select_option">مینو منتخب کریں</string>
+    <string name="menu_up_option">مینو اوپر</string>
+    <string name="next_weapon_option">اگلاہتھیار</string>
+    <string name="prev_weapon_option">پچھلا ہتھیار</string>
+    <string name="quick_load_option">فوری لوڈ (GZ)</string>
+    <string name="quick_save_option">فوری بچت (GZ)</string>
+    <string name="right_option">سٹرراف حق</string>
+    <string name="show_keys_option">چابیاں دکھائیں</string>
+    <string name="show_weap_option">اعداد و شمار / ہتھیار دکھائیں</string>
+    <string name="speed_option">بھاگو</string>
+    <string name="strafe_on_option">Strafe On</string>
+    <string name="use_option">استعمال / کھولیں</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Freedoom فولڈر</string>
+    <string name="wad_dir_prompt">ترتیب اور مواد (WAD، DEH، وغیرہ) ڈائریکٹری.</string>
+    <string name="divide_resolution_by_prompt">قرارداد کی طرف تقسیم کریں:</string>
+    <string name="reset_button_text">ری سیٹ کریں</string>
+    <string name="choose_button_text">منتخب کریں</string>
+
+    <string-array name="double_tap_actions">
+        <item>کوئی بھی نہیں</item>
+        <item>گولی مارو</item>
+        <item>چھلانگ</item>
+        <item>استعمال کریں</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>کوئی بھی نہیں</item>
+        <item>گولی مارو</item>
+        <item>چھلانگ</item>
+        <item>استعمال کریں</item>
+        <item>قوت کا استعمال کریں</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>بڑے</item>
+        <item>درمیانہ</item>
+        <item>چھوٹے</item>
+    </string-array>
+</resources>
