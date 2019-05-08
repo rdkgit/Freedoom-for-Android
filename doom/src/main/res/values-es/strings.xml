@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">gamepad</string>
+    <string name="options_tab">opciones</string>
+    <string name="no_iwads_err">Por favor seleccione un archivo IWAD. Copie los archivos IWAD a:</string>
+    <string name="ok_confirm">Ok</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
     <string name="app_name">Freedoom</string>
-    <string name="attack_alt_option">Ataque alt (GZ)</string>
+    <string name="start_full">Comenzar</string>
+    <string name="start_wads">Complementos</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">Habilitar gamepad</string>
+    <string name="hide_touch_controls_toggle">Ocultar controles táctiles</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Mirar arriba / Mirar abajo</string>
+    <string name="look_left_right_option">Mira izquierda / Mira derecha</string>
+    <string name="forward_back_option">Adelante / Atrás</string>
+    <string name="strafe_option">Mover izquierda y mover derecha</string>
     <string name="attack_option">Ataque</string>
-    <string name="choose_button_text">Escoger</string>
+    <string name="attack_alt_option">Ataque alt (GZ)</string>
+    <string name="move_back_option">Mover hacia atrás</string>
     <string name="crouch_option">Agachar (GZ)</string>
     <string name="custom_0_option">personalizado 0 (GZ)</string>
     <string name="custom_1_option">personalizado 1 (GZ)</string>
@@ -11,16 +30,9 @@
     <string name="custom_3_option">personalizado 3 (GZ)</string>
     <string name="custom_4_option">personalizado 4 (GZ)</string>
     <string name="custom_5_option">personalizado 5 (GZ)</string>
-    <string name="divide_resolution_by_prompt">Divida la resolución por:</string>
-    <string name="enable_game_pad_toggle">Habilitar gamepad</string>
-    <string name="file_permission_fail_toast">OOPS! Freedoom necesita permisos de archivo para copiar los niveles al almacenamiento compartido. Por favor, vuelva a iniciar la aplicación</string>
     <string name="fly_down_option">Volar abajo</string>
     <string name="fly_up_option">Volar arriba</string>
-    <string name="folder_name_prompt">Freedoom carpeta</string>
-    <string name="forward_back_option">Adelante / Atrás</string>
     <string name="fwd_option">Avanzar</string>
-    <string name="gamepad_tab">gamepad</string>
-    <string name="hide_touch_controls_toggle">Ocultar controles táctiles</string>
     <string name="inv_drop_option">Elemento descartado</string>
     <string name="inv_next_option">Siguiente artículo</string>
     <string name="inv_prev_option">"Anterior Artículo "</string>
@@ -28,9 +40,7 @@
     <string name="jump_option">Saltar (GZ)</string>
     <string name="left_option">Mover izquierda</string>
     <string name="look_left_option">Mira izquierda</string>
-    <string name="look_left_right_option">Mira izquierda / Mira derecha</string>
     <string name="look_right_option">Mira derecha</string>
-    <string name="look_up_down_option">Mirar arriba / Mirar abajo</string>
     <string name="map_down_option">Mover mapa abajo</string>
     <string name="map_left_option">Mover mapa izquierda</string>
     <string name="map_right_option">Mover mapa derecha</string>
@@ -44,23 +54,40 @@
     <string name="menu_right_option">Menú derecha</string>
     <string name="menu_select_option">Menú Escoger</string>
     <string name="menu_up_option">Menú arriba</string>
-    <string name="move_back_option">Mover hacia atrás</string>
     <string name="next_weapon_option">Próximo Arma</string>
-    <string name="no_iwads_err">Por favor seleccione un archivo IWAD. Copie los archivos IWAD a:</string>
-    <string name="ok_confirm">Ok</string>
-    <string name="options_tab">opciones</string>
     <string name="prev_weapon_option">Anterior arma</string>
-    <string name="quick_save_option">Registro rápido (GZ)</string>
     <string name="quick_load_option">Restauración rápida (GZ)</string>
-    <string name="reset_button_text">Reiniciar</string>
+    <string name="quick_save_option">Registro rápido (GZ)</string>
     <string name="right_option">Mover a la derecha</string>
     <string name="show_keys_option">Mostrar claves</string>
     <string name="show_weap_option">Mostrar estadísticas / armas</string>
     <string name="speed_option">Correr</string>
-    <string name="start_full">Comenzar</string>
-    <string name="start_wads">Complementos</string>
     <string name="strafe_on_option">Alternar mover izquierda y mover derecha</string>
-    <string name="strafe_option">Mover izquierda y mover derecha</string>
     <string name="use_option">Usar / Abrir</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Freedoom carpeta</string>
     <string name="wad_dir_prompt">Directorio de configuración y contenido (WAD, etc.) carpeta</string>
+    <string name="divide_resolution_by_prompt">Divida la resolución por:</string>
+    <string name="reset_button_text">Reiniciar</string>
+    <string name="choose_button_text">Escoger</string>
+
+    <string-array name="double_tap_actions">
+        <item>Ninguna</item>
+        <item>Disparar</item>
+        <item>Saltar</item>
+        <item>Utilizar</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>Ninguna</item>
+        <item>Disparar</item>
+        <item>Saltar</item>
+        <item>Utilizar</item>
+        <item>Usar fuerza</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>Grande</item>
+        <item>Medio</item>
+        <item>Pequeña</item>
+    </string-array>
 </resources>
