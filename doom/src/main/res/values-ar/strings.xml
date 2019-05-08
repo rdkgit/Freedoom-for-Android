@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">غمبد</string>
+    <string name="options_tab">خيارات</string>
+    <string name="no_iwads_err">يرجى تحديد ملف IWAD. نسخ ملفات IWAD إلى:</string>
+    <string name="ok_confirm">حسنا</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Freedoom</string>
+    <string name="start_full">إطلاق</string>
+    <string name="start_wads">إضافات</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">تمكين لوحة اللعبة</string>
+    <string name="hide_touch_controls_toggle">إخفاء عناصر التحكم باللمس</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">بحث لأعلى / انظر للأسفل</string>
+    <string name="look_left_right_option">انظر يسار / انظر يمين</string>
+    <string name="forward_back_option">إلى الأمام / الخلف</string>
+    <string name="strafe_option">عاقب</string>
+    <string name="attack_option">هجوم</string>
+    <string name="attack_alt_option">Alt Attack (GZ)</string>
+    <string name="move_back_option">ارجع للخلف</string>
+    <string name="crouch_option">كراوتش (GZ)</string>
+    <string name="custom_0_option">مخصص A (GZ)</string>
+    <string name="custom_1_option">مخصص B (GZ)</string>
+    <string name="custom_2_option">مخصص C (GZ)</string>
+    <string name="custom_3_option">مخصص D (GZ)</string>
+    <string name="custom_4_option">مخصص E (GZ)</string>
+    <string name="custom_5_option">مخصص F (GZ)</string>
+    <string name="fly_down_option">طر للأسفل</string>
+    <string name="fly_up_option">يطير</string>
+    <string name="fwd_option">تقدم إلى الأمام</string>
+    <string name="inv_drop_option">إسقاط البند</string>
+    <string name="inv_next_option">البند التالي</string>
+    <string name="inv_prev_option">السابق البند</string>
+    <string name="inv_use_option">استخدم البند</string>
+    <string name="jump_option">Jump (GZ)</string>
+    <string name="left_option">اليسار اليسار</string>
+    <string name="look_left_option">أنظر يسارا</string>
+    <string name="look_right_option">انظر يمينا</string>
+    <string name="map_down_option">Automap أسفل</string>
+    <string name="map_left_option">Automap اليسار</string>
+    <string name="map_right_option">Automap الحق</string>
+    <string name="map_show_option">عرض Automap</string>
+    <string name="map_up_option">Automap Up</string>
+    <string name="map_zoomin_option">Automap Zoomin</string>
+    <string name="map_zoomout_option">Automap Zoomout</string>
+    <string name="menu_back_option">القائمة العودة</string>
+    <string name="menu_down_option">القائمة أسفل</string>
+    <string name="menu_left_option">القائمة اليسار</string>
+    <string name="menu_right_option">القائمة الصحيحة</string>
+    <string name="menu_select_option">اختيار القائمة</string>
+    <string name="menu_up_option">القائمة أعلى</string>
+    <string name="next_weapon_option">السلاح التالي</string>
+    <string name="prev_weapon_option">السلاح السابق</string>
+    <string name="quick_load_option">تحميل سريع (GZ)</string>
+    <string name="quick_save_option">الحفظ السريع (GZ)</string>
+    <string name="right_option">جدل الحق</string>
+    <string name="show_keys_option">عرض المفاتيح</string>
+    <string name="show_weap_option">عرض الإحصائيات / الأسلحة</string>
+    <string name="speed_option">تشغيل على</string>
+    <string name="strafe_on_option">اشتباك على</string>
+    <string name="use_option">استخدام / فتح</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">مجلد Freedoom</string>
+    <string name="wad_dir_prompt">دليل التكوين والمحتوى (WAD ، DEH ، إلخ).</string>
+    <string name="divide_resolution_by_prompt">اقسم القرار على:</string>
+    <string name="reset_button_text">إعادة تعيين</string>
+    <string name="choose_button_text">أختر</string>
+
+    <string-array name="double_tap_actions">
+        <item>لا شيء</item>
+        <item>أطلق النار</item>
+        <item>الانتقال السريع ل</item>
+        <item>استعمال</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>لا شيء</item>
+        <item>أطلق النار</item>
+        <item>الانتقال السريع ل</item>
+        <item>استعمال</item>
+        <item>استعمل القوة</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>كبير</item>
+        <item>متوسط</item>
+        <item>صغير</item>
+    </string-array>
+</resources>
