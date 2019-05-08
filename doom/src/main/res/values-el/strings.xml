@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">gamepad</string>
+    <string name="options_tab">επιλογές</string>
+    <string name="no_iwads_err">Επιλέξτε ένα αρχείο IWAD. Αντιγράψτε τα αρχεία IWAD σε:</string>
+    <string name="ok_confirm">Εντάξει</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Freedoom</string>
+    <string name="start_full">Εκτόξευση</string>
+    <string name="start_wads">προσθήκες</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">ενεργοποιήστε το gamepad</string>
+    <string name="hide_touch_controls_toggle">Απόκρυψη χειριστηρίων αφής</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Κοιτάξτε πάνω / κοιτάξτε προς τα κάτω</string>
+    <string name="look_left_right_option">Κοιτάξτε αριστερά / δεξιά</string>
+    <string name="forward_back_option">Προώθηση / Επιστροφή</string>
+    <string name="strafe_option">μετακίνηση αριστερά / δεξιά</string>
+    <string name="attack_option">Επίθεση</string>
+    <string name="attack_alt_option">Alt Επίθεση (GZ)</string>
+    <string name="move_back_option">Μετακίνηση προς τα πίσω</string>
+    <string name="crouch_option">ζαρώνω (GZ)</string>
+    <string name="custom_0_option">Προσαρμοσμένο Α (GZ)</string>
+    <string name="custom_1_option">Προσαρμοσμένη B (GZ)</string>
+    <string name="custom_2_option">Προσαρμοσμένο C (GZ)</string>
+    <string name="custom_3_option">Προσαρμοσμένο D (GZ)</string>
+    <string name="custom_4_option">Προσαρμοσμένο E (GZ)</string>
+    <string name="custom_5_option">Προσαρμοσμένο F (GZ)</string>
+    <string name="fly_down_option">Πετάξτε κάτω</string>
+    <string name="fly_up_option">Πέτα ψηλά</string>
+    <string name="fwd_option">Προχωρησε</string>
+    <string name="inv_drop_option">Πτώση στοιχείου</string>
+    <string name="inv_next_option">Επόμενο στοιχείο</string>
+    <string name="inv_prev_option">Προηγούμενο στοιχείο</string>
+    <string name="inv_use_option">ΧΡΗΣΙΜΟΠΟΙΗΣΕ το ΑΝΤΙΚΕΙΜΕΝΟ</string>
+    <string name="jump_option">Μετάβαση (GZ)</string>
+    <string name="left_option">κινήσου αριστερά</string>
+    <string name="look_left_option">Κοίτα αριστερά</string>
+    <string name="look_right_option">Κοίτα δεξιά</string>
+    <string name="map_down_option">πατήστε κάτω</string>
+    <string name="map_left_option">χάρτης αριστερά</string>
+    <string name="map_right_option">χάρτης αριστερά</string>
+    <string name="map_show_option">εμφάνιση χάρτη</string>
+    <string name="map_up_option">χαρτογραφήστε επάνω</string>
+    <string name="map_zoomin_option">μεγέθυνση χάρτη</string>
+    <string name="map_zoomout_option">χάρτη σμίκρυνση</string>
+    <string name="menu_back_option">Μενού Επιστροφή</string>
+    <string name="menu_down_option">Μενού Κάτω</string>
+    <string name="menu_left_option">Μενού αριστερά</string>
+    <string name="menu_right_option">Μενού σωστά</string>
+    <string name="menu_select_option">Επιλογή μενού</string>
+    <string name="menu_up_option">Μενού επάνω</string>
+    <string name="next_weapon_option">Επόμενο όπλο</string>
+    <string name="prev_weapon_option">Προηγούμενο όπλο</string>
+    <string name="quick_load_option">Γρήγορη φόρτωση (GZ)</string>
+    <string name="quick_save_option">Γρήγορη αποθήκευση (GZ)</string>
+    <string name="right_option">κινήστε δεξιά</string>
+    <string name="show_keys_option">Εμφάνιση πλήκτρων</string>
+    <string name="show_weap_option">Εμφάνιση Στατιστικών / Όπλων</string>
+    <string name="speed_option">τρέξιμο</string>
+    <string name="strafe_on_option">ενεργοποιήστε την κίνηση αριστερά / δεξιά</string>
+    <string name="use_option">Χρήση / Άνοιγμα</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Φάκελος Freedoom</string>
+    <string name="wad_dir_prompt">Διαμόρφωση και περιεχόμενο (WAD, DEH, κ.λπ.) κατάλογος.</string>
+    <string name="divide_resolution_by_prompt">Διαχωρίστε την ανάλυση από:</string>
+    <string name="reset_button_text">επαναφορά</string>
+    <string name="choose_button_text">επιλέγω</string>
+
+    <string-array name="double_tap_actions">
+        <item>Κανένας</item>
+        <item>Βλαστός</item>
+        <item>Αλμα</item>
+        <item>Χρήση</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>Κανένας</item>
+        <item>Βλαστός</item>
+        <item>Αλμα</item>
+        <item>Χρήση</item>
+        <item>Χρησιμοποιήστε τη δύναμη</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>Μεγάλο</item>
+        <item>Μεσαίο</item>
+        <item>Μικρό</item>
+    </string-array>
+</resources>
