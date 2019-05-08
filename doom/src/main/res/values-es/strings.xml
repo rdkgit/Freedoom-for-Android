@@ -45,11 +45,11 @@
     <string name="menu_select_option">Menú Escoger</string>
     <string name="menu_up_option">Menú arriba</string>
     <string name="move_back_option">Mover hacia atrás</string>
-    <string name="next_weapon_option">Próximo Arma</string>
+    <string name="next_weapon_option">Arma Próximo</string>
     <string name="no_iwads_err">Por favor seleccione un archivo IWAD. Copie los archivos IWAD a:</string>
     <string name="ok_confirm">Ok</string>
     <string name="options_tab">opciones</string>
-    <string name="prev_weapon_option">Anterior arma</string>
+    <string name="prev_weapon_option">Arma Anterior</string>
     <string name="quick_save_option">Registro rápido (GZ)</string>
     <string name="quick_load_option">Restauración rápida (GZ)</string>
     <string name="reset_button_text">Reiniciar</string>
