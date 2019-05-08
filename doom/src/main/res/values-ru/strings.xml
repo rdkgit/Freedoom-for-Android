@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Freedoom</string>
-    <string name="file_permission_fail_toast">OOPS! Freedoom нужны права доступа к файлам для копирования уровней в общее хранилище. Пожалуйста, перезапустите приложение</string>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
     <string name="gamepad_tab">геймпад</string>
     <string name="options_tab">опции</string>
     <string name="no_iwads_err">Пожалуйста, выберите файл IWAD. Скопируйте файлы IWAD в:</string>
     <string name="ok_confirm">Хорошо</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Freedoom</string>
     <string name="start_full">начинать</string>
+    <string name="start_wads">дополнения</string>
+    <!-- gamepad fragment -->
     <string name="enable_game_pad_toggle">Включить геймпад</string>
     <string name="hide_touch_controls_toggle">Скрыть сенсорное управление</string>
+    <!-- gamepad fragment options -->
     <string name="look_up_down_option">Смотреть вверх / смотреть вниз</string>
     <string name="look_left_right_option">Смотреть налево / смотреть направо</string>
     <string name="forward_back_option">Вперед / Назад</string>
@@ -57,10 +64,30 @@
     <string name="speed_option">переключить бег</string>
     <string name="strafe_on_option">переключить движение в сторону</string>
     <string name="use_option">использование / открыть</string>
+
+    <!-- options fragment --> 
     <string name="folder_name_prompt">Freedoom папка</string>
     <string name="wad_dir_prompt">содержание (WAD) папка</string>
     <string name="divide_resolution_by_prompt">Разделите разрешение на:</string>
     <string name="reset_button_text">сброс</string>
     <string name="choose_button_text">выбирать</string>
-    <string name="start_wads">дополнения</string>
+
+    <string-array name="double_tap_actions">
+        <item>Никто</item>
+        <item>стрелять</item>
+        <item>Прыгать</item>
+        <item>использование</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>Никто</item>
+        <item>стрелять</item>
+        <item>Прыгать</item>
+        <item>использование</item>
+        <item>Используйте силу</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>большой</item>
+        <item>Средняя</item>
+        <item>Маленький</item>
+    </string-array>
 </resources>
