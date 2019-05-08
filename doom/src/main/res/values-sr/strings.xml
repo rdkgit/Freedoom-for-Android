@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">гамепад</string>
+    <string name="options_tab">Опције</string>
+    <string name="no_iwads_err">Изаберите ИВАД датотеку. Копирајте ИВАД датотеке на:</string>
+    <string name="ok_confirm">OK</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Фреедоом</string>
+    <string name="start_full">Лансирање</string>
+    <string name="start_wads">Aддитионс</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">Енабле Гаме Пад</string>
+    <string name="hide_touch_controls_toggle">Хиде Хиде Цонтролс</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Лоок Уп / Лоок Довн</string>
+    <string name="look_left_right_option">Погледај лево / погледај десно</string>
+    <string name="forward_back_option">Напред / назад</string>
+    <string name="strafe_option">померајте се лево и десно</string>
+    <string name="attack_option">Напад</string>
+    <string name="attack_alt_option">Алт напасти (GZ)</string>
+    <string name="move_back_option">Мове Бацквардс</string>
+    <string name="crouch_option">цроуцх (ГЗ)</string>
+    <string name="custom_0_option">Прилагођени А (ГЗ)</string>
+    <string name="custom_1_option">Прилагођени Б (ГЗ)</string>
+    <string name="custom_2_option">Прилагођени Ц (ГЗ)</string>
+    <string name="custom_3_option">Прилагођени Д (ГЗ)</string>
+    <string name="custom_4_option">Прилагођени Е (ГЗ)</string>
+    <string name="custom_5_option">Прилагођени Ф (ГЗ)</string>
+    <string name="fly_down_option">Слетети</string>
+    <string name="fly_up_option">Фли Уп</string>
+    <string name="fwd_option">Крени напред</string>
+    <string name="inv_drop_option">Дроп Итем</string>
+    <string name="inv_next_option">Нект Итем</string>
+    <string name="inv_prev_option">Прев Итем</string>
+    <string name="inv_use_option">Употреби то</string>
+    <string name="jump_option">Јумп (ГЗ)</string>
+    <string name="left_option">Само лево</string>
+    <string name="look_left_option">Погледај лево</string>
+    <string name="look_right_option">Изгледа добро</string>
+    <string name="map_down_option">Аутомап Довн</string>
+    <string name="map_left_option">Аутомап Лефт</string>
+    <string name="map_right_option">Аутомап Ригхт</string>
+    <string name="map_show_option">Прикажи Аутомап</string>
+    <string name="map_up_option">Аутомап Уп</string>
+    <string name="map_zoomin_option">Аутомап Зоомин</string>
+    <string name="map_zoomout_option">Аутомап Зоомоут</string>
+    <string name="menu_back_option">Мени Назад</string>
+    <string name="menu_down_option">Мену Довн</string>
+    <string name="menu_left_option">Мену Лефт</string>
+    <string name="menu_right_option">Мени Десно</string>
+    <string name="menu_select_option">Мени Изаберите</string>
+    <string name="menu_up_option">Мену Уп</string>
+    <string name="next_weapon_option">Поред оружје</string>
+    <string name="prev_weapon_option">Превиоус Веапон</string>
+    <string name="quick_load_option">Брзо оптерећење (ГЗ)</string>
+    <string name="quick_save_option">Брзо чување (ГЗ)</string>
+    <string name="right_option">Страфе Ригхт</string>
+    <string name="show_keys_option">Схов Кеис</string>
+    <string name="show_weap_option">Прикажи статистику / оружје</string>
+    <string name="speed_option">Раде на</string>
+    <string name="strafe_on_option">Страфе Он</string>
+    <string name="use_option">Користи / Отвори</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Фреедоом Фолдер</string>
+    <string name="wad_dir_prompt">Именик конфигурације и садржаја (ВАД, ДЕХ, итд.).</string>
+    <string name="divide_resolution_by_prompt">Подели резолуцију:</string>
+    <string name="reset_button_text">ресетовање</string>
+    <string name="choose_button_text">изабери</string>
+
+    <string-array name="double_tap_actions">
+        <item>Ниједан</item>
+        <item>Пуцај</item>
+        <item>Јумп</item>
+        <item>Користи</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>Ниједан</item>
+        <item>Пуцај</item>
+        <item>Јумп</item>
+        <item>Користи</item>
+        <item>Усе Форце</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>Велика</item>
+        <item>Средње</item>
+        <item>Мала</item>
+    </string-array>
+</resources>
