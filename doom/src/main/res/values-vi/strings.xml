@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">gamepad</string>
+    <string name="options_tab">tùy chọn</string>
+    <string name="no_iwads_err">Vui lòng chọn một tệp IWAD. Sao chép tệp IWAD sang:</string>
+    <string name="ok_confirm">Được</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Tự do</string>
+    <string name="start_full">Phóng</string>
+    <string name="start_wads">Addon</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">Kích hoạt Game Pad</string>
+    <string name="hide_touch_controls_toggle">Ẩn điều khiển cảm ứng</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Nhìn lên / Nhìn xuống</string>
+    <string name="look_left_right_option">Nhìn trái / nhìn phải</string>
+    <string name="forward_back_option">Lùi về sau</string>
+    <string name="strafe_option">Strafe</string>
+    <string name="attack_option">Tấn công</string>
+    <string name="attack_alt_option">Tấn công thay thế (GZ)</string>
+    <string name="move_back_option">Di chuyển về phía sau</string>
+    <string name="crouch_option">Ngọa tào (GZ)</string>
+    <string name="custom_0_option">Tùy chỉnh A (GZ)</string>
+    <string name="custom_1_option">Tùy chỉnh B (GZ)</string>
+    <string name="custom_2_option">Tùy chỉnh C (GZ)</string>
+    <string name="custom_3_option">Tùy chỉnh D (GZ)</string>
+    <string name="custom_4_option">Tùy chỉnh E (GZ)</string>
+    <string name="custom_5_option">Tùy chỉnh F (GZ)</string>
+    <string name="fly_down_option">Bay xuống</string>
+    <string name="fly_up_option">Bay lên</string>
+    <string name="fwd_option">Tiến về phía trước</string>
+    <string name="inv_drop_option">Thả mục</string>
+    <string name="inv_next_option">Mục tiếp theo</string>
+    <string name="inv_prev_option">Mục trước</string>
+    <string name="inv_use_option">Sử dụng vật dụng</string>
+    <string name="jump_option">Nhảy (GZ)</string>
+    <string name="left_option">Strafe trái</string>
+    <string name="look_left_option">Nhìn bên trái</string>
+    <string name="look_right_option">Có vẻ đúng</string>
+    <string name="map_down_option">Tự động xuống</string>
+    <string name="map_left_option">Tự động còn lại</string>
+    <string name="map_right_option">Tự động quyền</string>
+    <string name="map_show_option">Hiển thị tự động</string>
+    <string name="map_up_option">Tự động lên</string>
+    <string name="map_zoomin_option">Tự động Zoomin</string>
+    <string name="map_zoomout_option">Tự động thu nhỏ</string>
+    <string name="menu_back_option">Menu Quay lại</string>
+    <string name="menu_down_option">Menu Xuống</string>
+    <string name="menu_left_option">Menu còn lại</string>
+    <string name="menu_right_option">Menu phải</string>
+    <string name="menu_select_option">Menu Chọn</string>
+    <string name="menu_up_option">Menu lên</string>
+    <string name="next_weapon_option">Vũ khí tiếp theo</string>
+    <string name="prev_weapon_option">Vũ khí trước</string>
+    <string name="quick_load_option">Tải nhanh (GZ)</string>
+    <string name="quick_save_option">Lưu nhanh (GZ)</string>
+    <string name="right_option">Strafe phải</string>
+    <string name="show_keys_option">Hiển thị phím</string>
+    <string name="show_weap_option">Hiển thị số liệu thống kê / vũ khí</string>
+    <string name="speed_option">Chạy trên</string>
+    <string name="strafe_on_option">Strafe On</string>
+    <string name="use_option">Sử dụng / mở</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Thư mục tự do</string>
+    <string name="wad_dir_prompt">Cấu hình và nội dung (WAD, DEH, v.v.) thư mục.</string>
+    <string name="divide_resolution_by_prompt">Phân chia độ phân giải cho:</string>
+    <string name="reset_button_text">cài lại</string>
+    <string name="choose_button_text">chọn</string>
+
+    <string-array name="double_tap_actions">
+        <item>không ai</item>
+        <item>Bắn</item>
+        <item>Nhảy</item>
+        <item>Sử dụng</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>không ai</item>
+        <item>Bắn</item>
+        <item>Nhảy</item>
+        <item>Sử dụng</item>
+        <item>Sử dụng vũ lực</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>Lớn</item>
+        <item>Trung bình</item>
+        <item>Nhỏ bé</item>
+    </string-array>
+</resources>
