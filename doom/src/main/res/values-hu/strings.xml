@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">gamepad</string>
+    <string name="options_tab">opciók</string>
+    <string name="no_iwads_err">Kérjük, válasszon egy IWAD fájlt. IWAD fájlok másolása:</string>
+    <string name="ok_confirm">Rendben</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Freedoom</string>
+    <string name="start_full">Dob</string>
+    <string name="start_wads">kiegészítés</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">engedélyezze a játékvezérlőt</string>
+    <string name="hide_touch_controls_toggle">Érintésvezérlők elrejtése</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Nézz fel / Nézd le</string>
+    <string name="look_left_right_option">Nézd balra / nézd jobbra</string>
+    <string name="forward_back_option">Előre / hátra</string>
+    <string name="strafe_option">balra / jobbra</string>
+    <string name="attack_option">támadás</string>
+    <string name="attack_alt_option">Alt támadás (GZ)</string>
+    <string name="move_back_option">Hátrafelé mozgás</string>
+    <string name="crouch_option">lekuporodik (GZ)</string>
+    <string name="custom_0_option">Egyéni A (GZ)</string>
+    <string name="custom_1_option">Egyéni B (GZ)</string>
+    <string name="custom_2_option">Egyéni C (GZ)</string>
+    <string name="custom_3_option">Egyéni D (GZ)</string>
+    <string name="custom_4_option">Egyéni E (GZ)</string>
+    <string name="custom_5_option">Egyéni F (GZ)</string>
+    <string name="fly_down_option">Leszáll</string>
+    <string name="fly_up_option">Felszáll</string>
+    <string name="fwd_option">Menj tovább</string>
+    <string name="inv_drop_option">Cseppelem</string>
+    <string name="inv_next_option">Következő tétel</string>
+    <string name="inv_prev_option">Előző tétel</string>
+    <string name="inv_use_option">Használd a berendezést</string>
+    <string name="jump_option">Ugrás (GZ)</string>
+    <string name="left_option">menj balra</string>
+    <string name="look_left_option">Nézz balra</string>
+    <string name="look_right_option">Jól néz ki</string>
+    <string name="map_down_option">térkép lefelé</string>
+    <string name="map_left_option">térkép maradt</string>
+    <string name="map_right_option">térkép jobbra</string>
+    <string name="map_show_option">Térkép megjelenítése</string>
+    <string name="map_up_option">térkép fel</string>
+    <string name="map_zoomin_option">térkép nagyítása</string>
+    <string name="map_zoomout_option">térkép kicsinyítése</string>
+    <string name="menu_back_option">Menü Vissza</string>
+    <string name="menu_down_option">Menü Le</string>
+    <string name="menu_left_option">Menü balra</string>
+    <string name="menu_right_option">Menü Jobb</string>
+    <string name="menu_select_option">Menü Kiválasztás</string>
+    <string name="menu_up_option">Menü fel</string>
+    <string name="next_weapon_option">Következő fegyvert</string>
+    <string name="prev_weapon_option">Előző fegyvert</string>
+    <string name="quick_load_option">Gyors betöltés (GZ)</string>
+    <string name="quick_save_option">Gyors mentés (GZ)</string>
+    <string name="right_option">Mozdulj jobbra</string>
+    <string name="show_keys_option">A kulcsok megjelenítése</string>
+    <string name="show_weap_option">Statisztikák / fegyverek megjelenítése</string>
+    <string name="speed_option">Futtatás</string>
+    <string name="strafe_on_option">engedélyezés mozgatás balra / jobbra</string>
+    <string name="use_option">Használat / Megnyitás</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">afreedoom mappát</string>
+    <string name="wad_dir_prompt">Konfiguráció és tartalom (WAD, DEH stb.) Könyvtár.</string>
+    <string name="divide_resolution_by_prompt">A felbontás megosztása:</string>
+    <string name="reset_button_text">Visszaállítás</string>
+    <string name="choose_button_text">választ</string>
+
+    <string-array name="double_tap_actions">
+        <item>Egyik sem</item>
+        <item>Lő</item>
+        <item>Ugrás</item>
+        <item>Használat</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>Egyik sem</item>
+        <item>Lő</item>
+        <item>Ugrás</item>
+        <item>Használat</item>
+        <item>Használja az Erőt</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>Nagy</item>
+        <item>Közepes</item>
+        <item>Kicsi</item>
+    </string-array>
+</resources>

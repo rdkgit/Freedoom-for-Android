@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">ゲームパッド</string>
+    <string name="options_tab">オプション</string>
+    <string name="no_iwads_err">IWADファイルを選択してください。 IWADファイルを次の場所にコピーします。</string>
+    <string name="ok_confirm">OK</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">フリードーム</string>
+    <string name="start_full">GO!</string>
+    <string name="start_wads">追加</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">aゲームパッドを有効にする</string>
+    <string name="hide_touch_controls_toggle">タッチコントロールを隠す</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">見上げる/見下ろす</string>
+    <string name="look_left_right_option">左に見る/右に見る</string>
+    <string name="forward_back_option">進む/戻る</string>
+    <string name="strafe_option">左に移動し、右に移動</string>
+    <string name="attack_option">攻撃</string>
+    <string name="attack_alt_option">Alt アタック (GZ)</string>
+    <string name="move_back_option">後退する</string>
+    <string name="crouch_option">しゃがむ (GZ)</string>
+    <string name="custom_0_option">カスタマイズ 0 (GZ)</string>
+    <string name="custom_1_option">カスタマイズ 1 (GZ)</string>
+    <string name="custom_2_option">カスタマイズ 2 (GZ)</string>
+    <string name="custom_3_option">カスタマイズ 3 (GZ)</string>
+    <string name="custom_4_option">カスタマイズ 4 (GZ)</string>
+    <string name="custom_5_option">カスタマイズ 5 (GZ)</string>
+    <string name="fly_down_option">飛ぶ  ↓</string>
+    <string name="fly_up_option">飛ぶ ↑</string>
+    <string name="fwd_option">進む</string>
+    <string name="inv_drop_option">アイテムを落とす</string>
+    <string name="inv_next_option">次の項目</string>
+    <string name="inv_prev_option">前の項目</string>
+    <string name="inv_use_option">アイテムを使う</string>
+    <string name="jump_option">ジャンプ (GZ)</string>
+    <string name="left_option">左に移動</string>
+    <string name="look_left_option">左を見て</string>
+    <string name="look_right_option">右に見て</string>
+    <string name="map_down_option">マップダウン</string>
+    <string name="map_left_option">左の地図</string>
+    <string name="map_right_option">右にマップ</string>
+    <string name="map_show_option">地図を表示</string>
+    <string name="map_up_option">マップアップ</string>
+    <string name="map_zoomin_option">ズームイン 地図</string>
+    <string name="map_zoomout_option">ズームアウトする地図</string>
+    <string name="menu_back_option">メニュー戻る</string>
+    <string name="menu_down_option">メニュー ダウン</string>
+    <string name="menu_left_option">左のメニュー</string>
+    <string name="menu_right_option">メニュー右</string>
+    <string name="menu_select_option">メニュー選択</string>
+    <string name="menu_up_option">メニューを上に移動</string>
+    <string name="next_weapon_option">次の武器</string>
+    <string name="prev_weapon_option">前の武器</string>
+    <string name="quick_load_option">クイックリストア (GZ)</string>
+    <string name="quick_save_option">クイックレコード (GZ)</string>
+    <string name="right_option">右に動く</string>
+    <string name="show_keys_option">キーを表示</string>
+    <string name="show_weap_option">統計/武器を表示する</string>
+    <string name="speed_option">走る</string>
+    <string name="strafe_on_option">左右への移動を有効にする</string>
+    <string name="use_option">使用/開く</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Freedoom フォルダ</string>
+    <string name="wad_dir_prompt">設定とコンテンツ（WAD、など）フォルダ</string>
+    <string name="divide_resolution_by_prompt">解像度をで割る：</string>
+    <string name="reset_button_text">リセット</string>
+    <string name="choose_button_text">選ぶ</string>
+
+    <string-array name="double_tap_actions">
+        <item>無し</item>
+        <item>シュート</item>
+        <item>ジャンプ</item>
+        <item>つかいます</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>無し</item>
+        <item>シュート</item>
+        <item>ジャンプ</item>
+        <item>つかいます</item>
+        <item>力を使う</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>大</item>
+        <item>中</item>
+        <item>小さい</item>
+    </string-array>
+</resources>

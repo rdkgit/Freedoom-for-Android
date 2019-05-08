@@ -1,66 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Freedoom</string>
-    <string name="attack_alt_option">Alt Atak (GZ)</string>
-    <string name="attack_option">Atak</string>
-    <string name="choose_button_text">Seçmek</string>
-    <string name="crouch_option">çömelmek (GZ)</string>
-    <string name="custom_0_option">özelleştirme 0 (GZ)</string>
-    <string name="custom_1_option">özelleştirme 1 (GZ)</string>
-    <string name="custom_2_option">özelleştirme 2 (GZ)</string>
-    <string name="custom_3_option">özelleştirme 3 (GZ)</string>
-    <string name="custom_4_option">özelleştirme 4 (GZ)</string>
-    <string name="custom_5_option">özelleştirme 5 (GZ)</string>
-    <string name="divide_resolution_by_prompt">Çözünürlük değerini böle</string>
-    <string name="enable_game_pad_toggle">Gamepad\'i etkinleştir</string>
-    <string name="file_permission_fail_toast">Oops! Freedoom\'da, seviyeleri paylaşılan depolamaya kopyalamak için dosya izinleri gerekir. Lütfen uygulamayı yeniden başlatın</string>
-    <string name="fly_down_option">uçmak aşağıya</string>
-    <string name="fly_up_option">uçmak yukarıya</string>
-    <string name="folder_name_prompt">Freedoom Klasör</string>
-    <string name="forward_back_option">ileri / geri</string>
-    <string name="fwd_option">ileri git</string>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
     <string name="gamepad_tab">gamepad</string>
-    <string name="hide_touch_controls_toggle">dokunma kontrollerini gizle</string>
-    <string name="inv_drop_option">bırakma kalemi</string>
-    <string name="inv_next_option">sıradaki eşya</string>
-    <string name="inv_prev_option">önceki eşya</string>
-    <string name="inv_use_option">kullanmak eşya</string>
-    <string name="jump_option">Atlama (GZ)</string>
-    <string name="left_option">Sola git</string>
-    <string name="look_left_option">Sola bak</string>
-    <string name="look_left_right_option">Sola bak / sağa bak</string>
-    <string name="look_right_option">sağa bak</string>
-    <string name="look_up_down_option">yukarı Bak / aşağı bak</string>
-    <string name="map_down_option">haritayı aşağı taşı</string>
-    <string name="map_left_option">haritayı sola taşı</string>
-    <string name="map_right_option">haritayı sağa taşı</string>
-    <string name="map_show_option">haritayı göster</string>
-    <string name="map_up_option">haritayı yukarı taşı</string>
-    <string name="map_zoomin_option">haritayı yakınlaştır</string>
-    <string name="map_zoomout_option">haritayı uzaklaştır</string>
-    <string name="menu_back_option">Menü geri</string>
-    <string name="menu_down_option">Menü aşağı</string>
-    <string name="menu_left_option">Menü ayrıldı</string>
-    <string name="menu_right_option">Menü sağ</string>
-    <string name="menu_select_option">Menü Seçimi</string>
-    <string name="menu_up_option">Menü yukarı</string>
-    <string name="move_back_option">Geri git</string>
-    <string name="next_weapon_option">Sonraki silah</string>
+    <string name="options_tab">seçenekleri</string>
     <string name="no_iwads_err">Lütfen bir IWAD dosyası seçin. IWAD dosyalarını şuraya kopyala:</string>
-    <string name="ok_confirm">Ok</string>
-    <string name="options_tab">Yapılandırma</string>
-    <string name="prev_weapon_option">Önceki silah</string>
-    <string name="quick_load_option">Hızlı kayıt</string>
-    <string name="quick_save_option">Hızlı yükleme</string>
-    <string name="reset_button_text">Sıfırlamak</string>
-    <string name="right_option">Sağa git</string>
-    <string name="show_keys_option">Anahtarları göster</string>
-    <string name="show_weap_option">İstatistikleri / silahları göster</string>
-    <string name="speed_option">koşmak</string>
+    <string name="ok_confirm">Tamam</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">freedoom</string>
     <string name="start_full">Başlatmak</string>
-    <string name="start_wads">Eklentiler</string>
-    <string name="strafe_on_option">Değişimli Sola git / Sağ git</string>
-    <string name="strafe_option">Sola / Sağ git</string>
-    <string name="use_option">kullan / aç</string>
-    <string name="wad_dir_prompt">Yapılandırma ve içerik (WAD vb.) Klasörü</string>
+    <string name="start_wads">Eklentileri</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">Game Pad&#39;i Etkinleştir</string>
+    <string name="hide_touch_controls_toggle">Dokunmatik Kontrolleri Gizle</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Yukarı Bak / Aşağı Bak</string>
+    <string name="look_left_right_option">Sola Bak / Sağa Bak</string>
+    <string name="forward_back_option">İleri / geri</string>
+    <string name="strafe_option">bombalamak</string>
+    <string name="attack_option">saldırı</string>
+    <string name="attack_alt_option">Alt Saldırı (GZ)</string>
+    <string name="move_back_option">Geriye Git</string>
+    <string name="crouch_option">Crouch (GZ)</string>
+    <string name="custom_0_option">Özel A (GZ)</string>
+    <string name="custom_1_option">Özel B (GZ)</string>
+    <string name="custom_2_option">Özel C (GZ)</string>
+    <string name="custom_3_option">Özel D (GZ)</string>
+    <string name="custom_4_option">Özel e (gz)</string>
+    <string name="custom_5_option">Özel F (GZ)</string>
+    <string name="fly_down_option">Aşağı uç</string>
+    <string name="fly_up_option">Uçmak</string>
+    <string name="fwd_option">İleri Taşı</string>
+    <string name="inv_drop_option">Öğe Bırak</string>
+    <string name="inv_next_option">Sıradaki eşya</string>
+    <string name="inv_prev_option">Önceki Öğe</string>
+    <string name="inv_use_option">Öğe kullan</string>
+    <string name="jump_option">Zıpla (GZ)</string>
+    <string name="left_option">Sol yapı</string>
+    <string name="look_left_option">Sola bak</string>
+    <string name="look_right_option">Sağa bak</string>
+    <string name="map_down_option">Otomatik Eşleme Aşağı</string>
+    <string name="map_left_option">Sola Otomatik Eşleştir</string>
+    <string name="map_right_option">Otomatik Eşleme Sağ</string>
+    <string name="map_show_option">Otomatik Eşlemi Göster</string>
+    <string name="map_up_option">Otomatik Eşleştir Yukarı</string>
+    <string name="map_zoomin_option">Otomatik Eşleme Yakınlaştırma</string>
+    <string name="map_zoomout_option">Otomatik Eşleme Yakınlaştırma</string>
+    <string name="menu_back_option">Menü Geri</string>
+    <string name="menu_down_option">Menü Aşağı</string>
+    <string name="menu_left_option">Menü Sol</string>
+    <string name="menu_right_option">Menü Sağ</string>
+    <string name="menu_select_option">Menü Seçimi</string>
+    <string name="menu_up_option">Menü Yukarı</string>
+    <string name="next_weapon_option">Bir sonraki silah</string>
+    <string name="prev_weapon_option">Önceki silah</string>
+    <string name="quick_load_option">Hızlı Yük (GZ)</string>
+    <string name="quick_save_option">Hızlı kaydet (GZ)</string>
+    <string name="right_option">Strafe Sağ</string>
+    <string name="show_keys_option">Anahtarları Göster</string>
+    <string name="show_weap_option">İstatistikleri / Silahları Göster</string>
+    <string name="speed_option">A doğru koş</string>
+    <string name="strafe_on_option">Strafe Açık</string>
+    <string name="use_option">Kullanım / Aç</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Freedoom Klasörü</string>
+    <string name="wad_dir_prompt">Yapılandırma ve içerik (WAD, DEH, vb.) Dizini.</string>
+    <string name="divide_resolution_by_prompt">Çözünürlük:</string>
+    <string name="reset_button_text">sıfırlamak</string>
+    <string name="choose_button_text">seçmek</string>
+
+    <string-array name="double_tap_actions">
+        <item>Yok</item>
+        <item>Ateş etme</item>
+        <item>Atlama</item>
+        <item>kullanım</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>Yok</item>
+        <item>Ateş etme</item>
+        <item>Atlama</item>
+        <item>kullanım</item>
+        <item>Kuvvet kullan</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>Büyük</item>
+        <item>Orta</item>
+        <item>Küçük</item>
+    </string-array>
 </resources>

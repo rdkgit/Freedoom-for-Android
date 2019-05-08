@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">gamepad</string>
+    <string name="options_tab">možnosti</string>
+    <string name="no_iwads_err">Vyberte súbor IWAD. Skopírujte súbory IWAD do:</string>
+    <string name="ok_confirm">ok</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Freedoom</string>
+    <string name="start_full">odpálenie</string>
+    <string name="start_wads">addony</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">Povoliť hru Pad</string>
+    <string name="hide_touch_controls_toggle">Skryť dotykové ovládače</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Pozrite sa hore / dole</string>
+    <string name="look_left_right_option">Pozrite sa vľavo / vpravo</string>
+    <string name="forward_back_option">Forward / Back</string>
+    <string name="strafe_option">prudko bombardovať</string>
+    <string name="attack_option">útok</string>
+    <string name="attack_alt_option">Alt Attack (GZ)</string>
+    <string name="move_back_option">Posunúť dozadu</string>
+    <string name="crouch_option">Crouch (GZ)</string>
+    <string name="custom_0_option">Vlastné A (GZ)</string>
+    <string name="custom_1_option">Vlastné B (GZ)</string>
+    <string name="custom_2_option">Vlastné C (GZ)</string>
+    <string name="custom_3_option">Vlastné D (GZ)</string>
+    <string name="custom_4_option">Vlastné E (GZ)</string>
+    <string name="custom_5_option">Vlastné F (GZ)</string>
+    <string name="fly_down_option">Letieť dole</string>
+    <string name="fly_up_option">Vyleť</string>
+    <string name="fwd_option">Pohnúť sa vpred</string>
+    <string name="inv_drop_option">Drop Item</string>
+    <string name="inv_next_option">Nasledujúca položka</string>
+    <string name="inv_prev_option">Predchádzajúca položka</string>
+    <string name="inv_use_option">Použiť predmet</string>
+    <string name="jump_option">Skočiť (GZ)</string>
+    <string name="left_option">Strafe vľavo</string>
+    <string name="look_left_option">Pozri sa vľavo</string>
+    <string name="look_right_option">Pozrite sa správne</string>
+    <string name="map_down_option">Automap Down</string>
+    <string name="map_left_option">Automap vľavo</string>
+    <string name="map_right_option">Automap Právo</string>
+    <string name="map_show_option">Zobraziť Automap</string>
+    <string name="map_up_option">Automap Up</string>
+    <string name="map_zoomin_option">Automap Zoomin</string>
+    <string name="map_zoomout_option">Automap Zoomout</string>
+    <string name="menu_back_option">Menu Späť</string>
+    <string name="menu_down_option">Menu Down</string>
+    <string name="menu_left_option">Menu Vľavo</string>
+    <string name="menu_right_option">Menu Pravé</string>
+    <string name="menu_select_option">Menu Vyberte</string>
+    <string name="menu_up_option">Menu Hore</string>
+    <string name="next_weapon_option">Ďalšia zbraň</string>
+    <string name="prev_weapon_option">Predchádzajúca zbraň</string>
+    <string name="quick_load_option">Rýchle zaťaženie (GZ)</string>
+    <string name="quick_save_option">Rýchle ukladanie (GZ)</string>
+    <string name="right_option">Strafe Right</string>
+    <string name="show_keys_option">Zobraziť kľúče</string>
+    <string name="show_weap_option">Zobraziť štatistiky / zbrane</string>
+    <string name="speed_option">Spustiť</string>
+    <string name="strafe_on_option">Zapnuté</string>
+    <string name="use_option">Použitie / Otvoriť</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Priečinok Freedoom</string>
+    <string name="wad_dir_prompt">Konfigurácia a obsah (WAD, DEH, atď.) Adresár.</string>
+    <string name="divide_resolution_by_prompt">Rozdeliť rozlíšenie podľa:</string>
+    <string name="reset_button_text">resetovať</string>
+    <string name="choose_button_text">zvoliť</string>
+
+    <string-array name="double_tap_actions">
+        <item>nikto</item>
+        <item>strieľať</item>
+        <item>Jump</item>
+        <item>použitie</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>nikto</item>
+        <item>strieľať</item>
+        <item>Jump</item>
+        <item>použitie</item>
+        <item>Použite Force</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>Veľký</item>
+        <item>stredná</item>
+        <item>malý</item>
+    </string-array>
+</resources>

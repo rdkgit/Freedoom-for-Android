@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">gamepad</string>
+    <string name="options_tab">Имкониятҳо</string>
+    <string name="no_iwads_err">Лутфан файли IWAD -ро интихоб кунед. Файлҳои IWAD-ро ба:</string>
+    <string name="ok_confirm">Хуб</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Freedoom</string>
+    <string name="start_full">Лоиҳа</string>
+    <string name="start_wads">Иловагӣ</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">Бастаи ҷадвалро фаъол созед</string>
+    <string name="hide_touch_controls_toggle">Назорати Touch Touch</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Ба боло нигаред / назар кунед</string>
+    <string name="look_left_right_option">Ба Люк / Лекия нигаред</string>
+    <string name="forward_back_option">Пештар / Бозгашт</string>
+    <string name="strafe_option">Стратегӣ</string>
+    <string name="attack_option">Ҳалокат</string>
+    <string name="attack_alt_option">Alt Attack (GZ)</string>
+    <string name="move_back_option">Бозгаштро бардоред</string>
+    <string name="crouch_option">Crouch (GZ)</string>
+    <string name="custom_0_option">Custom A (GZ)</string>
+    <string name="custom_1_option">Custom B (GZ)</string>
+    <string name="custom_2_option">Custom C (GZ)</string>
+    <string name="custom_3_option">Custom D (GZ)</string>
+    <string name="custom_4_option">Одатан E (GZ)</string>
+    <string name="custom_5_option">Custom F (GZ)</string>
+    <string name="fly_down_option">Ҷаҳиш ба: новбари,</string>
+    <string name="fly_up_option">Муборак аст</string>
+    <string name="fwd_option">Ба пеш ҳаракат кунед</string>
+    <string name="inv_drop_option">Банди поён</string>
+    <string name="inv_next_option">Боби оянда</string>
+    <string name="inv_prev_option">Пешпардохт</string>
+    <string name="inv_use_option">Банди истифода кунед</string>
+    <string name="jump_option">Jump (GZ)</string>
+    <string name="left_option">Сулҳи Соат</string>
+    <string name="look_left_option">Сулҳ ба назар мерасад</string>
+    <string name="look_right_option">Ба рост</string>
+    <string name="map_down_option">Автомати поён</string>
+    <string name="map_left_option">Automap Left</string>
+    <string name="map_right_option">Right Automap Right</string>
+    <string name="map_show_option">Automap нишон диҳед</string>
+    <string name="map_up_option">Авторизатсия кунед</string>
+    <string name="map_zoomin_option">Automap Zoomin</string>
+    <string name="map_zoomout_option">Automap Zoomout</string>
+    <string name="menu_back_option">Меню Бозгашт</string>
+    <string name="menu_down_option">Меню</string>
+    <string name="menu_left_option">Менюи Рақам</string>
+    <string name="menu_right_option">Менюи рост</string>
+    <string name="menu_select_option">Меню Интихоб кунед</string>
+    <string name="menu_up_option">Меню</string>
+    <string name="next_weapon_option">Ҷанги дигар</string>
+    <string name="prev_weapon_option">Пеш аз ҳама яроқ</string>
+    <string name="quick_load_option">Боргирии тез (GZ)</string>
+    <string name="quick_save_option">Save Quick (GZ)</string>
+    <string name="right_option">Right Strafe</string>
+    <string name="show_keys_option">Тугмаҳо нишон диҳед</string>
+    <string name="show_weap_option">Нишондиҳандаҳоро нишон диҳед</string>
+    <string name="speed_option">Ҷойгир кунед</string>
+    <string name="strafe_on_option">Спартак бар</string>
+    <string name="use_option">Истифода / кушодан</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Феҳристи Freedoom</string>
+    <string name="wad_dir_prompt">Танзимот ва мундариҷа (WAD, DEH ва ғайра).</string>
+    <string name="divide_resolution_by_prompt">Қарори тақсимоти:</string>
+    <string name="reset_button_text">reset</string>
+    <string name="choose_button_text">интихоб кунед</string>
+
+    <string-array name="double_tap_actions">
+        <item>Ҳеҷ</item>
+        <item>Вирус</item>
+        <item>Jump</item>
+        <item>Истифода кунед</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>Ҳеҷ</item>
+        <item>Вирус</item>
+        <item>Jump</item>
+        <item>Истифода кунед</item>
+        <item>Қувват истифода кунед</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>Калон</item>
+        <item>Миёна</item>
+        <item>Хурд</item>
+    </string-array>
+</resources>

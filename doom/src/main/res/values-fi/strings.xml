@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">peliohjain</string>
+    <string name="options_tab">vaihtoehtoja</string>
+    <string name="no_iwads_err">Valitse IWAD-tiedosto. Kopioi IWAD-tiedostot kohteeseen:</string>
+    <string name="ok_confirm">kunnossa</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Freedoom</string>
+    <string name="start_full">Tuoda markkinoille</string>
+    <string name="start_wads">lisät</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">Ota Game Pad käyttöön</string>
+    <string name="hide_touch_controls_toggle">Piilota kosketusohjaimet</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Katso ylös / katso alas</string>
+    <string name="look_left_right_option">Katso vasemmalle / katso oikealle</string>
+    <string name="forward_back_option">Eteenpäin / taaksepäin</string>
+    <string name="strafe_option">Tulittaa</string>
+    <string name="attack_option">Hyökkäys</string>
+    <string name="attack_alt_option">Alt Attack (GZ)</string>
+    <string name="move_back_option">Siirrä taaksepäin</string>
+    <string name="crouch_option">Crouch (GZ)</string>
+    <string name="custom_0_option">Mukautettu A (GZ)</string>
+    <string name="custom_1_option">Mukautettu B (GZ)</string>
+    <string name="custom_2_option">Custom C (GZ)</string>
+    <string name="custom_3_option">Mukautettu D (GZ)</string>
+    <string name="custom_4_option">Custom E (GZ)</string>
+    <string name="custom_5_option">Mukautettu F (GZ)</string>
+    <string name="fly_down_option">Lentää alas</string>
+    <string name="fly_up_option">Lennä ylös</string>
+    <string name="fwd_option">Siirrä eteenpäin</string>
+    <string name="inv_drop_option">Pudota kohde</string>
+    <string name="inv_next_option">Seuraava kohta</string>
+    <string name="inv_prev_option">Edellinen kohta</string>
+    <string name="inv_use_option">Käytä esine</string>
+    <string name="jump_option">Hyppää (GZ)</string>
+    <string name="left_option">Strafe Left</string>
+    <string name="look_left_option">Katso vasemmalle</string>
+    <string name="look_right_option">Katso oikealle</string>
+    <string name="map_down_option">Automap Down</string>
+    <string name="map_left_option">Automap Vasen</string>
+    <string name="map_right_option">Automap Right</string>
+    <string name="map_show_option">Näytä Automap</string>
+    <string name="map_up_option">Automap Up</string>
+    <string name="map_zoomin_option">Automap Zoomin</string>
+    <string name="map_zoomout_option">Automap Zoomout</string>
+    <string name="menu_back_option">Valikko Takaisin</string>
+    <string name="menu_down_option">Valikko alas</string>
+    <string name="menu_left_option">Valikko Vasen</string>
+    <string name="menu_right_option">Valikko Oikea</string>
+    <string name="menu_select_option">Valikko Valitse</string>
+    <string name="menu_up_option">Valikko Ylös</string>
+    <string name="next_weapon_option">Seuraava ase</string>
+    <string name="prev_weapon_option">Edellinen ase</string>
+    <string name="quick_load_option">Quick Load (GZ)</string>
+    <string name="quick_save_option">Nopea tallennus (GZ)</string>
+    <string name="right_option">Strafe Right</string>
+    <string name="show_keys_option">Näytä avaimet</string>
+    <string name="show_weap_option">Näytä tilastot / aseet</string>
+    <string name="speed_option">Suorita</string>
+    <string name="strafe_on_option">Strafe On</string>
+    <string name="use_option">Käytä / Open</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Freedoom-kansio</string>
+    <string name="wad_dir_prompt">Konfigurointi ja sisältö (WAD, DEH jne.).</string>
+    <string name="divide_resolution_by_prompt">Jaa resoluutio seuraavasti:</string>
+    <string name="reset_button_text">asettaa uudelleen</string>
+    <string name="choose_button_text">valita</string>
+
+    <string-array name="double_tap_actions">
+        <item>Ei mitään</item>
+        <item>Ampua</item>
+        <item>Hypätä</item>
+        <item>Käyttää</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>Ei mitään</item>
+        <item>Ampua</item>
+        <item>Hypätä</item>
+        <item>Käyttää</item>
+        <item>Käytä voimaa</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>Suuri</item>
+        <item>keskikokoinen</item>
+        <item>Pieni</item>
+    </string-array>
+</resources>

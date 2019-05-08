@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">kontroler</string>
+    <string name="options_tab">opcje</string>
+    <string name="no_iwads_err">Wybierz plik IWAD. Skopiuj pliki IWAD do:</string>
+    <string name="ok_confirm">Dobrze</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Freedoom</string>
+    <string name="start_full">Uruchomić</string>
+    <string name="start_wads">Dodatki</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">Włącz Game Pad</string>
+    <string name="hide_touch_controls_toggle">Ukryj sterowanie dotykowe</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Look Up / Look Down</string>
+    <string name="look_left_right_option">Spójrz w lewo / spójrz w prawo</string>
+    <string name="forward_back_option">Do przodu / do tyłu</string>
+    <string name="strafe_option">Ostrzelać</string>
+    <string name="attack_option">Atak</string>
+    <string name="attack_alt_option">Alt Attack (GZ)</string>
+    <string name="move_back_option">Cofać się</string>
+    <string name="crouch_option">Crouch (GZ)</string>
+    <string name="custom_0_option">Custom A (GZ)</string>
+    <string name="custom_1_option">Custom B (GZ)</string>
+    <string name="custom_2_option">Custom C (GZ)</string>
+    <string name="custom_3_option">Custom D (GZ)</string>
+    <string name="custom_4_option">Custom E (GZ)</string>
+    <string name="custom_5_option">Niestandardowy F (GZ)</string>
+    <string name="fly_down_option">Zlatywać</string>
+    <string name="fly_up_option">Podlecieć</string>
+    <string name="fwd_option">Pójść naprzód</string>
+    <string name="inv_drop_option">Upuść przedmiot</string>
+    <string name="inv_next_option">Następny przedmiot</string>
+    <string name="inv_prev_option">Poprzedni przedmiot</string>
+    <string name="inv_use_option">Użyj rzeczy</string>
+    <string name="jump_option">Skok (GZ)</string>
+    <string name="left_option">Strafe Left</string>
+    <string name="look_left_option">Spójrz w lewo</string>
+    <string name="look_right_option">Popatrz w prawo</string>
+    <string name="map_down_option">Automap Down</string>
+    <string name="map_left_option">Automap w lewo</string>
+    <string name="map_right_option">Automap Prawo</string>
+    <string name="map_show_option">Pokaż Automapę</string>
+    <string name="map_up_option">Automap Up</string>
+    <string name="map_zoomin_option">Automap Zoomin</string>
+    <string name="map_zoomout_option">Zoom automatyczny</string>
+    <string name="menu_back_option">Powrót do menu</string>
+    <string name="menu_down_option">Menu w dół</string>
+    <string name="menu_left_option">Menu w lewo</string>
+    <string name="menu_right_option">Menu w prawo</string>
+    <string name="menu_select_option">Wybierz menu</string>
+    <string name="menu_up_option">Menu w górę</string>
+    <string name="next_weapon_option">Następna broń</string>
+    <string name="prev_weapon_option">Poprzednia broń</string>
+    <string name="quick_load_option">Szybkie obciążenie (GZ)</string>
+    <string name="quick_save_option">Szybkie zapisywanie (GZ)</string>
+    <string name="right_option">Strafe Right</string>
+    <string name="show_keys_option">Pokaż klucze</string>
+    <string name="show_weap_option">Pokaż statystyki / broń</string>
+    <string name="speed_option">Uruchom</string>
+    <string name="strafe_on_option">Strafe On</string>
+    <string name="use_option">Użyj / Otwórz</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Folder wolności</string>
+    <string name="wad_dir_prompt">Katalog konfiguracji i zawartości (WAD, DEH itp.).</string>
+    <string name="divide_resolution_by_prompt">Podziel rozdzielczość przez:</string>
+    <string name="reset_button_text">nastawić</string>
+    <string name="choose_button_text">wybierać</string>
+
+    <string-array name="double_tap_actions">
+        <item>Żaden</item>
+        <item>Strzelać</item>
+        <item>Skok</item>
+        <item>Posługiwać się</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>Żaden</item>
+        <item>Strzelać</item>
+        <item>Skok</item>
+        <item>Posługiwać się</item>
+        <item>Użyj siły</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>Duży</item>
+        <item>Średni</item>
+        <item>Mały</item>
+    </string-array>
+</resources>

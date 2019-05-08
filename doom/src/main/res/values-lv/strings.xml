@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">gamepad</string>
+    <string name="options_tab">iespējas</string>
+    <string name="no_iwads_err">Lūdzu, atlasiet IWAD failu. Kopēt IWAD failus uz:</string>
+    <string name="ok_confirm">Labi</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Freedoom</string>
+    <string name="start_full">Uzsākt</string>
+    <string name="start_wads">Papildinājumi</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">Iespējot gamepad</string>
+    <string name="hide_touch_controls_toggle">Paslēpt pieskārienu vadīklas</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Uzmeklēt / Uzmeklēt</string>
+    <string name="look_left_right_option">Paskaties pa kreisi / skatīties pa labi</string>
+    <string name="forward_back_option">Pārsūtīt / atpakaļ</string>
+    <string name="strafe_option">Pārvietojieties pa kreisi un pārvietojieties pa labi</string>
+    <string name="attack_option">Uzbrukums</string>
+    <string name="attack_alt_option">Alt Uzbrukums (GZ)</string>
+    <string name="move_back_option">Pārvietot atpakaļ</string>
+    <string name="crouch_option">pieliekties (GZ)</string>
+    <string name="custom_0_option">Pielāgots A (GZ)</string>
+    <string name="custom_1_option">Pielāgots B (GZ)</string>
+    <string name="custom_2_option">Pielāgots C (GZ)</string>
+    <string name="custom_3_option">Pielāgots D (GZ)</string>
+    <string name="custom_4_option">Pielāgots E (GZ)</string>
+    <string name="custom_5_option">Pielāgots F (GZ)</string>
+    <string name="fly_down_option">lidot uz leju</string>
+    <string name="fly_up_option">lidot uz augšu</string>
+    <string name="fwd_option">pārvietoties uz priekšu</string>
+    <string name="inv_drop_option">Drop Item</string>
+    <string name="inv_next_option">Nākamais punkts</string>
+    <string name="inv_prev_option">iepriekšējā vienība</string>
+    <string name="inv_use_option">izmantot lietu</string>
+    <string name="jump_option">lēkt (GZ)</string>
+    <string name="left_option">pārvietojiet pa kreisi</string>
+    <string name="look_left_option">Paskaties pa kreisi</string>
+    <string name="look_right_option">Paskaties labi</string>
+    <string name="map_down_option">kartes uz leju</string>
+    <string name="map_left_option">karte pa kreisi</string>
+    <string name="map_right_option">karte pa labi</string>
+    <string name="map_show_option">rādīt karti</string>
+    <string name="map_up_option">kartes augšup</string>
+    <string name="map_zoomin_option">tuvināt karti</string>
+    <string name="map_zoomout_option">attālināt karti</string>
+    <string name="menu_back_option">Izvēlne Atpakaļ</string>
+    <string name="menu_down_option">Izvēlne Down</string>
+    <string name="menu_left_option">Izvēlne pa kreisi</string>
+    <string name="menu_right_option">Izvēlne Tiesības</string>
+    <string name="menu_select_option">Izvēlne Izvēlieties</string>
+    <string name="menu_up_option">Izvēlne Up</string>
+    <string name="next_weapon_option">Nākamais ierocis</string>
+    <string name="prev_weapon_option">Iepriekšējais ierocis</string>
+    <string name="quick_load_option">ātra atjaunošana (GZ)</string>
+    <string name="quick_save_option">ātra saglabāšana (GZ)</string>
+    <string name="right_option">kusties pa labi</string>
+    <string name="show_keys_option">rādīt tastatūru</string>
+    <string name="show_weap_option">Rādīt statistiku / ieročus</string>
+    <string name="speed_option">darboties</string>
+    <string name="strafe_on_option">iespējojiet pārvietošanu pa kreisi un pa labi</string>
+    <string name="use_option">izmantot / atvērt</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Freedoom mape</string>
+    <string name="wad_dir_prompt">Konfigurācijas un satura (WAD uc) mape</string>
+    <string name="divide_resolution_by_prompt">Sadaliet izšķirtspēju:</string>
+    <string name="reset_button_text">atiestatīt</string>
+    <string name="choose_button_text">izvēlēties</string>
+
+    <string-array name="double_tap_actions">
+        <item>Nav</item>
+        <item>Šaut</item>
+        <item>Pārlēkt</item>
+        <item>Izmantot</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>Nav</item>
+        <item>Šaut</item>
+        <item>Pārlēkt</item>
+        <item>Izmantot</item>
+        <item>Izmantojiet spēku</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>Liels</item>
+        <item>Vidējs</item>
+        <item>Mazs</item>
+    </string-array>
+</resources>

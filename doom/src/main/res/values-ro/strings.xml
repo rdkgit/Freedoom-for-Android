@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">gamepad</string>
+    <string name="options_tab">Opțiuni</string>
+    <string name="no_iwads_err">Selectați un fișier IWAD. Copiați fișierele IWAD la:</string>
+    <string name="ok_confirm">O.K</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Freedoom</string>
+    <string name="start_full">Lansa</string>
+    <string name="start_wads">Adaosuri</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">Activați Game Pad</string>
+    <string name="hide_touch_controls_toggle">Ascundeți comenzile tactile</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Uită-te în sus / Uită-te în jos</string>
+    <string name="look_left_right_option">Uită-te la dreapta / la dreapta</string>
+    <string name="forward_back_option">Înainte / Înapoi</string>
+    <string name="strafe_option">Bombarda</string>
+    <string name="attack_option">Atac</string>
+    <string name="attack_alt_option">Alt atac (GZ)</string>
+    <string name="move_back_option">Mergi cu spatele</string>
+    <string name="crouch_option">Crouch (GZ)</string>
+    <string name="custom_0_option">Custom A (GZ)</string>
+    <string name="custom_1_option">Personalizat B (GZ)</string>
+    <string name="custom_2_option">Custom C (GZ)</string>
+    <string name="custom_3_option">Custom D (GZ)</string>
+    <string name="custom_4_option">Custom E (GZ)</string>
+    <string name="custom_5_option">Custom F (GZ)</string>
+    <string name="fly_down_option">Zboara in jos</string>
+    <string name="fly_up_option">Zboara in sus</string>
+    <string name="fwd_option">Mergi inainte</string>
+    <string name="inv_drop_option">Drop Item</string>
+    <string name="inv_next_option">Următorul element</string>
+    <string name="inv_prev_option">Elementul anterior</string>
+    <string name="inv_use_option">Foloseste obiectul</string>
+    <string name="jump_option">Salt (GZ)</string>
+    <string name="left_option">Strafe Stânga</string>
+    <string name="look_left_option">Uita-te la stanga</string>
+    <string name="look_right_option">Uită-te la dreapta</string>
+    <string name="map_down_option">Automap Down</string>
+    <string name="map_left_option">Automap stânga</string>
+    <string name="map_right_option">Automap dreapta</string>
+    <string name="map_show_option">Arată Automap</string>
+    <string name="map_up_option">Automap Up</string>
+    <string name="map_zoomin_option">Automap Zoomin</string>
+    <string name="map_zoomout_option">Automap Zoomout</string>
+    <string name="menu_back_option">Meniu Înapoi</string>
+    <string name="menu_down_option">Meniu în jos</string>
+    <string name="menu_left_option">Meniu Stânga</string>
+    <string name="menu_right_option">Meniu corect</string>
+    <string name="menu_select_option">Selectați meniul</string>
+    <string name="menu_up_option">Meniu sus</string>
+    <string name="next_weapon_option">Următoarea armă</string>
+    <string name="prev_weapon_option">Armă anterioară</string>
+    <string name="quick_load_option">Încărcare rapidă (GZ)</string>
+    <string name="quick_save_option">Salvare rapidă (GZ)</string>
+    <string name="right_option">Strafe Right</string>
+    <string name="show_keys_option">Afișați cheile</string>
+    <string name="show_weap_option">Afișați statistici / arme</string>
+    <string name="speed_option">Rulați pe</string>
+    <string name="strafe_on_option">Strafe On</string>
+    <string name="use_option">Utilizați / Open</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Folder Freedoom</string>
+    <string name="wad_dir_prompt">Configurarea și conținutul (WAD, DEH, etc.).</string>
+    <string name="divide_resolution_by_prompt">Împărțiți rezoluția prin:</string>
+    <string name="reset_button_text">restabili</string>
+    <string name="choose_button_text">alege</string>
+
+    <string-array name="double_tap_actions">
+        <item>Nici unul</item>
+        <item>Trage</item>
+        <item>A sari</item>
+        <item>Utilizare</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>Nici unul</item>
+        <item>Trage</item>
+        <item>A sari</item>
+        <item>Utilizare</item>
+        <item>Utilizați Forța</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>Mare</item>
+        <item>Mediu</item>
+        <item>Mic</item>
+    </string-array>
+</resources>

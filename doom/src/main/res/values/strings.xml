@@ -1,83 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
-
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
     <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
     <string name="gamepad_tab">gamepad</string>
     <string name="options_tab">options</string>
     <string name="no_iwads_err">Please select an IWAD file. Copy IWAD files to: </string>
     <string name="ok_confirm">Ok</string>
-
-    // gzdoom (freedoom) fragment
+    
+    <!-- gzdoom (freedoom) fragment-->
     <string name="app_name">Freedoom</string>
     <string name="start_full">Launch</string>
     <string name="start_wads">Addons</string>
-
-    // gamepad fragment
+    <!-- gamepad fragment -->
     <string name="enable_game_pad_toggle">Enable Game Pad</string>
     <string name="hide_touch_controls_toggle">Hide Touch Controls</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Look Up/Look Down</string>
+    <string name="look_left_right_option">Look Left/Look Right</string>
+    <string name="forward_back_option">Forward/Back</string>
+    <string name="strafe_option">Strafe</string>
+    <string name="attack_option">Attack</string>
+    <string name="attack_alt_option">Alt Attack (GZ)</string>
+    <string name="move_back_option">Move Backwards</string>
+    <string name="crouch_option">Crouch (GZ)</string>
+    <string name="custom_0_option">Custom A (GZ)</string>
+    <string name="custom_1_option">Custom B (GZ)</string>
+    <string name="custom_2_option">Custom C (GZ)</string>
+    <string name="custom_3_option">Custom D (GZ)</string>
+    <string name="custom_4_option">Custom E (GZ)</string>
+    <string name="custom_5_option">Custom F (GZ)</string>
+    <string name="fly_down_option">Fly Down</string>
+    <string name="fly_up_option">Fly Up</string>
+    <string name="fwd_option">Move Forward</string>
+    <string name="inv_drop_option">Drop Item</string>
+    <string name="inv_next_option">Next Item</string>
+    <string name="inv_prev_option">Prev Item</string>
+    <string name="inv_use_option">Use Item</string>
+    <string name="jump_option">Jump (GZ)</string>
+    <string name="left_option">Strafe Left</string>
+    <string name="look_left_option">Look Left</string>
+    <string name="look_right_option">Look Right</string>
+    <string name="map_down_option">Automap Down</string>
+    <string name="map_left_option">Automap Left</string>
+    <string name="map_right_option">Automap Right</string>
+    <string name="map_show_option">Show Automap</string>
+    <string name="map_up_option">Automap Up</string>
+    <string name="map_zoomin_option">Automap Zoomin</string>
+    <string name="map_zoomout_option">Automap Zoomout</string>
+    <string name="menu_back_option">Menu Back</string>
+    <string name="menu_down_option">Menu Down</string>
+    <string name="menu_left_option">Menu Left</string>
+    <string name="menu_right_option">Menu Right</string>
+    <string name="menu_select_option">Menu Select</string>
+    <string name="menu_up_option">Menu Up</string>
+    <string name="next_weapon_option">Next Weapon</string>
+    <string name="prev_weapon_option">Previous Weapon</string>
+    <string name="quick_load_option">Quick Load (GZ)</string>
+    <string name="quick_save_option">Quick Save (GZ)</string>
+    <string name="right_option">Strafe Right</string>
+    <string name="show_keys_option">Show Keys</string>
+    <string name="show_weap_option">Show Stats/Weapons</string>
+    <string name="speed_option">Run On</string>
+    <string name="strafe_on_option">Strafe On</string>
+    <string name="use_option">Use/Open</string>
 
-    // gamepad fragment options
-    <string name = "look_up_down_option">Look Up/Look Down</string>
-    <string name = "look_left_right_option">Look Left/Look Right</string>
-    <string name = "forward_back_option">Forward/Back</string>
-    <string name = "strafe_option">Strafe</string>
-    <string name = "attack_option">Attack</string>
-    <string name = "attack_alt_option">Alt Attack (GZ)</string>
-    <string name = "move_back_option">Move Backwards</string>
-    <string name = "crouch_option">Crouch (GZ)</string>
-    <string name = "custom_0_option">Custom A (GZ)</string>
-    <string name = "custom_1_option">Custom B (GZ)</string>
-    <string name = "custom_2_option">Custom C (GZ)</string>
-    <string name = "custom_3_option">Custom D (GZ)</string>
-    <string name = "custom_4_option">Custom E (GZ)</string>
-    <string name = "custom_5_option">Custom F (GZ)</string>
-    <string name = "fly_down_option">Fly Down</string>
-    <string name = "fly_up_option">Fly Up</string>
-    <string name = "fwd_option">Move Forward</string>
-    <string name = "inv_drop_option">Drop Item</string>
-    <string name = "inv_next_option">Next Item</string>
-    <string name = "inv_prev_option">Prev Item</string>
-    <string name = "inv_use_option">Use Item</string>
-    <string name = "jump_option">Jump (GZ)</string>
-    <string name = "left_option">Strafe Left</string>
-    <string name = "look_left_option">Look Left</string>
-    <string name = "look_right_option">Look Right</string>
-    <string name = "map_down_option">Automap Down</string>
-    <string name = "map_left_option">Automap Left</string>
-    <string name = "map_right_option">Automap Right</string>
-    <string name = "map_show_option">Show Automap</string>
-    <string name = "map_up_option">Automap Up</string>
-    <string name = "map_zoomin_option">Automap Zoomin</string>
-    <string name = "map_zoomout_option">Automap Zoomout</string>
-    <string name = "menu_back_option">Menu Back</string>
-    <string name = "menu_down_option">Menu Down</string>
-    <string name = "menu_left_option">Menu Left</string>
-    <string name = "menu_right_option">Menu Right</string>
-    <string name = "menu_select_option">Menu Select</string>
-    <string name = "menu_up_option">Menu Up</string>
-    <string name = "next_weapon_option">Next Weapon</string>
-    <string name = "prev_weapon_option">Previous Weapon</string>
-    <string name = "quick_load_option">Quick Load (GZ)</string>
-    <string name = "quick_save_option">Quick Save (GZ)</string>
-    <string name = "right_option">Strafe Right</string>
-    <string name = "show_keys_option">Show Keys</string>
-    <string name = "show_weap_option">Show Stats/Weapons</string>
-    <string name = "speed_option">Run On</string>
-    <string name = "strafe_on_option">Strafe On</string>
-    <string name = "use_option">Use/Open</string>
-
-
-    // options fragment
+    <!-- options fragment --> 
     <string name="folder_name_prompt">Freedoom Folder</string>
     <string name="wad_dir_prompt">Configuration and content (WAD, DEH, etc.) directory.</string>
     <string name="divide_resolution_by_prompt">Divide resolution by:</string>
     <string name="sdcard_button_text" translatable="false">SDCARD</string>
     <string name="reset_button_text">reset</string>
     <string name="choose_button_text">choose</string>
-
-
 
     <string-array name="double_tap_actions">
         <item>None</item>
@@ -97,5 +91,4 @@
         <item>Medium</item>
         <item>Small</item>
     </string-array>
-
 </resources>

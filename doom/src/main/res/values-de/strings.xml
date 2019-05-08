@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">Gamepad</string>
+    <string name="options_tab">Optionen</string>
+    <string name="no_iwads_err">Bitte wählen Sie eine IWAD-Datei aus. Kopiere IWAD-Dateien nach:</string>
+    <string name="ok_confirm">OK</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Freiraum</string>
+    <string name="start_full">Starten</string>
+    <string name="start_wads">Ergänzungen</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">Gamepad aktivieren</string>
+    <string name="hide_touch_controls_toggle">Touch Controls ausblenden</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Nach oben schauen / Nach unten schauen</string>
+    <string name="look_left_right_option">Nach links schauen / Nach rechts schauen</string>
+    <string name="forward_back_option">Vorwärts / zurück</string>
+    <string name="strafe_option">nach links / rechts bewegen</string>
+    <string name="attack_option">Attacke</string>
+    <string name="attack_alt_option">Alt Attacke (GZ)</string>
+    <string name="move_back_option">Zurück bewegen</string>
+    <string name="crouch_option">hocken (GZ)</string>
+    <string name="custom_0_option">Brauch A (GZ)</string>
+    <string name="custom_1_option">Brauch B (GZ)</string>
+    <string name="custom_2_option">Brauch C (GZ)</string>
+    <string name="custom_3_option">Brauch D (GZ)</string>
+    <string name="custom_4_option">Brauch E (GZ)</string>
+    <string name="custom_5_option">Brauch F (GZ)</string>
+    <string name="fly_down_option">Runter fliegen</string>
+    <string name="fly_up_option">oben fliegen</string>
+    <string name="fwd_option">Vorwärts bewegen</string>
+    <string name="inv_drop_option">Gegenstand fallen lassen</string>
+    <string name="inv_next_option">Nächstes Objekt</string>
+    <string name="inv_prev_option">Vorheriger Artikel</string>
+    <string name="inv_use_option">Gegenstand benutzen</string>
+    <string name="jump_option">Sprung (GZ)</string>
+    <string name="left_option">geh nach links</string>
+    <string name="look_left_option">Guck nach links</string>
+    <string name="look_right_option">Schau nach rechts</string>
+    <string name="map_down_option">Karte Nieder</string>
+    <string name="map_left_option">Karte links</string>
+    <string name="map_right_option">Karte Recht</string>
+    <string name="map_show_option">Karte anzeigen</string>
+    <string name="map_up_option">Karte oben</string>
+    <string name="map_zoomin_option">Karte hineinzoomen</string>
+    <string name="map_zoomout_option">Karte Rauszoomen</string>
+    <string name="menu_back_option">Menü Zurück</string>
+    <string name="menu_down_option">Menü runter</string>
+    <string name="menu_left_option">Menü links</string>
+    <string name="menu_right_option">Menü rechts</string>
+    <string name="menu_select_option">Menü auswählen</string>
+    <string name="menu_up_option">Menü nach oben</string>
+    <string name="next_weapon_option">Nächste Waffe</string>
+    <string name="prev_weapon_option">Vorherige Waffe</string>
+    <string name="quick_load_option">Schnellladung (GZ)</string>
+    <string name="quick_save_option">Schnellspeicherung (GZ)</string>
+    <string name="right_option">nach rechts bewegen</string>
+    <string name="show_keys_option">Schlüssel anzeigen</string>
+    <string name="show_weap_option">Statistiken / Waffen anzeigen</string>
+    <string name="speed_option">laufen</string>
+    <string name="strafe_on_option">aktivieren bewegung links / rechts</string>
+    <string name="use_option">Verwenden  / öffnen</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">Freiraum-Mappe</string>
+    <string name="wad_dir_prompt">Konfigurations- und Inhaltsverzeichnis (WAD, DEH usw.) Mappe.</string>
+    <string name="divide_resolution_by_prompt">Auflösung teilen durch:</string>
+    <string name="reset_button_text">zurücksetzen</string>
+    <string name="choose_button_text">wählen</string>
+
+    <string-array name="double_tap_actions">
+        <item>Keiner</item>
+        <item>Schießen</item>
+        <item>Springen</item>
+        <item>Benutzen</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>Keiner</item>
+        <item>Schießen</item>
+        <item>Springen</item>
+        <item>Benutzen</item>
+        <item>Verwenden Sie Kraft</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>Groß</item>
+        <item>Mittel</item>
+        <item>Klein</item>
+    </string-array>
+</resources>
