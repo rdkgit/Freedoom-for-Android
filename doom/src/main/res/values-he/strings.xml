@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
-    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="dummy_string">REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! BAD! BAD! BAD! ERROR! ERROR! ERROR!</string>
     <string name="gamepad_tab">gamepad</string>
     <string name="options_tab">אפשרויות</string>
     <string name="no_iwads_err">בחר קובץ IWAD. העתק קובצי IWAD ל:</string>
@@ -23,7 +23,7 @@
     <string name="attack_option">לתקוף</string>
     <string name="attack_alt_option">התקפת אלט (GZ)</string>
     <string name="move_back_option">זוז אחורה</string>
-    <string name="crouch_option">קראוץ &#39;(GZ)</string>
+    <string name="crouch_option">קראוץ (GZ)</string>
     <string name="custom_0_option">מותאם אישית (GZ)</string>
     <string name="custom_1_option">מותאם אישית B (GZ)</string>
     <string name="custom_2_option">מותאם אישית C (GZ)</string>
@@ -67,24 +67,11 @@
 
     <!-- options fragment --> 
     <string name="folder_name_prompt">תיקיית חופש</string>
-    <string name="wad_dir_prompt">תצורה ותוכן (WAD, DEH, וכו &#39;) במדריך.</string>
+    <string name="wad_dir_prompt">תצורה ותוכן (WAD, DEH, וכו) במדריך.</string>
     <string name="divide_resolution_by_prompt">מחלק את הרזולוציה על ידי:</string>
     <string name="reset_button_text">לאפס</string>
     <string name="choose_button_text">בחר</string>
 
-    <string-array name="double_tap_actions">
-        <item>אף אחד</item>
-        <item>לירות</item>
-        <item>קפיצה</item>
-        <item>להשתמש</item>
-    </string-array>
-    <string-array name="double_tap_actions_jk">
-        <item>אף אחד</item>
-        <item>לירות</item>
-        <item>קפיצה</item>
-        <item>להשתמש</item>
-        <item>השתמש בכוח</item>
-    </string-array>
     <string-array name="quake2_hud_size">
         <item>גדול</item>
         <item>בינוני</item>

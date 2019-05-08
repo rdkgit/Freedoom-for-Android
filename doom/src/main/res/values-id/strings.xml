@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
-    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="dummy_string">REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! NO! NO! NO! ERROR! ERROR! ERROR! BAD! BAD! BAD!</string>
     <string name="gamepad_tab">gamepad</string>
     <string name="options_tab">pilihan</string>
     <string name="no_iwads_err">Silakan pilih file IWAD. Salin file IWAD ke:</string>
     <string name="ok_confirm">Baik</string>
-    
+
     <!-- gzdoom (freedoom) fragment-->
     <string name="app_name">Freedoom</string>
     <string name="start_full">Meluncurkan</string>
@@ -65,7 +65,7 @@
     <string name="strafe_on_option">Memberondong On</string>
     <string name="use_option">Gunakan / Buka</string>
 
-    <!-- options fragment --> 
+    <!-- options fragment -->
     <string name="folder_name_prompt">Folder Freedoom</string>
     <string name="wad_dir_prompt">Direktori konfigurasi dan konten (WAD, DEH, dll.).</string>
     <string name="divide_resolution_by_prompt">Membagi resolusi dengan:</string>

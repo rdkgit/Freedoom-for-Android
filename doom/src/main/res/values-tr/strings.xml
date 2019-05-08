@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
-    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="dummy_string">REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! NO! NO! NO! ERROR! ERROR! ERROR! BAD! BAD! BAD!</string>
     <string name="gamepad_tab">gamepad</string>
     <string name="options_tab">seçenekleri</string>
     <string name="no_iwads_err">Lütfen bir IWAD dosyası seçin. IWAD dosyalarını şuraya kopyala:</string>
     <string name="ok_confirm">Tamam</string>
-    
+
     <!-- gzdoom (freedoom) fragment-->
     <string name="app_name">freedoom</string>
     <string name="start_full">Başlatmak</string>
     <string name="start_wads">Eklentileri</string>
     <!-- gamepad fragment -->
-    <string name="enable_game_pad_toggle">Game Pad&#39;i Etkinleştir</string>
+    <string name="enable_game_pad_toggle">Game Pad Etkinleştir</string>
     <string name="hide_touch_controls_toggle">Dokunmatik Kontrolleri Gizle</string>
     <!-- gamepad fragment options -->
     <string name="look_up_down_option">Yukarı Bak / Aşağı Bak</string>
@@ -65,7 +65,7 @@
     <string name="strafe_on_option">Strafe Açık</string>
     <string name="use_option">Kullanım / Aç</string>
 
-    <!-- options fragment --> 
+    <!-- options fragment -->
     <string name="folder_name_prompt">Freedoom Klasörü</string>
     <string name="wad_dir_prompt">Yapılandırma ve içerik (WAD, DEH, vb.) Dizini.</string>
     <string name="divide_resolution_by_prompt">Çözünürlük:</string>

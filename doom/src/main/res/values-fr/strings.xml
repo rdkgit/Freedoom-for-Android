@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
-    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="dummy_string">REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! NO! NO! NO! ERROR! ERROR! ERROR! BAD! BAD! BAD!</string>
     <string name="gamepad_tab">manette de jeu</string>
     <string name="options_tab">options</string>
     <string name="no_iwads_err">Veuillez sélectionner un fichier IWAD. Copier les fichiers IWAD dans:</string>
-    <string name="ok_confirm">D&#39;accord</string>
-    
+    <string name="ok_confirm">D \'accord</string>
+
     <!-- gzdoom (freedoom) fragment-->
     <string name="app_name">Freedoom</string>
     <string name="start_full">lancement</string>
@@ -36,7 +36,7 @@
     <string name="inv_drop_option">Lacher un objet</string>
     <string name="inv_next_option">Prochain point</string>
     <string name="inv_prev_option">Article précédent</string>
-    <string name="inv_use_option">Utiliser l&#39;article</string>
+    <string name="inv_use_option">Utiliser l\'article</string>
     <string name="jump_option">Saut (GZ)</string>
     <string name="left_option">Strafe gauche</string>
     <string name="look_left_option">Regarde à gauche</string>
@@ -65,7 +65,7 @@
     <string name="strafe_on_option">Strafe sur</string>
     <string name="use_option">Utiliser / Ouvrir</string>
 
-    <!-- options fragment --> 
+    <!-- options fragment -->
     <string name="folder_name_prompt">Dossier Freedoom</string>
     <string name="wad_dir_prompt">Répertoire de configuration et de contenu (WAD, DEH, etc.).</string>
     <string name="divide_resolution_by_prompt">Diviser la résolution par:</string>

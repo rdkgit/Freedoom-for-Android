@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
-    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="dummy_string">REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! NO! NO! NO! ERROR! ERROR! ERROR! BAD! BAD! BAD!</string>
     <string name="gamepad_tab">gamepad</string>
     <string name="options_tab">valkostir</string>
     <string name="no_iwads_err">Vinsamlegast veldu IWAD skrá. Afritaðu IWAD skrár á:</string>
     <string name="ok_confirm">Allt í lagi</string>
-    
+
     <!-- gzdoom (freedoom) fragment-->
     <string name="app_name">Freedoom</string>
     <string name="start_full">Sjósetja</string>
@@ -65,7 +65,7 @@
     <string name="strafe_on_option">Strafe On</string>
     <string name="use_option">Notaðu / opna</string>
 
-    <!-- options fragment --> 
+    <!-- options fragment -->
     <string name="folder_name_prompt">Freedoom Folder</string>
     <string name="wad_dir_prompt">Stilling og innihald (WAD, DEH, osfrv) skrá.</string>
     <string name="divide_resolution_by_prompt">Skiptu upp ályktun af:</string>

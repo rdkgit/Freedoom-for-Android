@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
-    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="dummy_string">REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! NO! NO! NO! ERROR! ERROR! ERROR! BAD! BAD! BAD!</string>
     <string name="gamepad_tab">гамепад</string>
     <string name="options_tab">Опције</string>
     <string name="no_iwads_err">Изаберите ИВАД датотеку. Копирајте ИВАД датотеке на:</string>
     <string name="ok_confirm">OK</string>
-    
+
     <!-- gzdoom (freedoom) fragment-->
     <string name="app_name">Фреедоом</string>
     <string name="start_full">Лансирање</string>
@@ -65,7 +65,7 @@
     <string name="strafe_on_option">Страфе Он</string>
     <string name="use_option">Користи / Отвори</string>
 
-    <!-- options fragment --> 
+    <!-- options fragment -->
     <string name="folder_name_prompt">Фреедоом Фолдер</string>
     <string name="wad_dir_prompt">Именик конфигурације и садржаја (ВАД, ДЕХ, итд.).</string>
     <string name="divide_resolution_by_prompt">Подели резолуцију:</string>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
-    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="dummy_string">REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! NO! NO! NO! ERROR! ERROR! ERROR! BAD! BAD! BAD!</string>
     <string name="gamepad_tab">gamepad</string>
     <string name="options_tab">tùy chọn</string>
     <string name="no_iwads_err">Vui lòng chọn một tệp IWAD. Sao chép tệp IWAD sang:</string>
     <string name="ok_confirm">Được</string>
-    
+
     <!-- gzdoom (freedoom) fragment-->
     <string name="app_name">Tự do</string>
     <string name="start_full">Phóng</string>
@@ -65,7 +65,7 @@
     <string name="strafe_on_option">Strafe On</string>
     <string name="use_option">Sử dụng / mở</string>
 
-    <!-- options fragment --> 
+    <!-- options fragment -->
     <string name="folder_name_prompt">Thư mục tự do</string>
     <string name="wad_dir_prompt">Cấu hình và nội dung (WAD, DEH, v.v.) thư mục.</string>
     <string name="divide_resolution_by_prompt">Phân chia độ phân giải cho:</string>
