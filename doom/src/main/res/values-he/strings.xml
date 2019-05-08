@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">gamepad</string>
+    <string name="options_tab">אפשרויות</string>
+    <string name="no_iwads_err">בחר קובץ IWAD. העתק קובצי IWAD ל:</string>
+    <string name="ok_confirm">בסדר</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">חופש</string>
+    <string name="start_full">הפעלה</string>
+    <string name="start_wads">תוספים</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">הפעל את לוח המשחק</string>
+    <string name="hide_touch_controls_toggle">הסתר בקרת מגע</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">תסתכל / תסתכל למטה</string>
+    <string name="look_left_right_option">תראי שמאלה / תראי</string>
+    <string name="forward_back_option">קדימה / אחורה</string>
+    <string name="strafe_option">סטראף</string>
+    <string name="attack_option">לתקוף</string>
+    <string name="attack_alt_option">התקפת אלט (GZ)</string>
+    <string name="move_back_option">זוז אחורה</string>
+    <string name="crouch_option">קראוץ &#39;(GZ)</string>
+    <string name="custom_0_option">מותאם אישית (GZ)</string>
+    <string name="custom_1_option">מותאם אישית B (GZ)</string>
+    <string name="custom_2_option">מותאם אישית C (GZ)</string>
+    <string name="custom_3_option">מותאם אישית D (GZ)</string>
+    <string name="custom_4_option">מותאם אישית E (GZ)</string>
+    <string name="custom_5_option">מותאם אישית F (GZ)</string>
+    <string name="fly_down_option">עוף למטה</string>
+    <string name="fly_up_option">לעוף למעלה</string>
+    <string name="fwd_option">להתקדם</string>
+    <string name="inv_drop_option">שחרור פריט</string>
+    <string name="inv_next_option">פריט הבא</string>
+    <string name="inv_prev_option">פריט קודם</string>
+    <string name="inv_use_option">השתמש בפריט</string>
+    <string name="jump_option">קפיצה (GZ)</string>
+    <string name="left_option">סטרף שמאל</string>
+    <string name="look_left_option">תסתכל שמאלה</string>
+    <string name="look_right_option">תסתכל ימינה</string>
+    <string name="map_down_option">הפוך אוטומטית</string>
+    <string name="map_left_option">אוטומטי שמאלה</string>
+    <string name="map_right_option">אוטומטי</string>
+    <string name="map_show_option">הצג את האוטומטי</string>
+    <string name="map_up_option">הפוך אוטומטית</string>
+    <string name="map_zoomin_option">אוטומטי</string>
+    <string name="map_zoomout_option">אוטומטי זום</string>
+    <string name="menu_back_option">תפריט חזרה</string>
+    <string name="menu_down_option">תפריט למטה</string>
+    <string name="menu_left_option">תפריט שמאלה</string>
+    <string name="menu_right_option">תפריט מימין</string>
+    <string name="menu_select_option">בחר תפריט</string>
+    <string name="menu_up_option">תפריט למעלה</string>
+    <string name="next_weapon_option">הנשק הבא</string>
+    <string name="prev_weapon_option">נשק קודם</string>
+    <string name="quick_load_option">טעינה מהירה (GZ)</string>
+    <string name="quick_save_option">חיסכון מהיר (GZ)</string>
+    <string name="right_option">סטריפ ימין</string>
+    <string name="show_keys_option">הצג מפתחות</string>
+    <string name="show_weap_option">הצג סטטיסטיקות / נשק</string>
+    <string name="speed_option">לרוץ על</string>
+    <string name="strafe_on_option">להכות ב</string>
+    <string name="use_option">השתמש / פתח</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">תיקיית חופש</string>
+    <string name="wad_dir_prompt">תצורה ותוכן (WAD, DEH, וכו &#39;) במדריך.</string>
+    <string name="divide_resolution_by_prompt">מחלק את הרזולוציה על ידי:</string>
+    <string name="reset_button_text">לאפס</string>
+    <string name="choose_button_text">בחר</string>
+
+    <string-array name="double_tap_actions">
+        <item>אף אחד</item>
+        <item>לירות</item>
+        <item>קפיצה</item>
+        <item>להשתמש</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>אף אחד</item>
+        <item>לירות</item>
+        <item>קפיצה</item>
+        <item>להשתמש</item>
+        <item>השתמש בכוח</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>גדול</item>
+        <item>בינוני</item>
+        <item>קטן</item>
+    </string-array>
+</resources>
