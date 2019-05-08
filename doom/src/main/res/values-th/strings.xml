@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dummy_string>REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>
+    <string name="file_permission_fail_toast">OOPS! Freedoom needs file permissions to copy over levels to shared storage. Please re-launch app</string>
+    <string name="gamepad_tab">แป้น</string>
+    <string name="options_tab">ตัวเลือก</string>
+    <string name="no_iwads_err">โปรดเลือกไฟล์ IWAD คัดลอกไฟล์ IWAD ไปที่:</string>
+    <string name="ok_confirm">ตกลง</string>
+    
+    <!-- gzdoom (freedoom) fragment-->
+    <string name="app_name">Freedoom</string>
+    <string name="start_full">เปิด</string>
+    <string name="start_wads">addons</string>
+    <!-- gamepad fragment -->
+    <string name="enable_game_pad_toggle">เปิดใช้งาน Game Pad</string>
+    <string name="hide_touch_controls_toggle">ซ่อนการควบคุมแบบสัมผัส</string>
+    <!-- gamepad fragment options -->
+    <string name="look_up_down_option">Look Up / Look Down</string>
+    <string name="look_left_right_option">Look Left / Look Right</string>
+    <string name="forward_back_option">ไปข้างหน้า / หลัง</string>
+    <string name="strafe_option">ยิงกราด</string>
+    <string name="attack_option">โจมตี</string>
+    <string name="attack_alt_option">Alt Attack (GZ)</string>
+    <string name="move_back_option">เลื่อนไปข้างหลัง</string>
+    <string name="crouch_option">Crouch (GZ)</string>
+    <string name="custom_0_option">กำหนดเอง (GZ)</string>
+    <string name="custom_1_option">กำหนดเอง B (GZ)</string>
+    <string name="custom_2_option">กำหนดเอง C (GZ)</string>
+    <string name="custom_3_option">กำหนดเอง D (GZ)</string>
+    <string name="custom_4_option">กำหนดเอง E (GZ)</string>
+    <string name="custom_5_option">กำหนดเอง F (GZ)</string>
+    <string name="fly_down_option">บินลง</string>
+    <string name="fly_up_option">บินขึ้นไป</string>
+    <string name="fwd_option">ก้าวไปข้างหน้า</string>
+    <string name="inv_drop_option">วางรายการ</string>
+    <string name="inv_next_option">รายการถัดไป</string>
+    <string name="inv_prev_option">รายการก่อนหน้า</string>
+    <string name="inv_use_option">ใช้รายการ</string>
+    <string name="jump_option">กระโดด (GZ)</string>
+    <string name="left_option">ยิงกราดซ้าย</string>
+    <string name="look_left_option">มองทางซ้าย</string>
+    <string name="look_right_option">ดูขวา</string>
+    <string name="map_down_option">Automap Down</string>
+    <string name="map_left_option">Automap Left</string>
+    <string name="map_right_option">Automap Right</string>
+    <string name="map_show_option">แสดง Automap</string>
+    <string name="map_up_option">อัตโนมัติขึ้น</string>
+    <string name="map_zoomin_option">Automap Zoomin</string>
+    <string name="map_zoomout_option">Automap Zoomout</string>
+    <string name="menu_back_option">เมนูย้อนกลับ</string>
+    <string name="menu_down_option">เมนูลง</string>
+    <string name="menu_left_option">เมนูซ้าย</string>
+    <string name="menu_right_option">เมนูด้านขวา</string>
+    <string name="menu_select_option">เลือกเมนู</string>
+    <string name="menu_up_option">เมนูขึ้น</string>
+    <string name="next_weapon_option">อาวุธต่อไป</string>
+    <string name="prev_weapon_option">อาวุธก่อนหน้า</string>
+    <string name="quick_load_option">โหลดเร็ว (GZ)</string>
+    <string name="quick_save_option">บันทึกด่วน (GZ)</string>
+    <string name="right_option">ยิงกราดขวา</string>
+    <string name="show_keys_option">แสดงกุญแจ</string>
+    <string name="show_weap_option">แสดงสถิติ / อาวุธ</string>
+    <string name="speed_option">วิ่งต่อ</string>
+    <string name="strafe_on_option">Strafe On</string>
+    <string name="use_option">ใช้ / เปิด</string>
+
+    <!-- options fragment --> 
+    <string name="folder_name_prompt">โฟลเดอร์ Freedoom</string>
+    <string name="wad_dir_prompt">ไดเร็กทอรีการกำหนดค่าและเนื้อหา (WAD, DEH เป็นต้น)</string>
+    <string name="divide_resolution_by_prompt">แบ่งความละเอียดตาม:</string>
+    <string name="reset_button_text">รีเซ็ต</string>
+    <string name="choose_button_text">เลือก</string>
+
+    <string-array name="double_tap_actions">
+        <item>ไม่มี</item>
+        <item>ยิง</item>
+        <item>กระโดด</item>
+        <item>ใช้</item>
+    </string-array>
+    <string-array name="double_tap_actions_jk">
+        <item>ไม่มี</item>
+        <item>ยิง</item>
+        <item>กระโดด</item>
+        <item>ใช้</item>
+        <item>ใช้กำลัง</item>
+    </string-array>
+    <string-array name="quake2_hud_size">
+        <item>ใหญ่</item>
+        <item>กลาง</item>
+        <item>เล็ก</item>
+    </string-array>
+</resources>
