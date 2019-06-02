@@ -55,6 +55,7 @@ public class Utils {
         String iniFolderName = "/gzdoom_dev";
         String iniFileName = "zdoom.ini";
         String fullBaseDir = AppSettings.getQuakeFullDir();
+        String fullWadDir = fullBaseDir + "/" + "wads";
 
         // Freedoom additions
         Utils.copyAsset(responsibleActivity, "freedoom1.wad", fullBaseDir);
@@ -62,6 +63,13 @@ public class Utils {
         // Freedoom licence and credits
         Utils.copyAsset(responsibleActivity, "COPYING.txt", fullBaseDir);
         Utils.copyAsset(responsibleActivity, "CREDITS.txt", fullBaseDir);
+
+        // Add Romero's Sigil addon wad
+        Utils.copyAsset(responsibleActivity, "sigil.wad", fullWadDir);
+        // Credits
+        Utils.copyAsset(responsibleActivity, "sigil.txt", fullWadDir);
+
+
         // copy a custom gzdoom iniFile to set midi device to fluidsynth
         File tester = new File(fullBaseDir + iniFolderName + "/" + iniFileName);
         if (!tester.exists()) {
