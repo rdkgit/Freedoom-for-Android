@@ -68,7 +68,7 @@
     <!-- options fragment --> 
     <string name="folder_name_prompt">Freedoom Folder</string>
     <string name="wad_dir_prompt">Configuration and content (WAD, DEH, etc.) directory.</string>
-    <string name="divide_resolution_by_prompt">Divide resolution by:</string>
+    <string name="divide_resolution_by_prompt">Divide resolution by (reduce lag):</string>
     <string name="sdcard_button_text" translatable="false">SDCARD</string>
     <string name="reset_button_text">reset</string>
     <string name="choose_button_text">choose</string>
