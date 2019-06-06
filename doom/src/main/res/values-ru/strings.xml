@@ -67,7 +67,7 @@
     <!-- options fragment --> 
     <string name="folder_name_prompt">Папка Freedoom</string>
     <string name="wad_dir_prompt">содержание (WAD) папка</string>
-    <string name="divide_resolution_by_prompt">Разделить экран на:</string>
+    <string name="divide_resolution_by_prompt">Разделить экран на (уменьшить отставание):</string>
     <string name="reset_button_text">сброс</string>
     <string name="choose_button_text">выбирать</string>
 
