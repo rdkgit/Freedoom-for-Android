@@ -7,7 +7,7 @@
     <string name="options_tab">אפשרויות</string>
     <string name="no_iwads_err">בחר קובץ IWAD. העתק קובצי IWAD ל:</string>
     <string name="ok_confirm">בסדר</string>
-    
+
     <!-- gzdoom (freedoom) fragment-->
     <string name="app_name">חופש</string>
     <string name="start_full">הפעלה</string>
@@ -65,7 +65,7 @@
     <string name="strafe_on_option">להכות ב</string>
     <string name="use_option">השתמש / פתח</string>
 
-    <!-- options fragment --> 
+    <!-- options fragment -->
     <string name="folder_name_prompt">תיקיית חופש</string>
     <string name="wad_dir_prompt">תצורה ותוכן (WAD, DEH, וכו) במדריך.</string>
     <string name="divide_resolution_by_prompt">מחלק את הרזולוציה על ידי:</string>

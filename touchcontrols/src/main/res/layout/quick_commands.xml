@@ -1,18 +1,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/add_quick_command_image"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/main_button"
@@ -45,15 +45,15 @@
         android:layout_height="wrap_content"
         android:background="@drawable/layout_sel_background"
         android:orientation="vertical"
-        android:visibility="gone" >
+        android:visibility="gone">
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -66,13 +66,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:singleLine="true" >
-                </EditText>
+                    android:singleLine="true"></EditText>
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -85,13 +84,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:singleLine="true" >
-                </EditText>
+                    android:singleLine="true"></EditText>
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <Button
                     android:id="@+id/cancel_button"
@@ -110,8 +108,7 @@
         </TableLayout>
     </LinearLayout>
 
-    <com.mobeta.android.dslv.DragSortListView
-        xmlns:dslv="http://schemas.android.com/apk/res-auto"
+    <com.mobeta.android.dslv.DragSortListView xmlns:dslv="http://schemas.android.com/apk/res-auto"
         android:id="@+id/list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

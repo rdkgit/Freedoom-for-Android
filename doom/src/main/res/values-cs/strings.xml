@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Thanks Vojtěch Frank -->
+<?xml version="1.0" encoding="utf-8"?><!-- Thanks Vojtěch Frank -->
 <resources>
 
     <string name="dummy_string">REMOVEME ADDED TO KICK TRANSIFEX INTO PULLING ON COMMIT</string>

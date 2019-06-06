@@ -35,28 +35,23 @@ import com.bda.controller.ControllerListener;
 import com.bda.controller.StateEvent;
 */
 public class GamePadFragment extends Fragment {
-    final String LOG = "GamePadFragment";
-
-    ListView listView;
-    ControlListAdapter adapter;
-
-    TextView info;
-
-    ControlConfig config;
-
     //This is a bit shit, set this before instantiat the fragment
     public static ArrayList<ActionInput> gamepadActions;
-
-    GenericAxisValues genericAxisValues = new GenericAxisValues();
-
-    Controller mogaController = null;
+    final String LOG = "GamePadFragment";
     final MogaControllerListener mListener = new MogaControllerListener();
+    ListView listView;
+    ControlListAdapter adapter;
+    TextView info;
+    ControlConfig config;
+    GenericAxisValues genericAxisValues = new GenericAxisValues();
+    Controller mogaController = null;
+    boolean isHidden = true;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        config = new ControlConfig(TouchSettings.gamePadControlsFile,gamepadActions);
+        config = new ControlConfig(TouchSettings.gamePadControlsFile, gamepadActions);
 
         try {
             config.loadControls();
@@ -78,12 +73,9 @@ public class GamePadFragment extends Fragment {
 
 
         mogaController = Controller.getInstance(getActivity());
-        MogaHack.init(mogaController,getActivity());
+        MogaHack.init(mogaController, getActivity());
         mogaController.setListener(mListener, new Handler());
     }
-
-
-    boolean isHidden = true;
 
     @Override
     public void onHiddenChanged(boolean hidden) {
