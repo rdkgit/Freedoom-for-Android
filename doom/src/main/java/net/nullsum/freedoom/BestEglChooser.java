@@ -81,13 +81,13 @@ public class BestEglChooser implements EGLConfigChooser {
         EGLConfig[] configs = new EGLConfig[numConfigs];
         egl.eglChooseConfig(display, mConfigSpec[specChosen], configs, numConfigs, num_config);
 
-        String eglConfigsString = "";
+        StringBuilder eglConfigsString = new StringBuilder();
         for (int n = 0; n < configs.length; n++) {
             Log.i(LOG, "found EGL config : " + printConfig(egl, display, configs[n]));
-            eglConfigsString += n + ": " + printConfig(egl, display, configs[n]) + ",";
+            eglConfigsString.append(n).append(": ").append(printConfig(egl, display, configs[n])).append(",");
         }
-        Log.i(LOG, eglConfigsString);
-        AppSettings.setStringOption(ctx, "egl_configs", eglConfigsString);
+        Log.i(LOG, eglConfigsString.toString());
+        AppSettings.setStringOption(ctx, "egl_configs", eglConfigsString.toString());
 
 
         int selected = 0;

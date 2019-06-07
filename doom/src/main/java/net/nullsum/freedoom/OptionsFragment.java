@@ -1,15 +1,11 @@
 package net.nullsum.freedoom;
 
-import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Fragment;
-import android.content.DialogInterface;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -32,17 +28,15 @@ public class OptionsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View mainView = inflater.inflate(R.layout.fragment_options, null);
-        Spinner resSpinnder = (Spinner) mainView.findViewById(R.id.resolution_div_spinner);
+        Spinner resSpinnder = mainView.findViewById(R.id.resolution_div_spinner);
 
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         list.add("1");
         list.add("2");
         list.add("3");
@@ -52,7 +46,7 @@ public class OptionsFragment extends Fragment {
         list.add("7");
         list.add("8");
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         resSpinnder.setAdapter(dataAdapter);
@@ -69,81 +63,50 @@ public class OptionsFragment extends Fragment {
         int selected = AppSettings.getIntOption(getActivity(), "gzdoom_res_div", 1);
         resSpinnder.setSelection(selected - 1);
 
-        basePathTextView = (TextView) mainView.findViewById(R.id.base_path_textview);
+        basePathTextView = mainView.findViewById(R.id.base_path_textview);
 
         basePathTextView.setText(AppSettings.freedoomBaseDir);
 
-        Button chooseDir = (Button) mainView.findViewById(R.id.choose_base_button);
-        chooseDir.setOnClickListener(new OnClickListener() {
+        Button chooseDir = mainView.findViewById(R.id.choose_base_button);
+        chooseDir.setOnClickListener(v -> {
+            DirectoryChooserDialog directoryChooserDialog =
+                    new DirectoryChooserDialog(getActivity(), this::updateBaseDir);
 
-            @Override
-            public void onClick(View v) {
-                DirectoryChooserDialog directoryChooserDialog =
-                        new DirectoryChooserDialog(getActivity(),
-                                new DirectoryChooserDialog.ChosenDirectoryListener() {
-                                    @Override
-                                    public void onChosenDir(String chosenDir) {
-                                        updateBaseDir(chosenDir);
-                                    }
-                                });
-
-                directoryChooserDialog.chooseDirectory(AppSettings.freedoomBaseDir);
-            }
+            directoryChooserDialog.chooseDirectory(AppSettings.freedoomBaseDir);
         });
 
 
-        Button resetDir = (Button) mainView.findViewById(R.id.reset_base_button);
-        resetDir.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                AppSettings.resetBaseDir(getActivity());
-                updateBaseDir(AppSettings.freedoomBaseDir);
-            }
+        Button resetDir = mainView.findViewById(R.id.reset_base_button);
+        resetDir.setOnClickListener(v -> {
+            AppSettings.resetBaseDir(getActivity());
+            updateBaseDir(AppSettings.freedoomBaseDir);
         });
 
 
-        Button sdcardDir = (Button) mainView.findViewById(R.id.sdcard_base_button);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            sdcardDir.setOnClickListener(new OnClickListener() {
+        Button sdcardDir = mainView.findViewById(R.id.sdcard_base_button);
+        sdcardDir.setOnClickListener(v -> {
+            File[] files = getActivity().getExternalFilesDirs(null);
 
-                @TargetApi(Build.VERSION_CODES.KITKAT)
-                @Override
-                public void onClick(View v) {
-                    File[] files = getActivity().getExternalFilesDirs(null);
+            if ((files.length < 2) || (files[1] == null)) {
+                showError("Can not find an external SD Card, is the card inserted?");
+                return;
+            }
 
-                    if ((files.length < 2) || (files[1] == null)) {
-                        showError("Can not find an external SD Card, is the card inserted?");
-                        return;
-                    }
+            final String path = files[1].toString();
 
-                    final String path = files[1].toString();
+            Builder dialogBuilder = new Builder(getActivity());
+            dialogBuilder.setTitle("WARNING");
+            dialogBuilder.setMessage("This will use the special location on the external SD Card which can be written to by this app, Android will DELETE this"
+                    + " area when you uninstall the app and you will LOSE YOUR SAVEGAMES and game data!");
+            dialogBuilder.setPositiveButton("OK", (dialog, which) -> updateBaseDir(path));
+            dialogBuilder.setNegativeButton("Cancel", (dialog, which) -> {
 
-                    AlertDialog.Builder dialogBuilder = new Builder(getActivity());
-                    dialogBuilder.setTitle("WARNING");
-                    dialogBuilder.setMessage("This will use the special location on the external SD Card which can be written to by this app, Android will DELETE this"
-                            + " area when you uninstall the app and you will LOSE YOUR SAVEGAMES and game data!");
-                    dialogBuilder.setPositiveButton("OK", new android.content.DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            updateBaseDir(path);
-                        }
-                    });
-                    dialogBuilder.setNegativeButton("Cancel", new android.content.DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                        }
-                    });
-
-                    final AlertDialog errdialog = dialogBuilder.create();
-                    errdialog.show();
-
-                }
             });
-        } else {
-            sdcardDir.setVisibility(View.GONE);
-        }
+
+            final AlertDialog errdialog = dialogBuilder.create();
+            errdialog.show();
+
+        });
 
         return mainView;
     }
@@ -182,7 +145,6 @@ public class OptionsFragment extends Fragment {
             return;
         }
 
-
         AppSettings.freedoomBaseDir = dir;
         AppSettings.setStringOption(getActivity(), "base_path", AppSettings.freedoomBaseDir);
         AppSettings.createDirectories(getActivity());
@@ -193,11 +155,8 @@ public class OptionsFragment extends Fragment {
     private void showError(String error) {
         AlertDialog.Builder dialogBuilder = new Builder(getActivity());
         dialogBuilder.setTitle(error);
-        dialogBuilder.setPositiveButton("OK", new android.content.DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
+        dialogBuilder.setPositiveButton("OK", (dialog, which) -> {
 
-            }
         });
 
         final AlertDialog errdialog = dialogBuilder.create();

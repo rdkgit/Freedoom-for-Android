@@ -15,7 +15,7 @@ public class SingleMediaScanner implements MediaScannerConnectionClient {
     private String mFile;
     private boolean path;
 
-    public SingleMediaScanner(Context context, boolean path, String f) {
+    SingleMediaScanner(Context context, boolean path, String f) {
         Log.d("SingleMediaScanner", "path = " + path + ", f = " + f);
         mFile = f;
         mMs = new MediaScannerConnection(context, this);

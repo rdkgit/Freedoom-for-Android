@@ -2,25 +2,25 @@ package com.beloko.touchcontrols;
 
 public interface ControlInterface {
 
-    public void initTouchControls_if(String pngPath, int width, int height);
+    void initTouchControls_if(String pngPath, int width, int height);
 
-    public boolean touchEvent_if(int action, int pid, float x, float y);
+    boolean touchEvent_if(int action, int pid, float x, float y);
 
-    public void keyPress_if(int down, int qkey, int unicode);
+    void keyPress_if(int down, int qkey, int unicode);
 
-    public void doAction_if(int state, int action);
+    void doAction_if(int state, int action);
 
-    public void analogFwd_if(float v);
+    void analogFwd_if(float v);
 
-    public void analogSide_if(float v);
+    void analogSide_if(float v);
 
-    public void analogPitch_if(int mode, float v);
+    void analogPitch_if(int mode, float v);
 
-    public void analogYaw_if(int mode, float v);
+    void analogYaw_if(int mode, float v);
 
-    public void setTouchSettings_if(float alpha, float strafe, float fwd, float pitch, float yaw, int other);
+    void setTouchSettings_if(float alpha, float strafe, float fwd, float pitch, float yaw, int other);
 
-    public void quickCommand_if(String command);
+    void quickCommand_if(String command);
 
-    public int mapKey(int acode, int unicode);
+    int mapKey(int acode, int unicode);
 }

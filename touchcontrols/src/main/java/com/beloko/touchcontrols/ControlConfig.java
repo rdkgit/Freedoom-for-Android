@@ -3,13 +3,10 @@ package com.beloko.touchcontrols;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnDismissListener;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -33,7 +30,6 @@ public class ControlConfig implements Serializable {
     public static final int LOOK_MODE_ABSOLUTE = 1;
     public static final int LOOK_MODE_JOYSTICK = 2;
 
-    ;
     public static final int ACTION_ANALOG_FWD = 0x100;
     public static final int ACTION_ANALOG_STRAFE = 0x101;
     public static final int ACTION_ANALOG_PITCH = 0x102;
@@ -84,9 +80,9 @@ public class ControlConfig implements Serializable {
     public static final int PORT_MALICE_RELOAD = 60;
     public static final int PORT_MALICE_CYCLE = 61;
     //JK2
-    //public static final int   PORT_ACT_FORCE_LIGHTNING = 60;
-    //public static final int   PORT_ACT_SABER_BLOCK     = 62;
-    //public static final int   PORT_ACT_FORCE_GRIP      = 63;
+    //public static final int PORT_ACT_FORCE_LIGHTNING = 60;
+    //public static final int PORT_ACT_SABER_BLOCK = 62;
+    //public static final int PORT_ACT_FORCE_GRIP = 63;
     public static final int PORT_ACT_ALT_ATTACK = 64;
     public static final int PORT_ACT_NEXT_FORCE = 65;
     public static final int PORT_ACT_PREV_FORCE = 66;
@@ -103,7 +99,7 @@ public class ControlConfig implements Serializable {
     public static final int PORT_ACT_FORCE_SPEED = 80;
     public static final int PORT_ACT_FORCE_PUSH = 81;
     public static final int PORT_ACT_SABER_SEL = 87; //Just chooses weapon 1 so show/hide saber.
-    //Choloate
+    //Chocolate
     public static final int PORT_ACT_GAMMA = 90;
     public static final int PORT_ACT_SHOW_WEAPONS = 91;
     public static final int PORT_ACT_SHOW_KEYS = 92;
@@ -134,8 +130,8 @@ public class ControlConfig implements Serializable {
     TextView infoTextView;
     String filename;
     boolean ignoreDirectionFromJoystick;
-    ArrayList<ActionInput> actions = new ArrayList<ActionInput>();
-    ActionInput actionMontor = null;
+    ArrayList<ActionInput> actions = new ArrayList<>();
+    ActionInput actionMonitor = null;
     boolean monitoring = false;
     int[] axisTest = {
             /*
@@ -235,7 +231,7 @@ public class ControlConfig implements Serializable {
         }
 
         //Now check no buttons are also assigned to analog, if it is, clear the buttons
-        //This is because n00bs keep assigning movment analog AND buttons!
+        //This is because n00bs keep assigning movement analog AND buttons!
         for (ActionInput a : actions) {
             if ((a.source != -1) && (a.sourceType == Type.ANALOG) && (a.actionType == Type.BUTTON)) {
                 for (ActionInput a_check : actions) {
@@ -285,14 +281,10 @@ public class ControlConfig implements Serializable {
 
             l.addView(invert);
 
-            dialog.setOnDismissListener(new OnDismissListener() {
-
-                @Override
-                public void onDismiss(DialogInterface dialog) {
-                    in.scale = (float) sb.getProgress() / (float) 50;
-                    in.invert = invert.isChecked();
-                    updated();
-                }
+            dialog.setOnDismissListener(dialog1 -> {
+                in.scale = (float) sb.getProgress() / (float) 50;
+                in.invert = invert.isChecked();
+                updated();
             });
 
             dialog.setContentView(l);
@@ -304,13 +296,13 @@ public class ControlConfig implements Serializable {
     }
 
     public void startMonitor(Activity act, int pos) {
-        actionMontor = actions.get(pos);
+        actionMonitor = actions.get(pos);
         monitoring = true;
 
-        if (actionMontor.actionType == Type.ANALOG)
-            infoTextView.setText("Move Stick for: " + actionMontor.description);
+        if (actionMonitor.actionType == Type.ANALOG)
+            infoTextView.setText("Move Stick for: " + actionMonitor.description);
         else
-            infoTextView.setText("Press Button for: " + actionMontor.description);
+            infoTextView.setText("Press Button for: " + actionMonitor.description);
 
         infoTextView.setTextColor(ctx.getResources().getColor(android.R.color.holo_green_light));
     }
@@ -318,21 +310,18 @@ public class ControlConfig implements Serializable {
     public boolean onGenericMotionEvent(GenericAxisValues event) {
         if (TouchSettings.DEBUG) Log.d(LOG, "onGenericMotionEvent");
         if (monitoring) {
-            if (actionMontor != null) {
+            if (actionMonitor != null) {
                 for (int a : axisTest) {
                     if (Math.abs(event.getAxisValue(a)) > 0.6) {
-                        actionMontor.source = a;
-                        actionMontor.sourceType = Type.ANALOG;
+                        actionMonitor.source = a;
+                        actionMonitor.sourceType = Type.ANALOG;
                         //Used for button actions
-                        if (event.getAxisValue(a) > 0)
-                            actionMontor.sourcePositive = true;
-                        else
-                            actionMontor.sourcePositive = false;
+                        actionMonitor.sourcePositive = event.getAxisValue(a) > 0;
 
                         monitoring = false;
 
                         if (TouchSettings.DEBUG)
-                            Log.d(LOG, actionMontor.description + " = Analog (" + actionMontor.source + ")");
+                            Log.d(LOG, actionMonitor.description + " = Analog (" + actionMonitor.source + ")");
 
                         infoTextView.setText("Select Action");
                         infoTextView.setTextColor(ctx.getResources().getColor(android.R.color.holo_blue_light));
@@ -356,8 +345,8 @@ public class ControlConfig implements Serializable {
         if (monitoring) {
             if (keyCode == KeyEvent.KEYCODE_BACK) //Cancel and clear button assignment
             {
-                actionMontor.source = -1;
-                actionMontor.sourceType = Type.BUTTON;
+                actionMonitor.source = -1;
+                actionMonitor.sourceType = Type.BUTTON;
                 monitoring = false;
                 infoTextView.setText("CANCELED");
                 infoTextView.setTextColor(ctx.getResources().getColor(android.R.color.holo_red_light));
@@ -365,10 +354,10 @@ public class ControlConfig implements Serializable {
                 updated();
                 return true;
             } else {
-                if (actionMontor != null) {
-                    if (actionMontor.actionType != Type.ANALOG) {
-                        actionMontor.source = keyCode;
-                        actionMontor.sourceType = Type.BUTTON;
+                if (actionMonitor != null) {
+                    if (actionMonitor.actionType != Type.ANALOG) {
+                        actionMonitor.source = keyCode;
+                        actionMonitor.sourceType = Type.BUTTON;
                         monitoring = false;
 
                         infoTextView.setText("Select Action");
@@ -395,10 +384,10 @@ public class ControlConfig implements Serializable {
     public View getView(final Activity ctx, final int nbr) {
 
         View view = ctx.getLayoutInflater().inflate(R.layout.controls_listview_item, null);
-        ImageView image = (ImageView) view.findViewById(R.id.imageView);
-        TextView name = (TextView) view.findViewById(R.id.name_textview);
-        TextView binding = (TextView) view.findViewById(R.id.binding_textview);
-        ImageView setting_image = (ImageView) view.findViewById(R.id.settings_imageview);
+        ImageView image = view.findViewById(R.id.imageView);
+        TextView name = view.findViewById(R.id.name_textview);
+        TextView binding = view.findViewById(R.id.binding_textview);
+        ImageView setting_image = view.findViewById(R.id.settings_imageview);
 
         ActionInput ai = actions.get(nbr);
 
@@ -419,40 +408,27 @@ public class ControlConfig implements Serializable {
             }
         } else if (ai.actionType == Type.ANALOG) {
             binding.setText(MotionEvent.axisToString(ai.source));
-            setting_image.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    showExtraOptions(ctx, nbr);
-                }
-            });
+            setting_image.setOnClickListener(v -> showExtraOptions(ctx, nbr));
             name.setTextColor(0xFFf7941d); //ORANGE
         }
 
-		/*
-		if (ai.actionType == Type.BUTTON)
-		{
-			image.setImageResource(R.drawable.gamepad);
-			if (ai.sourceType == Type.ANALOG)
-				binding.setText(MotionEvent.axisToString(ai.source));
-			else
-				binding.setText(KeyEvent.keyCodeToString(ai.source));
+/*
+        if (ai.actionType == Type.BUTTON) {
+            image.setImageResource(R.drawable.gamepad);
+            if (ai.sourceType == Type.ANALOG)
+                binding.setText(MotionEvent.axisToString(ai.source));
+            else
+                binding.setText(KeyEvent.keyCodeToString(ai.source));
 
-			setting_image.setVisibility(View.GONE);
-		}
-		else //Analog
-		{
-			binding.setText(MotionEvent.axisToString(ai.source));
-			setting_image.setOnClickListener(new OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
-					showExtraOptions(ctx,nbr);
-				}
-			});
-			name.setTextColor(0xFFf7941d);
-		}
+            setting_image.setVisibility(View.GONE);
+        } else //Analog
+        {
+            binding.setText(MotionEvent.axisToString(ai.source));
+            setting_image.setOnClickListener(v -> showExtraOptions(ctx, nbr));
+            name.setTextColor(0xFFf7941d);
+        }
 */
+
         name.setText(ai.description);
 
         return view;

@@ -10,7 +10,6 @@ import android.view.inputmethod.InputMethodManager;
 public class ShowKeyboard {
     static Activity activity;
     static View view;
-    ;
 
     public static void setup(Activity a, View v) {
         activity = a;
@@ -43,13 +42,13 @@ public class ShowKeyboard {
                 toggleKeyboard();
         }
 
-		/*
-		 InputMethodManager imm = (InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-		 if (show == 1)
-			 imm.showSoftInput(view, InputMethodManager.SHOW_FORCED);
-		 else
-			 imm.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-		 */
+/*
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (show == 1)
+            imm.showSoftInput(view, InputMethodManager.SHOW_FORCED);
+        else
+            imm.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+*/
     }
 
     public static boolean hasHardwareKeyboard() {

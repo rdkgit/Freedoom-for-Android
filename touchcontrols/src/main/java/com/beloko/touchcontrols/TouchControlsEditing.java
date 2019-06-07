@@ -8,8 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.BaseAdapter;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -41,24 +39,22 @@ public class TouchControlsEditing {
         if (act != null)
             activity = act;
 
-        activity.runOnUiThread(new Runnable() {
-            public void run() {
-                final Dialog dialog = new Dialog(activity);
-                ListView listView = new ListView(activity);
+        activity.runOnUiThread(() -> {
+            final Dialog dialog = new Dialog(activity);
+            ListView listView = new ListView(activity);
 
-                dialog.setContentView(listView);
-                dialog.setTitle("Add/remove buttons");
-                dialog.setCancelable(true);
+            dialog.setContentView(listView);
+            dialog.setTitle("Add/remove buttons");
+            dialog.setCancelable(true);
 
-                adapter = new ListAdapter(activity);
-                listView.setAdapter(adapter);
+            adapter = new ListAdapter(activity);
+            listView.setAdapter(adapter);
 
-                dialog.getWindow().setFlags(
-                        WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                        WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            dialog.getWindow().setFlags(
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-                dialog.show();
-            }
+            dialog.show();
         });
 
     }
@@ -75,11 +71,9 @@ public class TouchControlsEditing {
 
         public ListAdapter(Activity context) {
             this.context = context;
-
         }
 
         public void add(String string) {
-
         }
 
         public int getCount() {
@@ -103,9 +97,9 @@ public class TouchControlsEditing {
 
             final int my_pos = position;
 
-            ImageView image = (ImageView) convertView.findViewById(R.id.imageView);
-            TextView name = (TextView) convertView.findViewById(R.id.name_textview);
-            ToggleButton hidden = (ToggleButton) convertView.findViewById(R.id.hidden_switch);
+            ImageView image = convertView.findViewById(R.id.imageView);
+            TextView name = convertView.findViewById(R.id.name_textview);
+            ToggleButton hidden = convertView.findViewById(R.id.hidden_switch);
 
 
             TouchControlsEditing.ControlInfo ci = new TouchControlsEditing.ControlInfo();
@@ -113,17 +107,13 @@ public class TouchControlsEditing {
 
             name.setText(ci.tag);
             hidden.setChecked(!ci.hidden);
-            hidden.setTag(new Integer(position));
+            hidden.setTag(position);
 
-            hidden.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            hidden.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                Integer pos = (Integer) buttonView.getTag();
 
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    Integer pos = (Integer) buttonView.getTag();
-
-                    TouchControlsEditing.JNISetHidden(pos, !isChecked);
-                    adapter.notifyDataSetChanged();
-                }
+                TouchControlsEditing.JNISetHidden(pos, !isChecked);
+                adapter.notifyDataSetChanged();
             });
 
             String png = activity.getFilesDir() + "/" + ci.image + ".png";
@@ -133,8 +123,5 @@ public class TouchControlsEditing {
             image.setImageDrawable(bm);
             return convertView;
         }
-
     }
-
-
 }

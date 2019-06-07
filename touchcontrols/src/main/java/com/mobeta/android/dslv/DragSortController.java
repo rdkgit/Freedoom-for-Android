@@ -59,8 +59,6 @@ public class DragSortController extends SimpleFloatViewManager implements View.O
 
     private boolean mDragging = false;
 
-    private float mFlingSpeed = 500f;
-
     private int mDragHandleId;
 
     private int mClickRemoveId;
@@ -70,29 +68,6 @@ public class DragSortController extends SimpleFloatViewManager implements View.O
 
     private DragSortListView mDslv;
     private int mPositionX;
-    private GestureDetector.OnGestureListener mFlingRemoveListener =
-            new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public final boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
-                                             float velocityY) {
-                    // Log.d("mobeta", "on fling remove called");
-                    if (mRemoveEnabled && mIsRemoving) {
-                        int w = mDslv.getWidth();
-                        int minPos = w / 5;
-                        if (velocityX > mFlingSpeed) {
-                            if (mPositionX > -minPos) {
-                                mDslv.stopDragWithVelocity(true, velocityX);
-                            }
-                        } else if (velocityX < -mFlingSpeed) {
-                            if (mPositionX < minPos) {
-                                mDslv.stopDragWithVelocity(true, velocityX);
-                            }
-                        }
-                        mIsRemoving = false;
-                    }
-                    return false;
-                }
-            };
 
     /**
      * Calls  with a
@@ -127,6 +102,30 @@ public class DragSortController extends SimpleFloatViewManager implements View.O
         super(dslv);
         mDslv = dslv;
         mDetector = new GestureDetector(dslv.getContext(), this);
+        // Log.d("mobeta", "on fling remove called");
+        GestureDetector.OnGestureListener mFlingRemoveListener = new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public final boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+                                         float velocityY) {
+                // Log.d("mobeta", "on fling remove called");
+                if (mRemoveEnabled && mIsRemoving) {
+                    int w = mDslv.getWidth();
+                    int minPos = w / 5;
+                    float mFlingSpeed = 500f;
+                    if (velocityX > mFlingSpeed) {
+                        if (mPositionX > -minPos) {
+                            mDslv.stopDragWithVelocity(true, velocityX);
+                        }
+                    } else if (velocityX < -mFlingSpeed) {
+                        if (mPositionX < minPos) {
+                            mDslv.stopDragWithVelocity(true, velocityX);
+                        }
+                    }
+                    mIsRemoving = false;
+                }
+                return false;
+            }
+        };
         mFlingRemoveDetector = new GestureDetector(dslv.getContext(), mFlingRemoveListener);
         mFlingRemoveDetector.setIsLongpressEnabled(false);
         mTouchSlop = ViewConfiguration.get(dslv.getContext()).getScaledTouchSlop();
@@ -403,7 +402,7 @@ public class DragSortController extends SimpleFloatViewManager implements View.O
                     mIsRemoving = true;
                     startDrag(mFlingHitPos, deltaX, deltaY);
                 }
-            } else if (mFlingHitPos != MISS) {
+            } else {
                 if (Math.abs(x2 - x1) > mTouchSlop && mRemoveEnabled) {
                     mIsRemoving = true;
                     startDrag(mFlingHitPos, deltaX, deltaY);

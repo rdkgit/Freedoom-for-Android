@@ -3,16 +3,12 @@ package net.nullsum.freedoom;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,7 +38,7 @@ public class LaunchFragmentGZdoom extends Fragment {
 
     String fullBaseDir;
 
-    ArrayList<String> argsHistory = new ArrayList<String>();
+    ArrayList<String> argsHistory = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -76,87 +72,54 @@ public class LaunchFragmentGZdoom extends Fragment {
 
         Utils.copyFreedoomFilesToSD(getActivity());
 
-        argsEditText = (EditText) mainView.findViewById(R.id.extra_args_edittext);
-        gameArgsTextView = (TextView) mainView.findViewById(R.id.extra_args_textview);
-        listview = (ListView) mainView.findViewById(R.id.listView);
+        argsEditText = mainView.findViewById(R.id.extra_args_edittext);
+        gameArgsTextView = mainView.findViewById(R.id.extra_args_textview);
+        listview = mainView.findViewById(R.id.listView);
 
-        //listview.setBackgroundDrawable(new BitmapDrawable(getResources(),Utils.decodeSampledBitmapFromResource(getResources(),R.drawable.chco_doom,635,284)));
+        //listview.setBackgroundDrawable(new BitmapDrawable(getResources(), Utils.decodeSampledBitmapFromResource(getResources(), R.drawable.chco_doom, 635, 284)));
         listAdapter = new GamesListAdapter(getActivity());
         listview.setAdapter(listAdapter);
 
-        listview.setOnItemClickListener(new OnItemClickListener() {
+        listview.setOnItemClickListener((arg0, arg1, pos, arg3) -> selectGame(pos));
+        copyWadsTextView = mainView.findViewById(R.id.copy_wads_textview);
 
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int pos,
-                                    long arg3) {
-                selectGame(pos);
-            }
-        });
-        copyWadsTextView = (TextView) mainView.findViewById(R.id.copy_wads_textview);
-
-        Button startfull = (Button) mainView.findViewById(R.id.start_full);
-        startfull.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                if (selectedMod == null) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setMessage(R.string.no_iwads_err + fullBaseDir)
-                            .setCancelable(true)
-                            .setPositiveButton(R.string.ok_confirm, new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-
-                                }
-                            });
-
-                    AlertDialog alert = builder.create();
-                    alert.show();
-
-                } else
-                    startGame(fullBaseDir, false, null);
-            }
-        });
-
-
-        Button wad_button = (Button) mainView.findViewById(R.id.start_wads);
-        wad_button.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                new ModSelectDialog(getActivity(), fullBaseDir, false) {
-                    public void resultResult(String result) {
-                        argsEditText.setText(result);
-                    }
-                };
-            }
-        });
-
-        ImageView delete_args = (ImageView) mainView.findViewById(R.id.args_delete_imageview);
-        delete_args.setOnClickListener(new View.OnClickListener() {
-            //@Override
-            public void onClick(View v) {
-                argsEditText.setText("");
-            }
-        });
-
-        ImageView history = (ImageView) mainView.findViewById(R.id.args_history_imageview);
-        history.setOnClickListener(new View.OnClickListener() {
-            //@Override
-            public void onClick(View v) {
-
-                String[] servers = new String[argsHistory.size()];
-                for (int n = 0; n < argsHistory.size(); n++) servers[n] = argsHistory.get(n);
-
+        Button startfull = mainView.findViewById(R.id.start_full);
+        startfull.setOnClickListener(v -> {
+            if (selectedMod == null) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("Extra Args History");
-                builder.setItems(servers, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        argsEditText.setText(argsHistory.get(which));
-                    }
-                });
-                builder.show();
+                builder.setMessage(R.string.no_iwads_err + fullBaseDir)
+                        .setCancelable(true)
+                        .setPositiveButton(R.string.ok_confirm, (dialog, id) -> {
+                        });
+
+                AlertDialog alert = builder.create();
+                alert.show();
+
+            } else
+                startGame(fullBaseDir, false, null);
+        });
+
+
+        Button wad_button = mainView.findViewById(R.id.start_wads);
+        wad_button.setOnClickListener(v -> new ModSelectDialog(getActivity(), fullBaseDir, false) {
+            public void resultResult(String result) {
+                argsEditText.setText(result);
             }
+        });
+
+        ImageView delete_args = mainView.findViewById(R.id.args_delete_imageview);
+        //@Override
+        delete_args.setOnClickListener(v -> argsEditText.setText(""));
+
+        ImageView history = mainView.findViewById(R.id.args_history_imageview);
+        history.setOnClickListener(v -> {
+            String[] servers = new String[argsHistory.size()];
+            for (int n = 0; n < argsHistory.size(); n++) servers[n] = argsHistory.get(n);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setTitle("Extra Args History");
+            builder.setItems(servers, (dialog, which) -> argsEditText.setText(argsHistory.get(which)));
+            builder.show();
         });
 
         refreshGames();
@@ -166,17 +129,16 @@ public class LaunchFragmentGZdoom extends Fragment {
 
     void startGame(final String base, boolean ignoreMusic, final String moreArgs) {
         //Check gzdoom.pk3 wad exists
-        //File extrawad = new File(base + "/gzdoom.pk3"  );
+        //File extrawad = new File(base + "/gzdoom.pk3");
         //if (!extrawad.exists())
         {
             Utils.copyAsset(getActivity(), "gzdoom.pk3", base);
             Utils.copyAsset(getActivity(), "gzdoom.sf2", base);
-            //Utils.copyAsset(getActivity(),"lights_dt.pk3",base);
-            //Utils.copyAsset(getActivity(),"brightmaps_dt.pk3",base);
-
+            //Utils.copyAsset(getActivity(), "lights_dt.pk3", base);
+            //Utils.copyAsset(getActivity(), "brightmaps_dt.pk3", base);
         }
 
-        //File[] files = new File(basePath ).listFiles();
+        //File[] files = new File(basePath).listFiles();
 
         String extraArgs = argsEditText.getText().toString().trim();
 
@@ -199,8 +161,7 @@ public class LaunchFragmentGZdoom extends Fragment {
 
         String args = gameArgsTextView.getText().toString() + " " + argsEditText.getText().toString();
 
-        //Intent intent = new Intent(getActivity(), Game.class);
-        Intent intent = new Intent(getActivity(), net.nullsum.freedoom.Game.class);
+        Intent intent = new Intent(getActivity(), Game.class);
         intent.setAction(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_LAUNCHER);
 
@@ -249,7 +210,7 @@ public class LaunchFragmentGZdoom extends Fragment {
     private void refreshGames() {
         games.clear();
 
-        File files[] = new File(fullBaseDir).listFiles();
+        File[] files = new File(fullBaseDir).listFiles();
 
         if (files != null) {
             for (File f : files) {
@@ -274,7 +235,6 @@ public class LaunchFragmentGZdoom extends Fragment {
             }
         }
 
-
         if (listAdapter != null)
             listAdapter.notifyDataSetChanged();
 
@@ -284,11 +244,9 @@ public class LaunchFragmentGZdoom extends Fragment {
     class GamesListAdapter extends BaseAdapter {
 
         public GamesListAdapter(Activity context) {
-
         }
 
         public void add(String string) {
-
         }
 
         public int getCount() {
@@ -321,7 +279,7 @@ public class LaunchFragmentGZdoom extends Fragment {
             else
                 view.setBackgroundResource(0);
 
-            TextView title = (TextView) view.findViewById(R.id.title_textview);
+            TextView title = view.findViewById(R.id.title_textview);
             title.setText(game.getFile());
 
             return view;

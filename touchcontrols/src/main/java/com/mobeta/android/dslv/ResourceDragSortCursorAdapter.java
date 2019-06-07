@@ -16,16 +16,20 @@
 
 package com.mobeta.android.dslv;
 
+import android.app.LoaderManager;
 import android.content.Context;
+import android.content.CursorLoader;
 import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CursorAdapter;
+import android.widget.ResourceCursorAdapter;
 
 // taken from v4 rev. 10 ResourceCursorAdapter.java
 
 /**
- * Static library support version of the framework's {@link android.widget.ResourceCursorAdapter}.
+ * Static library support version of the framework's {@link ResourceCursorAdapter}.
  * Used to write apps that run on platforms prior to Android 3.0.  When running
  * on Android 3.0 or above, this implementation is still used; it does not try
  * to switch to the framework's implementation.  See the framework SDK
@@ -48,7 +52,7 @@ public abstract class ResourceDragSortCursorAdapter extends DragSortCursorAdapte
      * @deprecated This option is discouraged, as it results in Cursor queries
      * being performed on the application's UI thread and thus can cause poor
      * responsiveness or even Application Not Responding errors.  As an alternative,
-     * use {@link android.app.LoaderManager} with a {@link android.content.CursorLoader}.
+     * use {@link LoaderManager} with a {@link CursorLoader}.
      */
     @Deprecated
     public ResourceDragSortCursorAdapter(Context context, int layout, Cursor c) {
@@ -99,8 +103,8 @@ public abstract class ResourceDragSortCursorAdapter extends DragSortCursorAdapte
     /**
      * Inflates view(s) from the specified XML file.
      *
-     * @see android.widget.CursorAdapter#newView(android.content.Context,
-     * android.database.Cursor, ViewGroup)
+     * @see CursorAdapter#newView(Context,
+     * Cursor, ViewGroup)
      */
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {

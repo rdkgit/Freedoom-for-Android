@@ -22,7 +22,7 @@ public class ControlInterpreter {
 
     float screenWidth, screenHeight;
 
-    HashMap<Integer, Boolean> analogButtonState = new HashMap<Integer, Boolean>(); //Saves current state of analog buttons so all sent each time
+    HashMap<Integer, Boolean> analogButtonState = new HashMap<>(); //Saves current state of analog buttons so all sent each time
     float deadRegion = 0.2f;
     GenericAxisValues genericAxisValues = new GenericAxisValues();
 
@@ -121,7 +121,6 @@ public class ControlInterpreter {
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         boolean used = false;
-        ;
         if (gamePadEnabled) {
             for (ActionInput ai : config.actions) {
                 if (((ai.sourceType == Type.BUTTON) || (ai.sourceType == Type.MENU)) && (ai.source == keyCode)) {
@@ -188,7 +187,7 @@ public class ControlInterpreter {
         }
     }
 
-    //This is for normal Android motioon event
+    //This is for normal Android motion event
     public boolean onGenericMotionEvent(MotionEvent event) {
         genericAxisValues.setAndroidValues(event);
         return onGenericMotionEvent(genericAxisValues);
@@ -241,25 +240,21 @@ public class ControlInterpreter {
                     }
                     used = true;
                 }
-				/*
-				//Menu buttons
-				if ((ai.sourceType == Type.ANALOG) && (ai.actionType == Type.MENU) && (ai.source != -1))
-				{
-					if (GD.DEBUG) Log.d(LOG,"Analog as MENU button" );
-					if (GD.DEBUG) Log.d(LOG,ai.toString());
-					if (((ai.sourcePositive) && (event.getAxisValue(ai.source)) > 0.5) ||
-							((!ai.sourcePositive) && (event.getAxisValue(ai.source)) < -0.5) )
-						quakeIf.doAction_if(1, ai.actionCode); //press
-					else
-						quakeIf.doAction_if(0, ai.actionCode); //un-press
-				}
-				 */
+/*
+                //Menu buttons
+                if ((ai.sourceType == Type.ANALOG) && (ai.actionType == Type.MENU) && (ai.source != -1)) {
+                    if (GD.DEBUG) Log.d(LOG, "Analog as MENU button");
+                    if (GD.DEBUG) Log.d(LOG, ai.toString());
+                    if (((ai.sourcePositive) && (event.getAxisValue(ai.source)) > 0.5) ||
+                            ((!ai.sourcePositive) && (event.getAxisValue(ai.source)) < -0.5))
+                        quakeIf.doAction_if(1, ai.actionCode); //press
+                    else
+                        quakeIf.doAction_if(0, ai.actionCode); //un-press
+                }
+*/
             }
-
         }
 
-
         return used;
-
     }
 }

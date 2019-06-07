@@ -1,14 +1,10 @@
 package com.beloko.touchcontrols;
 
-
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnDismissListener;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -16,7 +12,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.SeekBar;
 import android.widget.Spinner;
-
 
 public class TouchControlsSettings {
 
@@ -42,154 +37,133 @@ public class TouchControlsSettings {
     public static void showSettings() {
         Log.d("settings", "showSettings");
 
-        activity.runOnUiThread(new Runnable() {
-            public void run() {
-                final Dialog dialog = new Dialog(activity);
-                dialog.setContentView(R.layout.touch_controls_settings);
-                dialog.setTitle("Touch Control Sensitivity Settings");
-                dialog.setCancelable(true);
+        activity.runOnUiThread(() -> {
+            final Dialog dialog = new Dialog(activity);
+            dialog.setContentView(R.layout.touch_controls_settings);
+            dialog.setTitle("Touch Control Sensitivity Settings");
+            dialog.setCancelable(true);
 
-                final SeekBar alphaSeek = (SeekBar) dialog.findViewById(R.id.alpha_seekbar);
-                final SeekBar fwdSeek = (SeekBar) dialog.findViewById(R.id.fwd_seekbar);
-                final SeekBar strafeSeek = (SeekBar) dialog.findViewById(R.id.strafe_seekbar);
-                final SeekBar pitchSeek = (SeekBar) dialog.findViewById(R.id.pitch_seekbar);
-                final SeekBar yawSeek = (SeekBar) dialog.findViewById(R.id.yaw_seekbar);
+            final SeekBar alphaSeek = dialog.findViewById(R.id.alpha_seekbar);
+            final SeekBar fwdSeek = dialog.findViewById(R.id.fwd_seekbar);
+            final SeekBar strafeSeek = dialog.findViewById(R.id.strafe_seekbar);
+            final SeekBar pitchSeek = dialog.findViewById(R.id.pitch_seekbar);
+            final SeekBar yawSeek = dialog.findViewById(R.id.yaw_seekbar);
 
-                final CheckBox mouseModeCheck = (CheckBox) dialog.findViewById(R.id.mouse_turn_checkbox);
+            final CheckBox mouseModeCheck = dialog.findViewById(R.id.mouse_turn_checkbox);
 
-                final CheckBox invertLookCheckBox = (CheckBox) dialog.findViewById(R.id.invert_loop_checkbox);
-                final CheckBox precisionShootCheckBox = (CheckBox) dialog.findViewById(R.id.precision_shoot_checkbox);
-                final CheckBox showSticksCheckBox = (CheckBox) dialog.findViewById(R.id.show_sticks_checkbox);
-                final CheckBox enableWeaponWheelCheckBox = (CheckBox) dialog.findViewById(R.id.enable_weapon_wheel_checkbox);
+            final CheckBox invertLookCheckBox = dialog.findViewById(R.id.invert_loop_checkbox);
+            final CheckBox precisionShootCheckBox = dialog.findViewById(R.id.precision_shoot_checkbox);
+            final CheckBox showSticksCheckBox = dialog.findViewById(R.id.show_sticks_checkbox);
+            final CheckBox enableWeaponWheelCheckBox = dialog.findViewById(R.id.enable_weapon_wheel_checkbox);
 
-				/*
-				//Hide controls for lookup/down
-				if (Settings.game == IDGame.Doom)
-				{
-					//pitchSeek.setVisibility(View.GONE);
-					invertLookCheckBox.setVisibility(View.GONE);
-				}
-				 */
-                Button add_rem_button = (Button) dialog.findViewById(R.id.add_remove_button);
-                add_rem_button.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        TouchControlsEditing.show(activity);
-                    }
-                });
-
-                alphaSeek.setProgress(alpha);
-                fwdSeek.setProgress(fwdSens);
-                strafeSeek.setProgress(strafeSens);
-                pitchSeek.setProgress(pitchSens);
-                yawSeek.setProgress(yawSens);
-
-                mouseModeCheck.setChecked(mouseMode);
-                invertLookCheckBox.setChecked(invertLook);
-                precisionShootCheckBox.setChecked(precisionShoot);
-                showSticksCheckBox.setChecked(showSticks);
-                enableWeaponWheelCheckBox.setChecked(enableWeaponWheel);
-
-                Spinner move_spinner = (Spinner) dialog.findViewById(R.id.move_dbl_tap_spinner);
-                ArrayAdapter<CharSequence> adapterm;
-
-                adapterm = ArrayAdapter.createFromResource(activity,
-                        R.array.double_tap_actions, android.R.layout.simple_spinner_item);
-
-                adapterm.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                move_spinner.setAdapter(adapterm);
-                move_spinner.setSelection(doubleTapMove);
-
-                move_spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> parent, View view,
-                                               int pos, long id) {
-                        doubleTapMove = pos;
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> arg0) {
-                        // TODO Auto-generated method stub
-
-                    }
-                });
-
-                Spinner look_spinner = (Spinner) dialog.findViewById(R.id.look_dbl_tap_spinner);
-                ArrayAdapter<CharSequence> adapterl = ArrayAdapter.createFromResource(activity,
-                        R.array.double_tap_actions, android.R.layout.simple_spinner_item);
-                adapterl.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                look_spinner.setAdapter(adapterl);
-
-                look_spinner.setSelection(doubleTapLook);
-
-                look_spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> parent, View view,
-                                               int pos, long id) {
-                        doubleTapLook = pos;
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> arg0) {
-                        // TODO Auto-generated method stub
-
-                    }
-                });
-
-                dialog.setOnDismissListener(new OnDismissListener() {
-
-                    @Override
-                    public void onDismiss(DialogInterface dialog) {
-                        alpha = alphaSeek.getProgress();
-                        fwdSens = fwdSeek.getProgress();
-                        strafeSens = strafeSeek.getProgress();
-                        pitchSens = pitchSeek.getProgress();
-                        yawSens = yawSeek.getProgress();
-
-                        mouseMode = mouseModeCheck.isChecked();
-                        invertLook = invertLookCheckBox.isChecked();
-                        precisionShoot = precisionShootCheckBox.isChecked();
-                        showSticks = showSticksCheckBox.isChecked();
-                        enableWeaponWheel = enableWeaponWheelCheckBox.isChecked();
-
-                        saveSettings(activity);
-                        sendToQuake();
-                    }
-                });
-
-                Button save = (Button) dialog.findViewById(R.id.save_button);
-                save.setOnClickListener(new OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        alpha = alphaSeek.getProgress();
-                        fwdSens = fwdSeek.getProgress();
-                        strafeSens = strafeSeek.getProgress();
-                        pitchSens = pitchSeek.getProgress();
-                        yawSens = yawSeek.getProgress();
-
-                        mouseMode = mouseModeCheck.isChecked();
-                        invertLook = invertLookCheckBox.isChecked();
-                        precisionShoot = precisionShootCheckBox.isChecked();
-                        showSticks = showSticksCheckBox.isChecked();
-                        enableWeaponWheel = enableWeaponWheelCheckBox.isChecked();
-
-                        saveSettings(activity);
-                        sendToQuake();
-                        dialog.dismiss();
-                    }
-                });
-
-                Button cancel = (Button) dialog.findViewById(R.id.cancel_button);
-                cancel.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-
-                dialog.show();
+/*
+            //Hide controls for lookup/down
+            if (Settings.game == IDGame.Doom) {
+                //pitchSeek.setVisibility(View.GONE);
+                invertLookCheckBox.setVisibility(View.GONE);
             }
+*/
+            Button add_rem_button = dialog.findViewById(R.id.add_remove_button);
+            add_rem_button.setOnClickListener(v -> TouchControlsEditing.show(activity));
+
+            alphaSeek.setProgress(alpha);
+            fwdSeek.setProgress(fwdSens);
+            strafeSeek.setProgress(strafeSens);
+            pitchSeek.setProgress(pitchSens);
+            yawSeek.setProgress(yawSens);
+
+            mouseModeCheck.setChecked(mouseMode);
+            invertLookCheckBox.setChecked(invertLook);
+            precisionShootCheckBox.setChecked(precisionShoot);
+            showSticksCheckBox.setChecked(showSticks);
+            enableWeaponWheelCheckBox.setChecked(enableWeaponWheel);
+
+            Spinner move_spinner = dialog.findViewById(R.id.move_dbl_tap_spinner);
+            ArrayAdapter<CharSequence> adapterm;
+
+            adapterm = ArrayAdapter.createFromResource(activity,
+                    R.array.double_tap_actions, android.R.layout.simple_spinner_item);
+
+            adapterm.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            move_spinner.setAdapter(adapterm);
+            move_spinner.setSelection(doubleTapMove);
+
+            move_spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view,
+                                           int pos, long id) {
+                    doubleTapMove = pos;
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> arg0) {
+                    // TODO Auto-generated method stub
+
+                }
+            });
+
+            Spinner look_spinner = dialog.findViewById(R.id.look_dbl_tap_spinner);
+            ArrayAdapter<CharSequence> adapterl = ArrayAdapter.createFromResource(activity,
+                    R.array.double_tap_actions, android.R.layout.simple_spinner_item);
+            adapterl.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            look_spinner.setAdapter(adapterl);
+
+            look_spinner.setSelection(doubleTapLook);
+
+            look_spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view,
+                                           int pos, long id) {
+                    doubleTapLook = pos;
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> arg0) {
+                    // TODO Auto-generated method stub
+
+                }
+            });
+
+            dialog.setOnDismissListener(dialog1 -> {
+                alpha = alphaSeek.getProgress();
+                fwdSens = fwdSeek.getProgress();
+                strafeSens = strafeSeek.getProgress();
+                pitchSens = pitchSeek.getProgress();
+                yawSens = yawSeek.getProgress();
+
+                mouseMode = mouseModeCheck.isChecked();
+                invertLook = invertLookCheckBox.isChecked();
+                precisionShoot = precisionShootCheckBox.isChecked();
+                showSticks = showSticksCheckBox.isChecked();
+                enableWeaponWheel = enableWeaponWheelCheckBox.isChecked();
+
+                saveSettings(activity);
+                sendToQuake();
+            });
+
+            Button save = dialog.findViewById(R.id.save_button);
+            save.setOnClickListener(v -> {
+                alpha = alphaSeek.getProgress();
+                fwdSens = fwdSeek.getProgress();
+                strafeSens = strafeSeek.getProgress();
+                pitchSens = pitchSeek.getProgress();
+                yawSens = yawSeek.getProgress();
+
+                mouseMode = mouseModeCheck.isChecked();
+                invertLook = invertLookCheckBox.isChecked();
+                precisionShoot = precisionShootCheckBox.isChecked();
+                showSticks = showSticksCheckBox.isChecked();
+                enableWeaponWheel = enableWeaponWheelCheckBox.isChecked();
+
+                saveSettings(activity);
+                sendToQuake();
+                dialog.dismiss();
+            });
+
+            Button cancel = dialog.findViewById(R.id.cancel_button);
+            cancel.setOnClickListener(v -> dialog.dismiss());
+
+            dialog.show();
         });
 
     }
@@ -250,6 +224,5 @@ public class TouchControlsSettings {
 
         TouchSettings.setIntOption(ctx, "double_tap_move", doubleTapMove);
         TouchSettings.setIntOption(ctx, "double_tap_look", doubleTapLook);
-
     }
 }

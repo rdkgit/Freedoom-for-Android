@@ -1,5 +1,6 @@
 package net.nullsum.freedoom;
 
+import android.Manifest;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Fragment;
@@ -21,8 +22,6 @@ import com.beloko.touchcontrols.GamePadFragment;
 
 import java.util.Arrays;
 
-import static android.Manifest.permission;
-
 
 public class EntryActivity extends FragmentActivity {
 
@@ -34,14 +33,13 @@ public class EntryActivity extends FragmentActivity {
     private static final int PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
     GamePadFragment gamePadFrag;
     String LOG = "EntryActivity";
-    private Resources res;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (ContextCompat.checkSelfPermission(this, permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{permission.WRITE_EXTERNAL_STORAGE}, PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
         }
 
         setContentView(R.layout.activity_quake);
@@ -52,12 +50,12 @@ public class EntryActivity extends FragmentActivity {
 
         AppSettings.reloadSettings(getApplication());
 
-        res = this.getResources();
+        Resources res = this.getResources();
         GamePadFragment.gamepadActions = Utils.getGameGamepadConfig(res);
 
-        actionBar.addTab(actionBar.newTab().setText(R.string.app_name).setTabListener(new TabListener<LaunchFragmentGZdoom>(this, "Gzdoom", LaunchFragmentGZdoom.class)));
-        actionBar.addTab(actionBar.newTab().setText(R.string.gamepad_tab).setTabListener(new TabListener<GamePadFragment>(this, "gamepad", GamePadFragment.class)));
-        actionBar.addTab(actionBar.newTab().setText(R.string.options_tab).setTabListener(new TabListener<OptionsFragment>(this, "options", OptionsFragment.class)));
+        actionBar.addTab(actionBar.newTab().setText(R.string.app_name).setTabListener(new TabListener<>(this, "Gzdoom", LaunchFragmentGZdoom.class)));
+        actionBar.addTab(actionBar.newTab().setText(R.string.gamepad_tab).setTabListener(new TabListener<>(this, "gamepad", GamePadFragment.class)));
+        actionBar.addTab(actionBar.newTab().setText(R.string.options_tab).setTabListener(new TabListener<>(this, "options", OptionsFragment.class)));
 
 
         String last_tab = AppSettings.getStringOption(getApplicationContext(), "last_tab", "");
@@ -126,48 +124,49 @@ public class EntryActivity extends FragmentActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         // copy over Freedoom files
         Log.d(LOG, "Got permissions request result: " + Arrays.toString(permissions));
         Log.d(LOG, "grant results: " + Arrays.toString(grantResults));
 
-        switch (requestCode) {
-            case PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE: {
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    AppSettings.createDirectories(this);
-                    Utils.copyFreedoomFilesToSD(this);
+        if (requestCode == PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                AppSettings.createDirectories(this);
+                Utils.copyFreedoomFilesToSD(this);
 
-                    // dirty hack :(
-                    final ActionBar actionBar = getActionBar();
+                // dirty hack :(
+                final ActionBar actionBar = getActionBar();
 
-                    actionBar.setSelectedNavigationItem(1);
-                    actionBar.setSelectedNavigationItem(0);
-                } else {
-                    Toast.makeText(getActivity(), getResources().getString(R.string.file_permission_fail_toast),
-                            Toast.LENGTH_LONG).show();
-                }
+                actionBar.setSelectedNavigationItem(1);
+                actionBar.setSelectedNavigationItem(0);
+            } else {
+                Toast.makeText(getActivity(), getResources().getString(R.string.file_permission_fail_toast),
+                        Toast.LENGTH_LONG).show();
             }
         }
     }
 
-//    public  boolean isStoragePermissionGranted() {
-//        if (Build.VERSION.SDK_INT >= 23) {
-//            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-//                    == PackageManager.PERMISSION_GRANTED) {
-//                //Log.v(TAG,"Permission is granted");
-//                return true;
-//            } else {
-//
-//                //Log.v(TAG,"Permission is revoked");
-//                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-//                return false;
-//            }
-//        }
-//        else { //permission is automatically granted on sdk<23 upon installation
-//            //Log.v(TAG,"Permission is granted");
-//            return true;
-//        }
-//    }
+/*
+
+    public boolean isStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                //Log.v(TAG,"Permission is granted");
+                return true;
+            } else {
+
+                //Log.v(TAG,"Permission is revoked");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                return false;
+            }
+        } else { //permission is automatically granted on sdk<23 upon installation
+            //Log.v(TAG,"Permission is granted");
+            return true;
+        }
+    }
+
+*/
 
     public static class TabListener<T extends Fragment> implements ActionBar.TabListener {
         private final FragmentActivity mActivity;

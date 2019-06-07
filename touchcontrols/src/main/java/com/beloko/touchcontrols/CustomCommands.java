@@ -3,15 +3,10 @@ package com.beloko.touchcontrols;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,7 +39,6 @@ public class CustomCommands {
     EditText commandEditText;
     DragSortListView listView;
 
-    ;
     private DragSortListView.DropListener onDrop =
             new DragSortListView.DropListener() {
                 @Override
@@ -68,71 +62,46 @@ public class CustomCommands {
         dialog.setContentView(R.layout.quick_commands);
         dialog.setCancelable(true);
 
-        ImageView add = (ImageView) dialog.findViewById(R.id.add_quick_command_image);
+        ImageView add = dialog.findViewById(R.id.add_quick_command_image);
 
-        add.setOnClickListener(new OnClickListener() {
+        add.setOnClickListener(v -> editView.setVisibility(View.VISIBLE));
 
-            @Override
-            public void onClick(View v) {
-                editView.setVisibility(View.VISIBLE);
-
-            }
+        Button main = dialog.findViewById(R.id.main_button);
+        main.setOnClickListener(v -> {
+            loadQuickCommands(QuickCmdList.MAIN);
+            adapter.notifyDataSetChanged();
         });
 
-        Button main = (Button) dialog.findViewById(R.id.main_button);
-        main.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                loadQuickCommands(QuickCmdList.MAIN);
-                adapter.notifyDataSetChanged();
-            }
-        });
-
-        Button mod = (Button) dialog.findViewById(R.id.mod_button);
-        mod.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                loadQuickCommands(QuickCmdList.MOD);
-                adapter.notifyDataSetChanged();
-            }
+        Button mod = dialog.findViewById(R.id.mod_button);
+        mod.setOnClickListener(v -> {
+            loadQuickCommands(QuickCmdList.MOD);
+            adapter.notifyDataSetChanged();
         });
 
         if (modCmdsPath == null) {
             mod.setVisibility(View.GONE);
         }
 
-        editView = (LinearLayout) dialog.findViewById(R.id.edit_qc_view);
-        nameEditText = (EditText) dialog.findViewById(R.id.name_edittext);
-        commandEditText = (EditText) dialog.findViewById(R.id.command_edittext);
+        editView = dialog.findViewById(R.id.edit_qc_view);
+        nameEditText = dialog.findViewById(R.id.name_edittext);
+        commandEditText = dialog.findViewById(R.id.command_edittext);
 
-        Button cancel = (Button) dialog.findViewById(R.id.cancel_button);
-        cancel.setOnClickListener(new OnClickListener() {
+        Button cancel = dialog.findViewById(R.id.cancel_button);
+        cancel.setOnClickListener(v -> editView.setVisibility(View.GONE));
 
-            @Override
-            public void onClick(View v) {
-                editView.setVisibility(View.GONE);
-            }
-        });
+        Button save = dialog.findViewById(R.id.save_button);
+        save.setOnClickListener(v -> {
+            QuickCommand qc = new QuickCommand(nameEditText.getText().toString(), commandEditText.getText().toString());
+            commands.add(qc);
+            saveQuickCommands();
+            nameEditText.setText("");
+            commandEditText.setText("");
 
-        Button save = (Button) dialog.findViewById(R.id.save_button);
-        save.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                QuickCommand qc = new QuickCommand(nameEditText.getText().toString(), commandEditText.getText().toString());
-                commands.add(qc);
-                saveQuickCommands();
-                nameEditText.setText("");
-                commandEditText.setText("");
-
-                editView.setVisibility(View.GONE);
-            }
+            editView.setVisibility(View.GONE);
         });
 
 
-        listView = (DragSortListView) dialog.findViewById(R.id.list);
+        listView = dialog.findViewById(R.id.list);
         listView.setDragEnabled(true);
         listView.setDropListener(onDrop);
 
@@ -140,49 +109,33 @@ public class CustomCommands {
 
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener(new OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int pos,
-                                    long arg3) {
-                quakeIf.quickCommand_if(commands.get(pos).getCommand());
-                dialog.dismiss();
-            }
+        listView.setOnItemClickListener((arg0, arg1, pos, arg3) -> {
+            quakeIf.quickCommand_if(commands.get(pos).getCommand());
+            dialog.dismiss();
         });
 
-        listView.setOnItemLongClickListener(new OnItemLongClickListener() {
+        listView.setOnItemLongClickListener((arg0, arg1, pos, arg3) -> {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                    activity);
 
-            @Override
-            public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
-                                           final int pos, long arg3) {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                        activity);
+            // set title
+            alertDialogBuilder.setTitle("Delete Command?");
 
-                // set title
-                alertDialogBuilder.setTitle("Delete Command?");
+            // set dialog message
+            alertDialogBuilder
+                    .setCancelable(false)
+                    .setPositiveButton("Yes", (dialog1, id) -> {
+                        commands.remove(pos);
+                        saveQuickCommands();
+                    })
+                    .setNegativeButton("No", (dialog1, id) -> dialog1.cancel());
 
-                // set dialog message
-                alertDialogBuilder
-                        .setCancelable(false)
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                commands.remove(pos);
-                                saveQuickCommands();
-                            }
-                        })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        });
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
 
-                // create alert dialog
-                AlertDialog alertDialog = alertDialogBuilder.create();
-
-                // show it
-                alertDialog.show();
-                return true;
-            }
+            // show it
+            alertDialog.show();
+            return true;
         });
 
         adapter.notifyDataSetChanged();
@@ -225,13 +178,11 @@ public class CustomCommands {
             if (TouchSettings.DEBUG) Log.d(LOG, "Read commands");
             in.close();
             return;
-        } catch (IOException ex) {
-
-        } catch (ClassNotFoundException ex) {
-
+        } catch (IOException ignored) {
+        } catch (ClassNotFoundException ignored) {
         }
         //failed load, load default
-        commands = new ArrayList<QuickCommand>();
+        commands = new ArrayList<>();
     }
 
     private void saveQuickCommands() {
@@ -263,11 +214,9 @@ public class CustomCommands {
 
         public QuickCommandsAdapter(Activity context) {
             this.context = context;
-
         }
 
         public void add(String string) {
-
         }
 
         public int getCount() {
@@ -287,15 +236,12 @@ public class CustomCommands {
 
         public View getView(int position, View convertView, ViewGroup list) {
             View view = activity.getLayoutInflater().inflate(R.layout.quick_command_listview_item, null);
-            ImageView image = (ImageView) view.findViewById(R.id.imageView);
-            TextView title = (TextView) view.findViewById(R.id.title_textview);
-            TextView command = (TextView) view.findViewById(R.id.command_textview);
+            ImageView image = view.findViewById(R.id.imageView);
+            TextView title = view.findViewById(R.id.title_textview);
+            TextView command = view.findViewById(R.id.command_textview);
             title.setText(commands.get(position).getTitle());
             command.setText(commands.get(position).getCommand());
             return view;
         }
-
     }
-
-
 }

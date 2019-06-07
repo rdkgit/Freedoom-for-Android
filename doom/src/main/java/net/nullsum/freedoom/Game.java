@@ -91,7 +91,6 @@ public class Game extends Activity implements Handler.Callback {
 
         Utils.setImmersionMode(this);
 
-
         start_game();
     }
 
@@ -107,7 +106,6 @@ public class Game extends Activity implements Handler.Callback {
         NativeLib.loadLibraries();
 
         NativeLib engine = new NativeLib();
-
 
         controlInterp = new ControlInterpreter(engine, Utils.getGameGamepadConfig(this.getResources()), TouchSettings.gamePadControlsFile, TouchSettings.gamePadEnabled);
 
@@ -147,7 +145,6 @@ public class Game extends Activity implements Handler.Callback {
 
     @Override
     protected void onResume() {
-
         Log.i(LOG, "onResume");
         SDLLib.nativeResume();
         SDLLib.onResume();
@@ -155,7 +152,6 @@ public class Game extends Activity implements Handler.Callback {
         super.onResume();
         mGLSurfaceView.onResume();
     }
-
 
     @Override
     protected void onDestroy() {
@@ -173,10 +169,9 @@ public class Game extends Activity implements Handler.Callback {
 
     class MogaControllerListener implements ControllerListener {
 
-
         @Override
         public void onKeyEvent(com.bda.controller.KeyEvent event) {
-            //Log.d(LOG,"onKeyEvent " + event.getKeyCode());
+            //Log.d(LOG, "onKeyEvent " + event.getKeyCode());
             controlInterp.onMogaKeyEvent(event, mogaController.getState(Controller.STATE_CURRENT_PRODUCT_VERSION));
         }
 
@@ -203,7 +198,6 @@ public class Game extends Activity implements Handler.Callback {
 
         public GameView(Context context) {
             super(context);
-
         }
 
         @Override
@@ -253,15 +247,15 @@ public class Game extends Activity implements Handler.Callback {
             //args = "-width 1280 -height 736 +set vid_renderer 1 -iwad tnt.wad -file brutal19.pk3 +set fluid_patchset /sdcard/WeedsGM3.sf2";
             //args = "+set vid_renderer 1 ";
             String gzdoom_args = "-width " + surfaceWidth / resDiv + " -height " + surfaceHeight / resDiv + " +set vid_renderer 1 ";
-            String[] args_array = Utils.creatArgs(args + gzdoom_args);
+            String[] args_array = Utils.createArgs(args + gzdoom_args);
 
-            int audioSameple = AudioTrack.getNativeOutputSampleRate(AudioTrack.MODE_STREAM);
-            Log.d(LOG, "audioSample = " + audioSameple);
+            int audioSample = AudioTrack.getNativeOutputSampleRate(AudioTrack.MODE_STREAM);
+            Log.d(LOG, "audioSample = " + audioSample);
 
-            if ((audioSameple != 48000) && (audioSameple != 44100)) //Just in case
-                audioSameple = 48000;
+            if ((audioSample != 48000) && (audioSample != 44100)) //Just in case
+                audioSample = 48000;
 
-            int ret = NativeLib.init(AppSettings.graphicsDir, audioSameple, args_array, 0, gamePath);
+            int ret = NativeLib.init(AppSettings.graphicsDir, audioSample, args_array, 0, gamePath);
 
             Log.i(LOG, "Quake2Init done");
 
@@ -271,18 +265,16 @@ public class Game extends Activity implements Handler.Callback {
 
             Log.d("Renderer", "onDrawFrame");
 
-            if (!divDone)
-                handlerUI.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        mGLSurfaceView.getHolder().setFixedSize(surfaceWidth / resDiv, surfaceHeight / resDiv);
-                        divDone = true;
-                    }
+            if (!divDone) {
+                handlerUI.post(() -> {
+                    mGLSurfaceView.getHolder().setFixedSize(surfaceWidth / resDiv, surfaceHeight / resDiv);
+                    divDone = true;
                 });
+            }
 
-            if (divDone)
+            if (divDone) {
                 init(surfaceWidth / resDiv, surfaceHeight / resDiv);
-            else {
+            } else {
                 try {
                     Thread.sleep(200);
                 } catch (InterruptedException e) {
@@ -316,9 +308,6 @@ public class Game extends Activity implements Handler.Callback {
 
             //controlInterp.setScreenSize(width, height);
 
-
         }
     } // end of QuakeRenderer
 }
-
-

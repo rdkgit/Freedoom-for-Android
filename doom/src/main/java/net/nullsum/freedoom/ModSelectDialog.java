@@ -3,14 +3,9 @@ package net.nullsum.freedoom;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -22,18 +17,17 @@ import java.util.Collections;
 import java.util.Iterator;
 
 public class ModSelectDialog {
-    final Dialog dialog;
-    String basePath;
-    String extraPath = "";
-    boolean PrBoomMode;
-    ArrayList<String> filesArray = new ArrayList<String>();
-    ArrayList<String> selectedArray = new ArrayList<String>();
-    Activity activity;
-    ListView listView;
-    TextView resultTextView;
-    TextView infoTextView;
+    private final Dialog dialog;
+    private String basePath;
+    private String extraPath = "";
+    private boolean PrBoomMode;
+    private ArrayList<String> filesArray = new ArrayList<>();
+    private ArrayList<String> selectedArray = new ArrayList<>();
+    private Activity activity;
+    private TextView resultTextView;
+    private TextView infoTextView;
 
-    ModsListAdapter listAdapter;
+    private ModsListAdapter listAdapter;
 
     ModSelectDialog(Activity act, String path, boolean prboomMode) {
         basePath = path;
@@ -45,149 +39,116 @@ public class ModSelectDialog {
         dialog.setTitle("Touch Control Sensitivity Settings");
         dialog.setCancelable(true);
 
-        dialog.setOnKeyListener(new Dialog.OnKeyListener() {
-
-            @Override
-            public boolean onKey(DialogInterface arg0, int keyCode,
-                                 KeyEvent event) {
-                // TODO Auto-generated method stub
-                if (keyCode == KeyEvent.KEYCODE_BACK) {
-                    if (extraPath.isEmpty() || !extraPath.contains("/"))
-                        return false;
-                    else {
-                        extraPath = extraPath.substring(0, extraPath.lastIndexOf("/"));
-                        populateList(extraPath);
-                        return true;
-                    }
+        dialog.setOnKeyListener((arg0, keyCode, event) -> {
+            // TODO Auto-generated method stub
+            if (keyCode == KeyEvent.KEYCODE_BACK) {
+                if (extraPath.isEmpty() || !extraPath.contains("/"))
+                    return false;
+                else {
+                    extraPath = extraPath.substring(0, extraPath.lastIndexOf("/"));
+                    populateList(extraPath);
+                    return true;
                 }
-                return false;
             }
+            return false;
         });
 
-        resultTextView = (TextView) dialog.findViewById(R.id.result_textView);
-        infoTextView = (TextView) dialog.findViewById(R.id.info_textView);
+        resultTextView = dialog.findViewById(R.id.result_textView);
+        infoTextView = dialog.findViewById(R.id.info_textView);
 
-        listView = (ListView) dialog.findViewById(R.id.listview);
+        ListView listView = dialog.findViewById(R.id.listview);
         listAdapter = new ModsListAdapter(activity);
         listView.setAdapter(listAdapter);
 
-        listView.setOnItemClickListener(new OnItemClickListener() {
+        listView.setOnItemClickListener((parent, view, position, id) -> {
 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-
-                if (filesArray.get(position).startsWith("/")) {
-                    populateList(extraPath + filesArray.get(position));
-                } else //select/deselect
-                {
-                    boolean removed = false;
-                    for (Iterator<String> iter = selectedArray.listIterator(); iter.hasNext(); ) {
-                        String s = iter.next();
-                        if (s.contentEquals(extraPath + "/" + filesArray.get(position))) {
-                            iter.remove();
-                            removed = true;
-                        }
+            if (filesArray.get(position).startsWith("/")) {
+                populateList(extraPath + filesArray.get(position));
+            } else //select/deselect
+            {
+                boolean removed = false;
+                for (Iterator<String> iter = selectedArray.listIterator(); iter.hasNext(); ) {
+                    String s = iter.next();
+                    if (s.contentEquals(extraPath + "/" + filesArray.get(position))) {
+                        iter.remove();
+                        removed = true;
                     }
-
-                    if (!removed)
-                        selectedArray.add(extraPath + "/" + filesArray.get(position));
-
-                    //	Log.d("TEST","list size = " + selectedArray.size());
-
-                    listAdapter.notifyDataSetChanged();
-                    resultTextView.setText(getResult());
-
                 }
+
+                if (!removed)
+                    selectedArray.add(extraPath + "/" + filesArray.get(position));
+
+                //Log.d("TEST", "list size = " + selectedArray.size());
+
+                listAdapter.notifyDataSetChanged();
+                resultTextView.setText(getResult());
+
             }
         });
 
         //Add folders on long press
-        listView.setOnItemLongClickListener(new OnItemLongClickListener() {
-
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view,
-                                           int position, long id) {
-                if (filesArray.get(position).startsWith("/")) {
-                    boolean removed = false;
-                    String name = filesArray.get(position).substring(1, filesArray.get(position).length());
-                    for (Iterator<String> iter = selectedArray.listIterator(); iter.hasNext(); ) {
-                        String s = iter.next();
-                        if (s.contentEquals(extraPath + "/" + name)) {
-                            iter.remove();
-                            removed = true;
-                        }
+        listView.setOnItemLongClickListener((parent, view, position, id) -> {
+            if (filesArray.get(position).startsWith("/")) {
+                boolean removed = false;
+                String name = filesArray.get(position).substring(1);
+                for (Iterator<String> iter = selectedArray.listIterator(); iter.hasNext(); ) {
+                    String s = iter.next();
+                    if (s.contentEquals(extraPath + "/" + name)) {
+                        iter.remove();
+                        removed = true;
                     }
-
-                    if (!removed)
-                        selectedArray.add(extraPath + "/" + name);
-
-                    //	Log.d("TEST","list size = " + selectedArray.size());
-
-                    listAdapter.notifyDataSetChanged();
-                    resultTextView.setText(getResult());
-                    return true;
                 }
-                return false;
+
+                if (!removed)
+                    selectedArray.add(extraPath + "/" + name);
+
+                //Log.d("TEST", "list size = " + selectedArray.size());
+
+                listAdapter.notifyDataSetChanged();
+                resultTextView.setText(getResult());
+                return true;
             }
+            return false;
         });
 
-        Button wads_button = (Button) dialog.findViewById(R.id.wads_button);
-        wads_button.setOnClickListener(new OnClickListener() {
+        Button wads_button = dialog.findViewById(R.id.wads_button);
+        wads_button.setOnClickListener(v -> populateList("wads"));
 
-            @Override
-            public void onClick(View v) {
-                populateList("wads");
-            }
-        });
+        Button mods_button = dialog.findViewById(R.id.mods_button);
+        mods_button.setOnClickListener(v -> populateList("mods"));
 
-        Button mods_button = (Button) dialog.findViewById(R.id.mods_button);
-        mods_button.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                populateList("mods");
-            }
-        });
-
-        Button ok_button = (Button) dialog.findViewById(R.id.ok_button);
-        ok_button.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                resultResult(getResult());
-            }
+        Button ok_button = dialog.findViewById(R.id.ok_button);
+        ok_button.setOnClickListener(v -> {
+            dialog.dismiss();
+            resultResult(getResult());
         });
 
         populateList("wads");
-
 
         dialog.show();
     }
 
     public void resultResult(String result) {
-
     }
 
     public String getResult() {
-        String result = "";
+        StringBuilder result = new StringBuilder();
 
         if (PrBoomMode && selectedArray.size() > 0)
-            result = "-file";
+            result = new StringBuilder("-file");
 
         for (int n = 0; n < selectedArray.size(); n++) {
             if (PrBoomMode)
-                result += " " + selectedArray.get(n);
+                result.append(" ").append(selectedArray.get(n));
             else {
                 if ((selectedArray.get(n).endsWith(".deh")) || (selectedArray.get(n).endsWith(".bex")))
-                    result += "-deh " + selectedArray.get(n) + " ";
+                    result.append("-deh ").append(selectedArray.get(n)).append(" ");
                 else
-                    result += "-file " + selectedArray.get(n) + " ";
+                    result.append("-file ").append(selectedArray.get(n)).append(" ");
             }
         }
 
-        return result;
+        return result.toString();
     }
 
 
@@ -195,7 +156,7 @@ public class ModSelectDialog {
         extraPath = path;
         dialog.setTitle(extraPath);
         String wad_dir = basePath + "/" + path;
-        File files[] = new File(wad_dir).listFiles();
+        File[] files = new File(wad_dir).listFiles();
         filesArray.clear();
         if (files != null)
             for (File f : files) {
@@ -224,11 +185,9 @@ public class ModSelectDialog {
     class ModsListAdapter extends BaseAdapter {
 
         public ModsListAdapter(Activity context) {
-
         }
 
         public void add(String string) {
-
         }
 
         public int getCount() {
@@ -249,10 +208,11 @@ public class ModSelectDialog {
 
             View view;
 
-            if (convertView == null)
+            if (convertView == null) {
                 view = activity.getLayoutInflater().inflate(R.layout.listview_item_mods_wads, null);
-            else
+            } else {
                 view = convertView;
+            }
 
             boolean selected = false;
             for (String s : selectedArray) {
@@ -261,18 +221,16 @@ public class ModSelectDialog {
                 }
             }
 
-
-            if (selected)
+            if (selected) {
                 view.setBackgroundResource(R.drawable.layout_sel_background);
-            else
+            } else {
                 view.setBackgroundResource(0);
+            }
 
-            TextView title = (TextView) view.findViewById(R.id.name_textview);
+            TextView title = view.findViewById(R.id.name_textview);
 
             title.setText(filesArray.get(position));
             return view;
         }
-
     }
-
 }

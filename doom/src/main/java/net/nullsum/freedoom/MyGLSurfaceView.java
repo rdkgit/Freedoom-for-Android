@@ -203,7 +203,7 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     private final static boolean LOG_EGL = true;
     private static final GLThreadManager sGLThreadManager = new GLThreadManager();
     private final WeakReference<MyGLSurfaceView> mThisWeakRef =
-            new WeakReference<MyGLSurfaceView>(this);
+            new WeakReference<>(this);
     private GLThread mGLThread;
     private Renderer mRenderer;
     private boolean mDetached;
@@ -799,6 +799,7 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
         void destroyContext(EGL10 egl, EGLDisplay display, EGLContext context);
     }
+
     /**
      * An interface for customizing the eglCreateWindowSurface and eglDestroySurface calls.
      * <p>
@@ -852,11 +853,11 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         EGLContext mEglContext;
         private WeakReference<MyGLSurfaceView> mGLSurfaceViewWeakRef;
 
-        public EglHelper(WeakReference<MyGLSurfaceView> glSurfaceViewWeakRef) {
+        EglHelper(WeakReference<MyGLSurfaceView> glSurfaceViewWeakRef) {
             mGLSurfaceViewWeakRef = glSurfaceViewWeakRef;
         }
 
-        public static void throwEglException(String function, int error) {
+        static void throwEglException(String function, int error) {
             String message = formatEglError(function, error);
             if (LOG_THREADS) {
                 Log.e("EglHelper", "throwEglException tid=" + Thread.currentThread().getId() + " "
@@ -865,11 +866,11 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             throw new RuntimeException(message);
         }
 
-        public static void logEglErrorAsWarning(String tag, String function, int error) {
+        static void logEglErrorAsWarning(String tag, String function, int error) {
             Log.w(tag, formatEglError(function, error));
         }
 
-        public static String formatEglError(String function, int error) {
+        static String formatEglError(String function, int error) {
             //return function + " failed: " + EGLLogWrapper.getErrorString(error);
             return function + " failed: " + function;
         }
@@ -932,7 +933,7 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
          *
          * @return true if the surface was created successfully.
          */
-        public boolean createSurface() {
+        boolean createSurface() {
             if (LOG_EGL) {
                 Log.w("EglHelper", "createSurface()  tid=" + Thread.currentThread().getId());
             }
@@ -1031,7 +1032,7 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             return EGL10.EGL_SUCCESS;
         }
 
-        public void destroySurface() {
+        void destroySurface() {
             if (LOG_EGL) {
                 Log.w("EglHelper", "destroySurface()  tid=" + Thread.currentThread().getId());
             }
@@ -1083,7 +1084,7 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
      * sGLThreadManager object. This avoids multiple-lock ordering issues.
      */
     static class GLThread extends Thread {
-        public EglHelper mEglHelper;
+        EglHelper mEglHelper;
         GL10 gl = null;
         boolean createEglContext = false;
         boolean createEglSurface = false;
@@ -1114,7 +1115,7 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         private int mRenderMode;
         private boolean mRequestRender;
         private boolean mRenderComplete;
-        private ArrayList<Runnable> mEventQueue = new ArrayList<Runnable>();
+        private ArrayList<Runnable> mEventQueue = new ArrayList<>();
         private boolean mSizeChanged = true;
         /**
          * Set once at thread construction time, nulled out when the parent view is garbage
@@ -1217,10 +1218,13 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                         if (pausing && mHaveEglContext) {
                             MyGLSurfaceView view = mGLSurfaceViewWeakRef.get();
 
-                            boolean preserveEglContextOnPause = view == null ? false : view.mPreserveEGLContextOnPause;
+                            boolean preserveEglContextOnPause = view != null && view.mPreserveEGLContextOnPause;
 
                             if (LOG_SURFACE) {
-                                Log.i("GLThread", "preserveEglContextOnPause = " + preserveEglContextOnPause + " sGLThreadManager.shouldReleaseEGLContextWhenPausing() =" + sGLThreadManager.shouldReleaseEGLContextWhenPausing());
+                                Log.i("GLThread", "preserveEglContextOnPause = "
+                                        + preserveEglContextOnPause
+                                        + " sGLThreadManager.shouldReleaseEGLContextWhenPausing() ="
+                                        + sGLThreadManager.shouldReleaseEGLContextWhenPausing());
                             }
                             if (!preserveEglContextOnPause || sGLThreadManager.shouldReleaseEGLContextWhenPausing()) {
                                 stopEglContextLocked();
@@ -1390,16 +1394,13 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
                 //Return true if can start drawing
                 MyGLSurfaceView view = mGLSurfaceViewWeakRef.get();
-                if (view != null)
-                    return true;
-                else
-                    return false;
+                return view != null;
             }
 
 
         }
 
-        public void swapBuffers() {
+        void swapBuffers() {
             //Log.i("GLThread", "swapBuffers");
             int swapError = mEglHelper.swap();
             switch (swapError) {
@@ -1436,44 +1437,39 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             mHaveEglSurface = false;
             try {
 
-
                 while (true) {
-					/*
-					synchronized (sGLThreadManager) {
-						while (true) {
-							if (mShouldExit) {
-								return;
-							}
+/*
+                    synchronized (sGLThreadManager) {
+                        while (true) {
+                            if (mShouldExit) {
+                                return;
+                            }
 
-							if (! mEventQueue.isEmpty()) {
-								event = mEventQueue.remove(0);
-								break;
-							}
-							setup();
+                            if (!mEventQueue.isEmpty()) {
+                                event = mEventQueue.remove(0);
+                                break;
+                            }
+                            setup();
 
-
-
-
-
-							// By design, this is the only place in a GLThread thread where we wait().
-							if (LOG_THREADS) {
-								Log.i("GLThread", "waiting tid=" + getId()
-										+ " mHaveEglContext: " + mHaveEglContext
-										+ " mHaveEglSurface: " + mHaveEglSurface
-										+ " mFinishedCreatingEglSurface: " + mFinishedCreatingEglSurface
-										+ " mPaused: " + mPaused
-										+ " mHasSurface: " + mHasSurface
-										+ " mSurfaceIsBad: " + mSurfaceIsBad
-										+ " mWaitingForSurface: " + mWaitingForSurface
-										+ " mWidth: " + mWidth
-										+ " mHeight: " + mHeight
-										+ " mRequestRender: " + mRequestRender
-										+ " mRenderMode: " + mRenderMode);
-							}
-							sGLThreadManager.wait();
-						}
-					} // end of synchronized(sGLThreadManager)
-					 */
+                            // By design, this is the only place in a GLThread thread where we wait().
+                            if (LOG_THREADS) {
+                                Log.i("GLThread", "waiting tid=" + getId()
+                                        + " mHaveEglContext: " + mHaveEglContext
+                                        + " mHaveEglSurface: " + mHaveEglSurface
+                                        + " mFinishedCreatingEglSurface: " + mFinishedCreatingEglSurface
+                                        + " mPaused: " + mPaused
+                                        + " mHasSurface: " + mHasSurface
+                                        + " mSurfaceIsBad: " + mSurfaceIsBad
+                                        + " mWaitingForSurface: " + mWaitingForSurface
+                                        + " mWidth: " + mWidth
+                                        + " mHeight: " + mHeight
+                                        + " mRequestRender: " + mRequestRender
+                                        + " mRenderMode: " + mRenderMode);
+                            }
+                            sGLThreadManager.wait();
+                        }
+                    } // end of synchronized(sGLThreadManager)
+*/
 
                     setup();
 
@@ -1486,35 +1482,36 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                             view.mRenderer.onDrawFrame(gl);
                         }
                     }
-					/*
-					int swapError = mEglHelper.swap();
-					switch (swapError) {
-					case EGL10.EGL_SUCCESS:
-						break;
-					case EGL11.EGL_CONTEXT_LOST:
-						if (LOG_SURFACE) {
-							Log.i("GLThread", "egl context lost tid=" + getId());
-						}
-						lostEglContext = true;
-						break;
-					default:
-						// Other errors typically mean that the current surface is bad,
-						// probably because the SurfaceView surface has been destroyed,
-						// but we haven't been notified yet.
-						// Log the error to help developers understand why rendering stopped.
-						EglHelper.logEglErrorAsWarning("GLThread", "eglSwapBuffers", swapError);
 
-						synchronized(sGLThreadManager) {
-							mSurfaceIsBad = true;
-							sGLThreadManager.notifyAll();
-						}
-						break;
-					}
+/*
+                    int swapError = mEglHelper.swap();
+                    switch (swapError) {
+                        case EGL10.EGL_SUCCESS:
+                            break;
+                        case EGL11.EGL_CONTEXT_LOST:
+                            if (LOG_SURFACE) {
+                                Log.i("GLThread", "egl context lost tid=" + getId());
+                            }
+                            lostEglContext = true;
+                            break;
+                        default:
+                            // Other errors typically mean that the current surface is bad,
+                            // probably because the SurfaceView surface has been destroyed,
+                            // but we haven't been notified yet.
+                            // Log the error to help developers understand why rendering stopped.
+                            EglHelper.logEglErrorAsWarning("GLThread", "eglSwapBuffers", swapError);
 
-					if (wantRenderNotification) {
-						doRenderNotification = true;
-					}
-					*/
+                            synchronized (sGLThreadManager) {
+                                mSurfaceIsBad = true;
+                                sGLThreadManager.notifyAll();
+                            }
+                            break;
+                    }
+
+                    if (wantRenderNotification) {
+                        doRenderNotification = true;
+                    }
+*/
                 }
 
             } finally {
@@ -1528,7 +1525,7 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             }
         }
 
-        public boolean ableToDraw() {
+        boolean ableToDraw() {
             return mHaveEglContext && mHaveEglSurface && readyToDraw();
         }
 
@@ -1538,13 +1535,13 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                     && (mRequestRender || (mRenderMode == RENDERMODE_CONTINUOUSLY));
         }
 
-        public int getRenderMode() {
+        int getRenderMode() {
             synchronized (sGLThreadManager) {
                 return mRenderMode;
             }
         }
 
-        public void setRenderMode(int renderMode) {
+        void setRenderMode(int renderMode) {
             if (!((RENDERMODE_WHEN_DIRTY <= renderMode) && (renderMode <= RENDERMODE_CONTINUOUSLY))) {
                 throw new IllegalArgumentException("renderMode");
             }
@@ -1554,14 +1551,14 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             }
         }
 
-        public void requestRender() {
+        void requestRender() {
             synchronized (sGLThreadManager) {
                 mRequestRender = true;
                 sGLThreadManager.notifyAll();
             }
         }
 
-        public void surfaceCreated() {
+        void surfaceCreated() {
             synchronized (sGLThreadManager) {
                 if (LOG_THREADS) {
                     Log.i("GLThread", "surfaceCreated tid=" + getId());
@@ -1582,8 +1579,7 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             }
         }
 
-        public void surfaceDestroyed() {
-
+        void surfaceDestroyed() {
             synchronized (sGLThreadManager) {
                 if (LOG_THREADS) {
                     Log.i("GLThread", "surfaceDestroyed tid=" + getId());
@@ -1601,7 +1597,7 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
         }
 
-        public void onPause() {
+        void onPause() {
             synchronized (sGLThreadManager) {
                 if (LOG_PAUSE_RESUME) {
                     Log.i("GLThread", "onPause tid=" + getId());
@@ -1623,7 +1619,7 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             }
         }
 
-        public void onResume() {
+        void onResume() {
             synchronized (sGLThreadManager) {
                 if (LOG_PAUSE_RESUME) {
                     Log.i("GLThread", "onResume tid=" + getId());
@@ -1647,7 +1643,7 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             }
         }
 
-        public void onWindowResize(int w, int h) {
+        void onWindowResize(int w, int h) {
             synchronized (sGLThreadManager) {
                 mWidth = w;
                 mHeight = h;
@@ -1672,7 +1668,7 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             }
         }
 
-        public void requestExitAndWait() {
+        void requestExitAndWait() {
             // don't call this from GLThread thread or it is a guaranteed
             // deadlock!
             synchronized (sGLThreadManager) {
@@ -1688,7 +1684,7 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             }
         }
 
-        public void requestReleaseEglContextLocked() {
+        void requestReleaseEglContextLocked() {
             mShouldReleaseEglContext = true;
             sGLThreadManager.notifyAll();
         }
@@ -1698,7 +1694,7 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
          *
          * @param r the runnable to be run on the GL rendering thread.
          */
-        public void queueEvent(Runnable r) {
+        void queueEvent(Runnable r) {
             if (r == null) {
                 throw new IllegalArgumentException("r must not be null");
             }
@@ -1710,17 +1706,17 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
         // End of member variables protected by the sGLThreadManager monitor.
 
-        public void forceSurfaceDestory() {
+        void forceSurfaceDestory() {
             //stopEglSurfaceLocked();
 
         }
 
-        public boolean forceSurfaceCreation() {
+        boolean forceSurfaceCreation() {
             //mEglHelper.createSurface();
             //mEglHelper.createGL();
-            //Log.d("GLThread","forceSurfaceCreation calling setup");
+            //Log.d("GLThread", "forceSurfaceCreation calling setup");
             boolean ret = setup();
-            //Log.d("GLThread","forceSurfaceCreation ..returned from setup");
+            //Log.d("GLThread", "forceSurfaceCreation ..returned from setup");
             return ret;
         }
 
@@ -1777,7 +1773,7 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         private boolean mLimitedGLESContexts;
         private GLThread mEglOwner;
 
-        public synchronized void threadExiting(GLThread thread) {
+        synchronized void threadExiting(GLThread thread) {
             if (LOG_THREADS) {
                 Log.i("GLThread", "exiting tid=" + thread.getId());
             }
@@ -1795,7 +1791,7 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
          *
          * @return true if the right to use an EGL context was acquired.
          */
-        public boolean tryAcquireEglContextLocked(GLThread thread) {
+        boolean tryAcquireEglContextLocked(GLThread thread) {
             if (mEglOwner == thread || mEglOwner == null) {
                 mEglOwner = thread;
                 notifyAll();
@@ -1819,26 +1815,26 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
          * Releases the EGL context. Requires that we are already in the
          * sGLThreadManager monitor when this is called.
          */
-        public void releaseEglContextLocked(GLThread thread) {
+        void releaseEglContextLocked(GLThread thread) {
             if (mEglOwner == thread) {
                 mEglOwner = null;
             }
             notifyAll();
         }
 
-        public synchronized boolean shouldReleaseEGLContextWhenPausing() {
+        synchronized boolean shouldReleaseEGLContextWhenPausing() {
             // Release the EGL context when pausing even if
             // the hardware supports multiple EGL contexts.
             // Otherwise the device could run out of EGL contexts.
             return mLimitedGLESContexts;
         }
 
-        public synchronized boolean shouldTerminateEGLWhenPausing() {
+        synchronized boolean shouldTerminateEGLWhenPausing() {
             checkGLESVersion();
             return !mMultipleGLESContextsAllowed;
         }
 
-        public synchronized void checkGLDriver(GL10 gl) {
+        synchronized void checkGLDriver(GL10 gl) {
             if (!mGLESDriverCheckComplete) {
                 checkGLESVersion();
                 String renderer = gl.glGetString(GL10.GL_RENDERER);
@@ -1861,12 +1857,10 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             if (!mGLESVersionCheckComplete) {
                 //mGLESVersion = SystemProperties.getInt("ro.opengles.version", ConfigurationInfo.GL_ES_VERSION_UNDEFINED);
                 mGLESVersion = kGLES_20;
-                if (mGLESVersion >= kGLES_20) {
-                    mMultipleGLESContextsAllowed = true;
-                }
+                mMultipleGLESContextsAllowed = true;
                 if (LOG_SURFACE) {
                     Log.w(TAG, "checkGLESVersion mGLESVersion =" +
-                            " " + mGLESVersion + " mMultipleGLESContextsAllowed = " + mMultipleGLESContextsAllowed);
+                            " " + mGLESVersion + " mMultipleGLESContextsAllowed = " + true);
                 }
                 mGLESVersionCheckComplete = true;
             }
@@ -1891,16 +1885,16 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                 if (LOG_THREADS) {
                     Log.i("DefaultContextFactory", "tid=" + Thread.currentThread().getId());
                 }
-                EglHelper.throwEglException("eglDestroyContex", egl.eglGetError());
+                EglHelper.throwEglException("eglDestroyContext", egl.eglGetError());
             }
         }
     }
 
     private abstract class BaseConfigChooser
             implements EGLConfigChooser {
-        protected int[] mConfigSpec;
+        int[] mConfigSpec;
 
-        public BaseConfigChooser(int[] configSpec) {
+        BaseConfigChooser(int[] configSpec) {
             mConfigSpec = filterConfigSpec(configSpec);
         }
 
@@ -1956,15 +1950,16 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
      */
     private class ComponentSizeChooser extends BaseConfigChooser {
         // Subclasses can adjust these values:
-        protected int mRedSize;
-        protected int mGreenSize;
-        protected int mBlueSize;
-        protected int mAlphaSize;
-        protected int mDepthSize;
-        protected int mStencilSize;
+        int mRedSize;
+        int mGreenSize;
+        int mBlueSize;
+        int mAlphaSize;
+        int mDepthSize;
+        int mStencilSize;
         private int[] mValue;
-        public ComponentSizeChooser(int redSize, int greenSize, int blueSize,
-                                    int alphaSize, int depthSize, int stencilSize) {
+
+        ComponentSizeChooser(int redSize, int greenSize, int blueSize,
+                             int alphaSize, int depthSize, int stencilSize) {
             super(new int[]{
                     EGL10.EGL_RED_SIZE, redSize,
                     EGL10.EGL_GREEN_SIZE, greenSize,
@@ -2023,7 +2018,7 @@ public class MyGLSurfaceView extends SurfaceView implements SurfaceHolder.Callba
      * or without a depth buffer.
      */
     private class SimpleEGLConfigChooser extends ComponentSizeChooser {
-        public SimpleEGLConfigChooser(boolean withDepthBuffer) {
+        SimpleEGLConfigChooser(boolean withDepthBuffer) {
             super(8, 8, 8, 0, withDepthBuffer ? 16 : 0, 0);
         }
     }

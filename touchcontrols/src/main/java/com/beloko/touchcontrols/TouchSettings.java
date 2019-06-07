@@ -35,7 +35,7 @@ public class TouchSettings {
         SharedPreferences settings = ctx.getSharedPreferences("OPTIONS", Context.MODE_MULTI_PROCESS);
         SharedPreferences.Editor editor = settings.edit();
         editor.putFloat(name, value);
-        editor.commit();
+        editor.apply();
     }
 
     public static boolean getBoolOption(Context ctx, String name, boolean def) {
@@ -47,7 +47,7 @@ public class TouchSettings {
         SharedPreferences settings = ctx.getSharedPreferences("OPTIONS", Context.MODE_MULTI_PROCESS);
         SharedPreferences.Editor editor = settings.edit();
         editor.putBoolean(name, value);
-        editor.commit();
+        editor.apply();
     }
 
     public static int getIntOption(Context ctx, String name, int def) {
@@ -59,7 +59,7 @@ public class TouchSettings {
         SharedPreferences settings = ctx.getSharedPreferences("OPTIONS", Context.MODE_MULTI_PROCESS);
         SharedPreferences.Editor editor = settings.edit();
         editor.putInt(name, value);
-        editor.commit();
+        editor.apply();
     }
 
     public static long getLongOption(Context ctx, String name, long def) {
@@ -71,7 +71,7 @@ public class TouchSettings {
         SharedPreferences settings = ctx.getSharedPreferences("OPTIONS", Context.MODE_MULTI_PROCESS);
         SharedPreferences.Editor editor = settings.edit();
         editor.putLong(name, value);
-        editor.commit();
+        editor.apply();
     }
 
     public static String getStringOption(Context ctx, String name, String def) {
@@ -83,7 +83,7 @@ public class TouchSettings {
         SharedPreferences settings = ctx.getSharedPreferences("OPTIONS", Context.MODE_MULTI_PROCESS);
         SharedPreferences.Editor editor = settings.edit();
         editor.putString(name, value);
-        editor.commit();
+        editor.apply();
     }
 
     static public void copyFile(InputStream in, OutputStream out) throws IOException {
@@ -115,7 +115,7 @@ public class TouchSettings {
             if (filename.endsWith("png") && filename.startsWith(prefix)) {
                 InputStream in = null;
                 OutputStream out = null;
-                //Log.d("test","file = " + filename);
+                //Log.d("test", "file = " + filename);
                 try {
                     in = assetManager.open(filename);
                     out = new FileOutputStream(dir + "/" + filename.substring(prefix.length()));

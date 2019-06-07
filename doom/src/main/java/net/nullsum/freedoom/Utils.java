@@ -4,13 +4,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
@@ -42,18 +40,16 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 
-;
-
 public class Utils {
-    static final int BUFFER_SIZE = 1024;
-    static String LOG = "Utils";
+    private static final int BUFFER_SIZE = 1024;
+    private static String LOG = "Utils";
     private Resources res;
 
     public Utils(Resources res) {
         this.res = res;
     }
 
-    public static void copyFreedoomFilesToSD(Activity responsibleActivity) {
+    static void copyFreedoomFilesToSD(Activity responsibleActivity) {
         String iniFolderName = "/gzdoom_dev";
         String iniFileName = "zdoom.ini";
         String fullBaseDir = AppSettings.getQuakeFullDir();
@@ -82,7 +78,7 @@ public class Utils {
         }
     }
 
-    static public void copyFile(InputStream in, OutputStream out) throws IOException {
+    private static void copyFile(InputStream in, OutputStream out) throws IOException {
         byte[] buffer = new byte[1024];
         int read;
         while ((read = in.read(buffer)) != -1) {
@@ -91,7 +87,7 @@ public class Utils {
         out.close();
     }
 
-    static public void copyFile(InputStream in, OutputStream out, ProgressDialog pb) throws IOException {
+    private static void copyFile(InputStream in, OutputStream out, ProgressDialog pb) throws IOException {
         byte[] buffer = new byte[1024];
         int read;
         while ((read = in.read(buffer)) != -1) {
@@ -105,18 +101,10 @@ public class Utils {
         AlertDialog.Builder builder = new AlertDialog.Builder(act);
         builder.setMessage(title)
                 .setCancelable(true)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // Download stuff here
-                    }
+                .setPositiveButton("OK", (dialog, id) -> {
+                    // Download stuff here
                 });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
         AlertDialog alert = builder.create();
         alert.show();
     }
@@ -125,7 +113,7 @@ public class Utils {
         File[] files = new File(basePath).listFiles();
         boolean ok = true;
 
-        String filesNotFound = "";
+        StringBuilder filesNotFound = new StringBuilder();
 
         String[] expected;
         expected = files_to_ceck;
@@ -133,34 +121,32 @@ public class Utils {
         if (files == null)
             files = new File[0];
 
-        if (files != null) {
+        for (File f : files) {
+            Log.d(LOG, "FILES: " + f.toString());
+
+        }
+
+        for (String e : expected) {
+            boolean found = false;
             for (File f : files) {
-                Log.d(LOG, "FILES: " + f.toString());
-
+                if (f.toString().toLowerCase().endsWith(e.toLowerCase()))
+                    found = true;
             }
-
-            for (String e : expected) {
-                boolean found = false;
-                for (File f : files) {
-                    if (f.toString().toLowerCase().endsWith(e.toLowerCase()))
-                        found = true;
-                }
-                if (!found) {
-                    Log.d(LOG, "Didnt find " + e);
-                    filesNotFound += e + "\n";
-                    ok = false;
-                }
+            if (!found) {
+                Log.d(LOG, "Didnt find " + e);
+                filesNotFound.append(e).append("\n");
+                ok = false;
             }
         }
 
-        if (filesNotFound.contentEquals(""))
+        if (filesNotFound.toString().contentEquals(""))
             return null;
         else
-            return filesNotFound;
+            return filesNotFound.toString();
 
     }
 
-    static public void copyPNGAssets(Context ctx, String dir) {
+    static void copyPNGAssets(Context ctx, String dir) {
         String prefix = "";
 
         File d = new File(dir);
@@ -175,10 +161,10 @@ public class Utils {
             Log.e("tag", "Failed to get asset file list.", e);
         }
         for (String filename : files) {
-            if (filename.endsWith("png") && filename.startsWith(prefix)) {
+            if (filename.endsWith("png")) {
                 InputStream in = null;
                 OutputStream out = null;
-                //Log.d("test","file = " + filename);
+                //Log.d("test", "file = " + filename);
                 try {
                     in = assetManager.open(filename);
                     out = new FileOutputStream(dir + "/" + filename.substring(prefix.length()));
@@ -200,8 +186,8 @@ public class Utils {
         new ExtractAsset().execute(file, dest);
     }
 
-    static public String[] creatArgs(String appArgs) {
-        ArrayList<String> a = new ArrayList<String>(Arrays.asList(appArgs.split(" ")));
+    static String[] createArgs(String appArgs) {
+        ArrayList<String> a = new ArrayList<>(Arrays.asList(appArgs.split(" ")));
 
         Iterator<String> iter = a.iterator();
         while (iter.hasNext()) {
@@ -210,7 +196,7 @@ public class Utils {
             }
         }
 
-        return a.toArray(new String[a.size()]);
+        return a.toArray(new String[0]);
     }
 
 
@@ -287,12 +273,12 @@ public class Utils {
                 sb.append(separator);
             }
             response = sb.toString();
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         } finally {
             if (reader != null) {
                 try {
                     reader.close();
-                } catch (IOException e) {
+                } catch (IOException ignored) {
                 }
             }
         }
@@ -300,7 +286,7 @@ public class Utils {
         return response;
     }
 
-    static public void copyAsset(Context ctx, String file, String destdir) {
+    static void copyAsset(Context ctx, String file, String destdir) {
         AssetManager assetManager = ctx.getAssets();
 
         InputStream in = null;
@@ -321,7 +307,7 @@ public class Utils {
         }
     }
 
-    public static int calculateInSampleSize(
+    private static int calculateInSampleSize(
             BitmapFactory.Options options, int reqWidth, int reqHeight) {
         // Raw height and width of image
         final int height = options.outHeight;
@@ -359,7 +345,7 @@ public class Utils {
         return BitmapFactory.decodeResource(res, resId, options);
     }
 
-    public static void loadArgs(Context ctx, ArrayList<String> args) {
+    static void loadArgs(Context ctx, ArrayList<String> args) {
         File cacheDir = ctx.getFilesDir();
 
         FileInputStream fis = null;
@@ -372,16 +358,16 @@ public class Utils {
             args.addAll(argsHistory);
             in.close();
             return;
-        } catch (IOException ex) {
+        } catch (IOException ignored) {
 
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ignored) {
 
         }
         //failed load, load default
         args.clear();
     }
 
-    public static void saveArgs(Context ctx, ArrayList<String> args) {
+    static void saveArgs(Context ctx, ArrayList<String> args) {
         File cacheDir = ctx.getFilesDir();
 
         if (!cacheDir.exists())
@@ -400,68 +386,61 @@ public class Utils {
     }
 
     public static void setImmersionMode(final Activity act) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 
-            if (AppSettings.immersionMode) {
-                act.getWindow().getDecorView().setSystemUiVisibility(
-                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
-                                | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
-                                | View.SYSTEM_UI_FLAG_IMMERSIVE
-                                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        if (AppSettings.immersionMode) {
+            act.getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
-                View decorView = act.getWindow().getDecorView();
-                decorView.setOnSystemUiVisibilityChangeListener
-                        (new View.OnSystemUiVisibilityChangeListener() {
-                            @Override
-                            public void onSystemUiVisibilityChange(int visibility) {
-                                Log.d(LOG, "onSystemUiVisibilityChange");
+            View decorView = act.getWindow().getDecorView();
+            decorView.setOnSystemUiVisibilityChangeListener
+                    (new View.OnSystemUiVisibilityChangeListener() {
+                        @Override
+                        public void onSystemUiVisibilityChange(int visibility) {
+                            Log.d(LOG, "onSystemUiVisibilityChange");
 
-                                act.getWindow().getDecorView().setSystemUiVisibility(
-                                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                                                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                                                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                                                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
-                                                | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
-                                                | View.SYSTEM_UI_FLAG_IMMERSIVE
-                                                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-
-                            }
-                        });
-            }
-        }
-    }
-
-    public static void onWindowFocusChanged(final Activity act, final boolean hasFocus) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-
-            if (AppSettings.immersionMode) {
-                Handler handler = new Handler();
-
-                handler.postDelayed(new Runnable() {
-                    public void run() {
-
-                        if (hasFocus) {
                             act.getWindow().getDecorView().setSystemUiVisibility(
                                     View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                                             | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                                             | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
+                                            | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
                                             | View.SYSTEM_UI_FLAG_IMMERSIVE
                                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-                        }
-                    }
 
-                }, 2000);
-            }
+                        }
+                    });
         }
     }
 
-    public static ArrayList<ActionInput> getGameGamepadConfig(Resources res) {
-        ArrayList<ActionInput> actions = new ArrayList<ActionInput>();
+    public static void onWindowFocusChanged(final Activity act, final boolean hasFocus) {
+
+        if (AppSettings.immersionMode) {
+            Handler handler = new Handler();
+
+            handler.postDelayed(() -> {
+
+                if (hasFocus) {
+                    act.getWindow().getDecorView().setSystemUiVisibility(
+                            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                                    | View.SYSTEM_UI_FLAG_FULLSCREEN
+                                    | View.SYSTEM_UI_FLAG_IMMERSIVE
+                                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+                }
+            }, 2000);
+        }
+    }
+
+    static ArrayList<ActionInput> getGameGamepadConfig(Resources res) {
+        ArrayList<ActionInput> actions = new ArrayList<>();
 
         actions.add(new ActionInput("analog_look_pitch", res.getString(R.string.look_up_down_option), ControlConfig.ACTION_ANALOG_PITCH, Type.ANALOG));
         actions.add(new ActionInput("analog_look_yaw", res.getString(R.string.look_left_right_option), ControlConfig.ACTION_ANALOG_YAW, Type.ANALOG));
@@ -591,7 +570,7 @@ public class Utils {
                     File outZipFile = new File(basePath, "temp.zip");
 
                     fout = new FileOutputStream(outZipFile);
-                    byte data[] = new byte[1024];
+                    byte[] data = new byte[1024];
                     int count;
                     while ((count = in.read(data, 0, 1024)) != -1) {
                         fout.write(data, 0, count);
@@ -601,15 +580,15 @@ public class Utils {
                     fout.close();
 
                     outZipFile.renameTo(new File(basePath, file));
-                    return 0l;
+                    return 0L;
                 }
 
             } catch (IOException e) {
                 errorstring = e.toString();
-                return 1l;
+                return 1L;
             }
 
-            return 0l;
+            return 0L;
         }
 
         protected void onProgressUpdate(Integer... progress) {
@@ -622,10 +601,7 @@ public class Utils {
                 AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
                 builder.setMessage("Error accessing server: " + errorstring)
                         .setCancelable(true)
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-
-                            }
+                        .setPositiveButton("OK", (dialog, id) -> {
                         });
 
                 builder.show();

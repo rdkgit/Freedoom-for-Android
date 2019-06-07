@@ -9,16 +9,10 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,13 +23,8 @@ import com.bda.controller.StateEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/*
-import com.bda.controller.Controller;
-import com.bda.controller.ControllerListener;
-import com.bda.controller.StateEvent;
-*/
 public class GamePadFragment extends Fragment {
-    //This is a bit shit, set this before instantiat the fragment
+    //This is a bit shit, set this before instantiating the fragment
     public static ArrayList<ActionInput> gamepadActions;
     final String LOG = "GamePadFragment";
     final MogaControllerListener mListener = new MogaControllerListener();
@@ -83,7 +72,6 @@ public class GamePadFragment extends Fragment {
         super.onHiddenChanged(hidden);
     }
 
-
     @Override
     public void onPause() {
         super.onPause();
@@ -109,44 +97,32 @@ public class GamePadFragment extends Fragment {
         View mainView = inflater.inflate(R.layout.fragment_gamepad, null);
 
 
-        CheckBox enableCb = (CheckBox) mainView.findViewById(R.id.gamepad_enable_checkbox);
+        CheckBox enableCb = mainView.findViewById(R.id.gamepad_enable_checkbox);
         enableCb.setChecked(TouchSettings.gamePadEnabled);
 
-        enableCb.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+        enableCb.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            TouchSettings.setBoolOption(getActivity(), "gamepad_enabled", isChecked);
+            TouchSettings.gamePadEnabled = isChecked;
+            setListViewEnabled(TouchSettings.gamePadEnabled);
 
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                TouchSettings.setBoolOption(getActivity(), "gamepad_enabled", isChecked);
-                TouchSettings.gamePadEnabled = isChecked;
-                setListViewEnabled(TouchSettings.gamePadEnabled);
-
-            }
         });
 
 
-        CheckBox hideCtrlCb = (CheckBox) mainView.findViewById(R.id.gamepad_hide_touch_checkbox);
+        CheckBox hideCtrlCb = mainView.findViewById(R.id.gamepad_hide_touch_checkbox);
         hideCtrlCb.setChecked(TouchSettings.hideTouchControls);
 
-        hideCtrlCb.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                TouchSettings.setBoolOption(getActivity(), "hide_touch_controls", isChecked);
-                TouchSettings.hideTouchControls = isChecked;
-            }
+        hideCtrlCb.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            TouchSettings.setBoolOption(getActivity(), "hide_touch_controls", isChecked);
+            TouchSettings.hideTouchControls = isChecked;
         });
 
 
-        Button help = (Button) mainView.findViewById(R.id.gamepad_help_button);
-        help.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                //NoticeDialog.show(getActivity(),"Gamepad Help", R.raw.gamepad);
-            }
+        Button help = mainView.findViewById(R.id.gamepad_help_button);
+        help.setOnClickListener(v -> {
+            //NoticeDialog.show(getActivity(), "Gamepad Help", R.raw.gamepad);
         });
 
-        listView = (ListView) mainView.findViewById(R.id.gamepad_listview);
+        listView = mainView.findViewById(R.id.gamepad_listview);
         adapter = new ControlListAdapter(getActivity());
         listView.setAdapter(adapter);
 
@@ -154,27 +130,13 @@ public class GamePadFragment extends Fragment {
 
 
         listView.setSelector(R.drawable.layout_sel_background);
-        listView.setOnItemClickListener(new OnItemClickListener() {
+        listView.setOnItemClickListener((arg0, v, pos, id) -> config.startMonitor(getActivity(), pos));
 
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View v, int pos,
-                                    long id) {
-                config.startMonitor(getActivity(), pos);
-            }
-        });
-
-        listView.setOnItemLongClickListener(new OnItemLongClickListener() {
-
-            @Override
-            public boolean onItemLongClick(AdapterView<?> arg0, View v, int pos,
-                                           long id) {
-                return config.showExtraOptions(getActivity(), pos);
-            }
-        });
+        listView.setOnItemLongClickListener((arg0, v, pos, id) -> config.showExtraOptions(getActivity(), pos));
 
         adapter.notifyDataSetChanged();
 
-        info = (TextView) mainView.findViewById(R.id.gamepad_info_textview);
+        info = mainView.findViewById(R.id.gamepad_info_textview);
         info.setText("Select Action");
         info.setTextColor(getResources().getColor(android.R.color.holo_blue_light));
 
@@ -201,7 +163,7 @@ public class GamePadFragment extends Fragment {
             adapter.notifyDataSetChanged();
 
         //return config.isMonitoring(); //This does not work, mouse appears anyway
-        return !isHidden; //If gamepas tab visible always steal
+        return !isHidden; //If gamepad tab visible always steal
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -225,11 +187,9 @@ public class GamePadFragment extends Fragment {
 
         public ControlListAdapter(Activity context) {
             this.context = context;
-
         }
 
         public void add(String string) {
-
         }
 
         public int getCount() {
@@ -248,18 +208,16 @@ public class GamePadFragment extends Fragment {
 
 
         public View getView(int position, View convertView, ViewGroup list) {
-            View v = config.getView(getActivity(), position);
-            return v;
+            return config.getView(getActivity(), position);
         }
 
     }
 
     class MogaControllerListener implements ControllerListener {
 
-
         @Override
         public void onKeyEvent(com.bda.controller.KeyEvent event) {
-            //Log.d(LOG,"onKeyEvent " + event.getKeyCode());
+            //Log.d(LOG, "onKeyEvent " + event.getKeyCode());
 
             if (event.getAction() == com.bda.controller.KeyEvent.ACTION_DOWN)
                 onKeyDown(event.getKeyCode(), null);
@@ -269,7 +227,7 @@ public class GamePadFragment extends Fragment {
 
         @Override
         public void onMotionEvent(com.bda.controller.MotionEvent event) {
-            //Log.d(LOG,"onGenericMotionEvent " + event.toString());
+            //Log.d(LOG, "onGenericMotionEvent " + event.toString());
 
             genericAxisValues.setMogaValues(event);
 
@@ -282,5 +240,4 @@ public class GamePadFragment extends Fragment {
             Log.d(LOG, "onStateEvent " + event.getState());
         }
     }
-
 }
