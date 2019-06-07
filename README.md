@@ -28,11 +28,9 @@ In addition, Freedoom is compatible with much of the vast library of fan-made "W
 - [GZDoom Engine](https://github.com/coelckers/gzdoom): [2.0.02/2.0.03](https://github.com/coelckers/gzdoom/tree/df1364e2d7bc3f23a1a3b7afb4c0be731fe080f8) (SUPER ANCIENT, WE KNOW)
 - [Fluidsynth](https://github.com/FluidSynth/fluidsynth): 1.0.9
 - [SDL](https://www.libsdl.org/): 1.3(?)
-- FMOD: ??? (version used is not documented anywhere, all we can assume is that it's OLD)
 
 
 ## Roadmap (not in order)
-- [ ] Rebase GZDoom Engine to 4.x.x
 - [ ] Update FluidSynth from 1.x.x to 2.x.x
 - [ ] Update SDL (and SDLActivity.java) from 1.x to 2.x.x
 - [ ] Update [OpenGL ES](https://developer.android.com/guide/topics/graphics/opengl) from 1.0/1.1 to 3.1 (supported by Android 5.0 (API level 21) and higher)
