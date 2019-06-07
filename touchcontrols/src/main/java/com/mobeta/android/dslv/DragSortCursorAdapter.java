@@ -1,7 +1,5 @@
 package com.mobeta.android.dslv;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.util.SparseIntArray;
@@ -10,16 +8,18 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.ListAdapter;
 
+import java.util.ArrayList;
+
 
 /**
- * A subclass of {@link android.widget.CursorAdapter} that provides
+ * A subclass of {@link CursorAdapter} that provides
  * reordering of the elements in the Cursor based on completed
  * drag-sort operations. The reordering is a simple mapping of
  * list positions into Cursor positions (the Cursor is unchanged).
  * To persist changes made by drag-sorts, one can retrieve the
  * mapping with the {@link #getCursorPositions()} method, which
  * returns the reordered list of Cursor positions.
- *
+ * <p>
  * An instance of this class is passed
  * to {@link DragSortListView#setAdapter(ListAdapter)} and, since
  * this class implements the {@link DragSortListView.DragSortListener}
@@ -35,8 +35,8 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
      */
     private SparseIntArray mListMapping = new SparseIntArray();
 
-    private ArrayList<Integer> mRemovedCursorPositions = new ArrayList<Integer>();
-    
+    private ArrayList<Integer> mRemovedCursorPositions = new ArrayList<>();
+
     public DragSortCursorAdapter(Context context, Cursor c) {
         super(context, c);
     }
@@ -52,7 +52,7 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
     /**
      * Swaps Cursor and clears list-Cursor mapping.
      *
-     * @see android.widget.CursorAdapter#swapCursor(android.database.Cursor)
+     * @see CursorAdapter#swapCursor(Cursor)
      */
     @Override
     public Cursor swapCursor(Cursor newCursor) {
@@ -64,7 +64,7 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
     /**
      * Changes Cursor and clears list-Cursor mapping.
      *
-     * @see android.widget.CursorAdapter#changeCursor(android.database.Cursor)
+     * @see CursorAdapter#changeCursor(Cursor)
      */
     @Override
     public void changeCursor(Cursor cursor) {
@@ -128,7 +128,7 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
             }
             mListMapping.put(to, cursorFrom);
 
-            cleanMapping();        
+            cleanMapping();
             notifyDataSetChanged();
         }
     }
@@ -170,7 +170,7 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
      * Remove unnecessary mappings from sparse array.
      */
     private void cleanMapping() {
-        ArrayList<Integer> toRemove = new ArrayList<Integer>();
+        ArrayList<Integer> toRemove = new ArrayList<>();
 
         int size = mListMapping.size();
         for (int i = 0; i < size; ++i) {
@@ -196,7 +196,6 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
      * operations).
      *
      * @param position List position
-     *
      * @return The mapped-to Cursor position
      */
     public int getCursorPosition(int position) {
@@ -208,7 +207,7 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
      * list.
      */
     public ArrayList<Integer> getCursorPositions() {
-        ArrayList<Integer> result = new ArrayList<Integer>();
+        ArrayList<Integer> result = new ArrayList<>();
 
         for (int i = 0; i < getCount(); ++i) {
             result.add(mListMapping.get(i, i));
@@ -237,6 +236,4 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
             return mListMapping.keyAt(index);
         }
     }
-
-
 }

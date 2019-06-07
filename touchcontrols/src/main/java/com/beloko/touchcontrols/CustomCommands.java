@@ -3,15 +3,10 @@ package com.beloko.touchcontrols;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,300 +25,223 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class CustomCommands {
-	static String LOG = "QuakeCustomCommands";
-	static Activity activity;
-	static ControlInterface quakeIf;
+    static String LOG = "QuakeCustomCommands";
+    static Activity activity;
+    static ControlInterface quakeIf;
 
-	static String mainCmdsPath;
-	static String modCmdsPath;
+    static String mainCmdsPath;
+    static String modCmdsPath;
+    static QuickCmdList currentList = QuickCmdList.MAIN;
+    ArrayList<QuickCommand> commands;
+    QuickCommandsAdapter adapter;
+    LinearLayout editView;
+    EditText nameEditText;
+    EditText commandEditText;
+    DragSortListView listView;
 
-	ArrayList<QuickCommand> commands;
-	QuickCommandsAdapter adapter;
+    private DragSortListView.DropListener onDrop =
+            new DragSortListView.DropListener() {
+                @Override
+                public void drop(int from, int to) {
+                    if (TouchSettings.DEBUG) Log.d(LOG, "drop " + from + " to " + to);
+                    if (from != to) {
+                        //Collections.swap(commands, from, to);
+                        QuickCommand f = commands.remove(from);
+                        commands.add(to, f);
 
-	LinearLayout editView;
-	EditText nameEditText;
-	EditText commandEditText;
+                        saveQuickCommands();
+                    }
+                }
+            };
 
+    CustomCommands() {
+        loadQuickCommands(currentList);
 
-	DragSortListView listView;
+        final Dialog dialog = new Dialog(activity);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.quick_commands);
+        dialog.setCancelable(true);
 
-	enum QuickCmdList {MAIN,MOD};
+        ImageView add = dialog.findViewById(R.id.add_quick_command_image);
 
-	static QuickCmdList currentList = QuickCmdList.MAIN;
+        add.setOnClickListener(v -> editView.setVisibility(View.VISIBLE));
 
-	public static void setup(Activity a,ControlInterface qif,String main, String mod)
-	{
-		activity = a;
-		quakeIf = qif;
-		mainCmdsPath = main;
-		modCmdsPath = mod;
-		if (TouchSettings.DEBUG) Log.d(LOG,"main = " + main + ", mod = " + mod);
-	}
+        Button main = dialog.findViewById(R.id.main_button);
+        main.setOnClickListener(v -> {
+            loadQuickCommands(QuickCmdList.MAIN);
+            adapter.notifyDataSetChanged();
+        });
 
-	CustomCommands()
-	{	
-		loadQuickCommands(currentList);
+        Button mod = dialog.findViewById(R.id.mod_button);
+        mod.setOnClickListener(v -> {
+            loadQuickCommands(QuickCmdList.MOD);
+            adapter.notifyDataSetChanged();
+        });
 
-		final Dialog dialog = new Dialog(activity);
-		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		dialog.setContentView(R.layout.quick_commands);
-		dialog.setCancelable(true);
+        if (modCmdsPath == null) {
+            mod.setVisibility(View.GONE);
+        }
 
-		ImageView add = (ImageView)dialog.findViewById(R.id.add_quick_command_image);
+        editView = dialog.findViewById(R.id.edit_qc_view);
+        nameEditText = dialog.findViewById(R.id.name_edittext);
+        commandEditText = dialog.findViewById(R.id.command_edittext);
 
-		add.setOnClickListener(new OnClickListener() {
+        Button cancel = dialog.findViewById(R.id.cancel_button);
+        cancel.setOnClickListener(v -> editView.setVisibility(View.GONE));
 
-			@Override
-			public void onClick(View v) {
-				editView.setVisibility(View.VISIBLE);
+        Button save = dialog.findViewById(R.id.save_button);
+        save.setOnClickListener(v -> {
+            QuickCommand qc = new QuickCommand(nameEditText.getText().toString(), commandEditText.getText().toString());
+            commands.add(qc);
+            saveQuickCommands();
+            nameEditText.setText("");
+            commandEditText.setText("");
 
-			}
-		});
-
-		Button main = (Button)dialog.findViewById(R.id.main_button);
-		main.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				loadQuickCommands(QuickCmdList.MAIN);
-				adapter.notifyDataSetChanged();
-			}
-		});
-
-		Button mod = (Button)dialog.findViewById(R.id.mod_button);
-		mod.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				loadQuickCommands(QuickCmdList.MOD);
-				adapter.notifyDataSetChanged();
-			}
-		});
-
-		if (modCmdsPath == null)
-		{
-			mod.setVisibility(View.GONE);
-		}
-
-		editView = (LinearLayout)dialog.findViewById(R.id.edit_qc_view);
-		nameEditText = (EditText)dialog.findViewById(R.id.name_edittext);
-		commandEditText =  (EditText)dialog.findViewById(R.id.command_edittext);
-
-		Button cancel = (Button)dialog.findViewById(R.id.cancel_button);
-		cancel.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				editView.setVisibility(View.GONE);
-			}
-		});
-
-		Button save = (Button)dialog.findViewById(R.id.save_button);
-		save.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				QuickCommand qc = new QuickCommand(nameEditText.getText().toString(),commandEditText.getText().toString());
-				commands.add(qc);
-				saveQuickCommands();
-				nameEditText.setText("");
-				commandEditText.setText("");
-
-				editView.setVisibility(View.GONE);
-			}
-		});
+            editView.setVisibility(View.GONE);
+        });
 
 
-		listView =  (DragSortListView)dialog.findViewById(R.id.list);
-		listView.setDragEnabled(true);
-		listView.setDropListener(onDrop);
+        listView = dialog.findViewById(R.id.list);
+        listView.setDragEnabled(true);
+        listView.setDropListener(onDrop);
 
-		adapter = new QuickCommandsAdapter(activity);
+        adapter = new QuickCommandsAdapter(activity);
 
-		listView.setAdapter(adapter);
+        listView.setAdapter(adapter);
 
-		listView.setOnItemClickListener(new OnItemClickListener() {
+        listView.setOnItemClickListener((arg0, arg1, pos, arg3) -> {
+            quakeIf.quickCommand_if(commands.get(pos).getCommand());
+            dialog.dismiss();
+        });
 
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int pos,
-					long arg3) {
-				quakeIf.quickCommand_if(commands.get(pos).getCommand());
-				dialog.dismiss();
-			}
-		});
+        listView.setOnItemLongClickListener((arg0, arg1, pos, arg3) -> {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                    activity);
 
-		listView.setOnItemLongClickListener(new OnItemLongClickListener() {
+            // set title
+            alertDialogBuilder.setTitle("Delete Command?");
 
-			@Override
-			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
-					final int pos, long arg3) {
-				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-						activity);
+            // set dialog message
+            alertDialogBuilder
+                    .setCancelable(false)
+                    .setPositiveButton("Yes", (dialog1, id) -> {
+                        commands.remove(pos);
+                        saveQuickCommands();
+                    })
+                    .setNegativeButton("No", (dialog1, id) -> dialog1.cancel());
 
-				// set title
-				alertDialogBuilder.setTitle("Delete Command?");
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
 
-				// set dialog message
-				alertDialogBuilder
-				.setCancelable(false)
-				.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog,int id) {
-						commands.remove(pos);
-						saveQuickCommands();
-					}
-				})
-				.setNegativeButton("No",new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog,int id) {
-						dialog.cancel();
-					}
-				});
+            // show it
+            alertDialog.show();
+            return true;
+        });
 
-				// create alert dialog
-				AlertDialog alertDialog = alertDialogBuilder.create();
+        adapter.notifyDataSetChanged();
 
-				// show it
-				alertDialog.show();
-				return true;
-			}
-		});
+        dialog.show();
+    }
 
-		adapter.notifyDataSetChanged();
+    public static void setup(Activity a, ControlInterface qif, String main, String mod) {
+        activity = a;
+        quakeIf = qif;
+        mainCmdsPath = main;
+        modCmdsPath = mod;
+        if (TouchSettings.DEBUG) Log.d(LOG, "main = " + main + ", mod = " + mod);
+    }
 
-		dialog.show();
-	}
+    public static void showCommands() {
+        if (TouchSettings.DEBUG) Log.d(LOG, "showCommands");
+        new CustomCommands();
+    }
 
+    private void loadQuickCommands(QuickCmdList m) {
+        currentList = m;
+        String filename;
+        if (currentList == QuickCmdList.MAIN) {
+            filename = mainCmdsPath;
+        } else {
+            if (modCmdsPath == null) {
+                filename = mainCmdsPath;
+                currentList = QuickCmdList.MAIN;
+            } else
+                filename = modCmdsPath;
+        }
 
-	public static void showCommands()
-	{
-		if (TouchSettings.DEBUG) Log.d(LOG,"showCommands");
-		new CustomCommands();
-	}
+        FileInputStream fis = null;
+        ObjectInputStream in = null;
+        try {
+            fis = new FileInputStream(filename);
+            in = new ObjectInputStream(fis);
+            commands = (ArrayList<QuickCommand>) in.readObject();
+            if (TouchSettings.DEBUG) Log.d(LOG, "Read commands");
+            in.close();
+            return;
+        } catch (IOException ignored) {
+        } catch (ClassNotFoundException ignored) {
+        }
+        //failed load, load default
+        commands = new ArrayList<>();
+    }
 
-	private DragSortListView.DropListener onDrop =
-			new DragSortListView.DropListener() {
-		@Override
-		public void drop(int from, int to) {
-			if (TouchSettings.DEBUG) Log.d(LOG,"drop " + from + " to " + to);
-			if (from != to) {
-				//Collections.swap(commands, from, to);
-				QuickCommand f = commands.remove(from);
-				commands.add(to, f);
-
-				saveQuickCommands();
-			}
-		}
-	};
-
-	private void loadQuickCommands(QuickCmdList m)
-	{
-		currentList = m;
-		String filename;
-		if (currentList == QuickCmdList.MAIN)
-		{
-			filename = mainCmdsPath;
-		}
-		else
-		{
-			if (modCmdsPath == null)
-			{
-				filename = mainCmdsPath;
-				currentList = QuickCmdList.MAIN;
-			}
-			else
-				filename = modCmdsPath;
-		}
-
-		FileInputStream fis = null;
-		ObjectInputStream in = null;
-		try
-		{
-			fis = new FileInputStream(filename);
-			in = new ObjectInputStream(fis);
-			commands = (ArrayList<QuickCommand> )in.readObject();
-			if (TouchSettings.DEBUG) Log.d(LOG,"Read commands");
-			in.close();
-			return;
-		}
-		catch(IOException ex)
-		{
-
-		}
-		catch(ClassNotFoundException ex)
-		{
-
-		}
-		//failed load, load default
-		commands = new ArrayList<QuickCommand> ();
-	}
-
-	private void saveQuickCommands()
-	{
-		String filename;
-		if (currentList == QuickCmdList.MAIN)
-		{
-			filename = mainCmdsPath;
-		}
-		else
-		{
-			filename = modCmdsPath;
-		}
+    private void saveQuickCommands() {
+        String filename;
+        if (currentList == QuickCmdList.MAIN) {
+            filename = mainCmdsPath;
+        } else {
+            filename = modCmdsPath;
+        }
 
 
-		FileOutputStream fos = null;
-		ObjectOutputStream out = null;
-		try
-		{
-			fos = new FileOutputStream(filename);
-			out = new ObjectOutputStream(fos);
-			out.writeObject(commands);
-			out.close();
-		}
-		catch(IOException ex)
-		{
-			Toast.makeText(activity,"Error saving commands " + ex.toString(), Toast.LENGTH_LONG).show();
-		}
-		adapter.notifyDataSetChanged();
-	}
+        FileOutputStream fos = null;
+        ObjectOutputStream out = null;
+        try {
+            fos = new FileOutputStream(filename);
+            out = new ObjectOutputStream(fos);
+            out.writeObject(commands);
+            out.close();
+        } catch (IOException ex) {
+            Toast.makeText(activity, "Error saving commands " + ex.toString(), Toast.LENGTH_LONG).show();
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    enum QuickCmdList {MAIN, MOD}
+
+    class QuickCommandsAdapter extends BaseAdapter {
+        private Activity context;
+
+        public QuickCommandsAdapter(Activity context) {
+            this.context = context;
+        }
+
+        public void add(String string) {
+        }
+
+        public int getCount() {
+            return commands.size();
+        }
+
+        public Object getItem(int arg0) {
+            // TODO Auto-generated method stub
+            return null;
+        }
+
+        public long getItemId(int arg0) {
+            // TODO Auto-generated method stub
+            return 0;
+        }
 
 
-	class QuickCommandsAdapter extends BaseAdapter{
-		private Activity context;
-
-		public QuickCommandsAdapter(Activity context){
-			this.context=context;
-
-		}
-		public void add(String string){
-
-		}
-		public int getCount() {
-			return commands.size();
-		}
-
-		public Object getItem(int arg0) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		public long getItemId(int arg0) {
-			// TODO Auto-generated method stub
-			return 0;
-		}
-
-
-		public View getView (int position, View convertView, ViewGroup list)  {
-			View view = activity.getLayoutInflater().inflate(R.layout.quick_command_listview_item, null);
-			ImageView image = (ImageView)view.findViewById(R.id.imageView);
-			TextView title = (TextView)view.findViewById(R.id.title_textview);
-			TextView command = (TextView)view.findViewById(R.id.command_textview);
-			title.setText(commands.get(position).getTitle());
-			command.setText(commands.get(position).getCommand());
-			return view;
-		}
-
-	}
-
-	
-	
-	
+        public View getView(int position, View convertView, ViewGroup list) {
+            View view = activity.getLayoutInflater().inflate(R.layout.quick_command_listview_item, null);
+            ImageView image = view.findViewById(R.id.imageView);
+            TextView title = view.findViewById(R.id.title_textview);
+            TextView command = view.findViewById(R.id.command_textview);
+            title.setText(commands.get(position).getTitle());
+            command.setText(commands.get(position).getCommand());
+            return view;
+        }
+    }
 }

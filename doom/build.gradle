@@ -37,7 +37,13 @@ android {
         versionCode 17
         versionName "0.4.0"
     }
-
+/*
+    externalNativeBuild {
+        ndkBuild {
+            abiFilters 'armeabi-v7a'//, 'arm64-v8a', 'x86', 'x86_64'
+        }
+    }
+*/
     sourceSets.main {
         jniLibs.srcDir 'src/main/libs'
     }

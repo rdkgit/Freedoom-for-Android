@@ -43,298 +43,271 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 
-public class Game extends Activity implements Handler.Callback
-{
-	String LOG = "Game";
+public class Game extends Activity implements Handler.Callback {
+    private final MogaControllerListener mogaListener = new MogaControllerListener();
+    String LOG = "Game";
+    Controller mogaController = null;
+    Activity act;
+    int surfaceWidth = -1, surfaceHeight;
+    int resDiv = 1;
+    private ControlInterpreter controlInterp;
+    private String args;
+    private String gamePath;
+    private boolean setupLaunch; //True if the native setup program launched this
+    private GameView mGLSurfaceView = null;
+    private QuakeRenderer mRenderer = new QuakeRenderer();
+    private Handler handlerUI;
 
-	private ControlInterpreter controlInterp;
+    /**
+     * Called when the activity is first created.
+     */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-	private final MogaControllerListener mogaListener = new MogaControllerListener();
-	Controller mogaController = null;
+        act = this;
 
-	private String args;
-	private String gamePath;
-	private boolean setupLaunch; //True if the native setup program launched this
+        handlerUI = new Handler(this);
 
-	private GameView mGLSurfaceView = null;
-	private QuakeRenderer mRenderer = new QuakeRenderer();
-	Activity act;
+        AppSettings.reloadSettings(getApplication());
 
-	int surfaceWidth=-1,surfaceHeight;
+        args = getIntent().getStringExtra("args");
+        gamePath = getIntent().getStringExtra("game_path");
+        setupLaunch = getIntent().getBooleanExtra("setup_launch", false);
+        resDiv = getIntent().getIntExtra("res_div", 1);
 
-	private Handler handlerUI;
+        mogaController = Controller.getInstance(this);
+        MogaHack.init(mogaController, this);
+        mogaController.setListener(mogaListener, new Handler());
 
-	int resDiv = 1;
+        // fullscreen
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-	/** Called when the activity is first created. */
-	@Override
-	public void onCreate(Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
+        // keep screen on
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
+                WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-		act = this;
+        Utils.setImmersionMode(this);
 
-		handlerUI = new Handler(this);
+        start_game();
+    }
 
-		AppSettings.reloadSettings(getApplication());
-
-		args = getIntent().getStringExtra("args");
-		gamePath  = getIntent().getStringExtra("game_path");
-		setupLaunch = getIntent().getBooleanExtra("setup_launch", false);
-		resDiv = getIntent().getIntExtra("res_div", 1);
-		
-		mogaController = Controller.getInstance(this);
-		MogaHack.init(mogaController, this);
-		mogaController.setListener(mogaListener,new Handler());
-
-		// fullscreen
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-				WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-		// keep screen on 
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
-				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-		Utils.setImmersionMode(this);
-
-
-		start_game();   
-	}
-
-	@Override
-	public void onWindowFocusChanged(boolean hasFocus) {
-		super.onWindowFocusChanged(hasFocus);
-		Utils.onWindowFocusChanged(this, hasFocus);
-	}
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        Utils.onWindowFocusChanged(this, hasFocus);
+    }
 
 
-	public void start_game() {
+    public void start_game() {
 
-		NativeLib.loadLibraries();
+        NativeLib.loadLibraries();
 
-		NativeLib engine = new NativeLib();
+        NativeLib engine = new NativeLib();
+
+        controlInterp = new ControlInterpreter(engine, Utils.getGameGamepadConfig(this.getResources()), TouchSettings.gamePadControlsFile, TouchSettings.gamePadEnabled);
+
+        TouchControlsSettings.setup(act, engine);
+        TouchControlsSettings.loadSettings(act);
+        TouchControlsSettings.sendToQuake();
+
+        TouchControlsEditing.setup(act);
+
+        mGLSurfaceView = new GameView(this);
+
+        NativeLib.gv = mGLSurfaceView;
+
+        ShowKeyboard.setup(act, mGLSurfaceView);
+
+        mGLSurfaceView.setEGLConfigChooser(new BestEglChooser(getApplicationContext()));
+
+        mGLSurfaceView.setRenderer(mRenderer);
+
+        // This will keep the screen on, while your view is visible.
+        mGLSurfaceView.setKeepScreenOn(true);
+
+        setContentView(mGLSurfaceView);
+        mGLSurfaceView.requestFocus();
+        mGLSurfaceView.setFocusableInTouchMode(true);
+    }
 
 
-		controlInterp = new ControlInterpreter(engine,Utils.getGameGamepadConfig(this.getResources()), TouchSettings.gamePadControlsFile, TouchSettings.gamePadEnabled);
-
-		TouchControlsSettings.setup(act, engine);
-		TouchControlsSettings.loadSettings(act);
-		TouchControlsSettings.sendToQuake();
-
-		TouchControlsEditing.setup(act);
-
-		mGLSurfaceView = new GameView(this);
-
-		NativeLib.gv = mGLSurfaceView;
-
-		ShowKeyboard.setup(act, mGLSurfaceView);
-
-		mGLSurfaceView.setEGLConfigChooser( new BestEglChooser(getApplicationContext()) );
-
-		mGLSurfaceView.setRenderer(mRenderer);
-
-		// This will keep the screen on, while your view is visible. 
-		mGLSurfaceView.setKeepScreenOn(true);
-
-		setContentView(mGLSurfaceView);
-		mGLSurfaceView.requestFocus();
-		mGLSurfaceView.setFocusableInTouchMode(true);
-	}
-
-
-	@Override
-	protected void onPause() {
-		Log.i(LOG, "onPause" );
+    @Override
+    protected void onPause() {
+        Log.i(LOG, "onPause");
         SDLLib.nativePause();
-		SDLLib.onPause();
-		mogaController.onPause();
-		super.onPause();
-	}
+        SDLLib.onPause();
+        mogaController.onPause();
+        super.onPause();
+    }
 
-	@Override
-	protected void onResume() {
-
-		Log.i(LOG, "onResume" );
+    @Override
+    protected void onResume() {
+        Log.i(LOG, "onResume");
         SDLLib.nativeResume();
-		SDLLib.onResume();
-		mogaController.onResume();
-		super.onResume();
-		mGLSurfaceView.onResume();
-	}
+        SDLLib.onResume();
+        mogaController.onResume();
+        super.onResume();
+        mGLSurfaceView.onResume();
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.i(LOG, "onDestroy");
+        super.onDestroy();
+        mogaController.exit();
+        System.exit(0);
+    }
+
+    @Override
+    public boolean handleMessage(Message msg) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    class MogaControllerListener implements ControllerListener {
+
+        @Override
+        public void onKeyEvent(com.bda.controller.KeyEvent event) {
+            //Log.d(LOG, "onKeyEvent " + event.getKeyCode());
+            controlInterp.onMogaKeyEvent(event, mogaController.getState(Controller.STATE_CURRENT_PRODUCT_VERSION));
+        }
+
+        @Override
+        public void onMotionEvent(com.bda.controller.MotionEvent event) {
+            controlInterp.onGenericMotionEvent(event);
+        }
+
+        @Override
+        public void onStateEvent(StateEvent event) {
+            Log.d(LOG, "onStateEvent " + event.getState());
+        }
+    }
 
 
-	@Override
-	protected void onDestroy() {
-		Log.i( LOG, "onDestroy" ); 
-		super.onDestroy();
-		mogaController.exit();
-		System.exit(0);
-	}
+    ///////////// GLSurfaceView.Renderer implementation ///////////
 
-	class MogaControllerListener implements ControllerListener {
+    class GameView extends MyGLSurfaceView {
+
+        /*--------------------
+         * Event handling
+         *--------------------*/
 
 
-		@Override
-		public void onKeyEvent(com.bda.controller.KeyEvent event) {
-			//Log.d(LOG,"onKeyEvent " + event.getKeyCode());
-			controlInterp.onMogaKeyEvent(event,mogaController.getState(Controller.STATE_CURRENT_PRODUCT_VERSION));
-		}
+        public GameView(Context context) {
+            super(context);
+        }
 
-		@Override
-		public void onMotionEvent(com.bda.controller.MotionEvent event) {
-			controlInterp.onGenericMotionEvent(event);
-		}
+        @Override
+        public boolean onGenericMotionEvent(MotionEvent event) {
+            return controlInterp.onGenericMotionEvent(event);
+        }
 
-		@Override
-		public void onStateEvent(StateEvent event) {
-			Log.d(LOG,"onStateEvent " + event.getState());
-		}
-	}
+        @Override
+        public boolean onTouchEvent(MotionEvent event) {
+            return controlInterp.onTouchEvent(event);
+        }
 
-	class GameView extends MyGLSurfaceView {
+        @Override
+        public boolean onKeyDown(int keyCode, KeyEvent event) {
+            return controlInterp.onKeyDown(keyCode, event);
+        }
 
-		/*--------------------
-		 * Event handling
-		 *--------------------*/
+        @Override
+        public boolean onKeyUp(int keyCode, KeyEvent event) {
+            return controlInterp.onKeyUp(keyCode, event);
+        }
 
+    }  // end of QuakeView
 
-		public GameView(Context context) {
-			super(context);
-
-		}
-
-		@Override
-		public boolean onGenericMotionEvent(MotionEvent event) {
-			return controlInterp.onGenericMotionEvent(event);
-		}
-		@Override
-		public boolean onTouchEvent(MotionEvent event)
-		{
-			return controlInterp.onTouchEvent(event);
-		}
-
-		@Override
-		public boolean onKeyDown(int keyCode, KeyEvent event)
-		{
-			return controlInterp.onKeyDown(keyCode, event);
-		}
-
-		@Override
-		public boolean onKeyUp(int keyCode, KeyEvent event)
-		{
-			return controlInterp.onKeyUp(keyCode, event);
-		} 
-
-	}  // end of QuakeView
+    class QuakeRenderer implements MyGLSurfaceView.Renderer {
 
 
+        boolean divDone = false;
+        //// new Renderer interface
+        int notifiedflags;
+        boolean SDLinited = false;
 
-	///////////// GLSurfaceView.Renderer implementation ///////////
+        public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+            Log.d("Renderer", "onSurfaceCreated");
+        }
 
-	class QuakeRenderer implements MyGLSurfaceView.Renderer {
+        private void init(int width, int height) {
 
-	
-		boolean divDone = false;
-		
-		public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-			Log.d("Renderer", "onSurfaceCreated");
-		}
+            Log.i(LOG, "screen size : " + width + "x" + height);
 
-		private void init( int width, int height ){
+            NativeLib.setScreenSize(width, height);
 
-			Log.i( LOG, "screen size : " + width + "x"+ height);
+            Utils.copyPNGAssets(getApplicationContext(), AppSettings.graphicsDir);
 
-			NativeLib.setScreenSize(width,height);
+            Log.i(LOG, "Quake2Init start");
 
-			Utils.copyPNGAssets(getApplicationContext(),AppSettings.graphicsDir);
+            //args = "-width 1280 -height 736 +set vid_renderer 1 -iwad tnt.wad -file brutal19.pk3 +set fluid_patchset /sdcard/WeedsGM3.sf2";
+            //args = "+set vid_renderer 1 ";
+            String gzdoom_args = "-width " + surfaceWidth / resDiv + " -height " + surfaceHeight / resDiv + " +set vid_renderer 1 ";
+            String[] args_array = Utils.createArgs(args + gzdoom_args);
 
-			Log.i(LOG, "Quake2Init start");
+            int audioSample = AudioTrack.getNativeOutputSampleRate(AudioTrack.MODE_STREAM);
+            Log.d(LOG, "audioSample = " + audioSample);
 
-			//args = "-width 1280 -height 736 +set vid_renderer 1 -iwad tnt.wad -file brutal19.pk3 +set fluid_patchset /sdcard/WeedsGM3.sf2";
-			//args = "+set vid_renderer 1 ";
-			String gzdoom_args = "-width " + surfaceWidth/resDiv + " -height " + surfaceHeight/resDiv + " +set vid_renderer 1 ";
-			String[] args_array = Utils.creatArgs(args + gzdoom_args);
+            if ((audioSample != 48000) && (audioSample != 44100)) //Just in case
+                audioSample = 48000;
 
-			int audioSameple = AudioTrack.getNativeOutputSampleRate(AudioTrack.MODE_STREAM);
-			Log.d(LOG,"audioSample = " + audioSameple);
+            int ret = NativeLib.init(AppSettings.graphicsDir, audioSample, args_array, 0, gamePath);
 
-			if ((audioSameple != 48000) && (audioSameple != 44100)) //Just in case
-				audioSameple = 48000;
+            Log.i(LOG, "Quake2Init done");
 
-			int ret = NativeLib.init(AppSettings.graphicsDir,audioSameple,args_array,0,gamePath);
+        }
 
-			Log.i(LOG, "Quake2Init done");
+        public void onDrawFrame(GL10 gl) {
 
-		}
+            Log.d("Renderer", "onDrawFrame");
 
-		//// new Renderer interface
-		int notifiedflags;
+            if (!divDone) {
+                handlerUI.post(() -> {
+                    mGLSurfaceView.getHolder().setFixedSize(surfaceWidth / resDiv, surfaceHeight / resDiv);
+                    divDone = true;
+                });
+            }
 
-		public void onDrawFrame(GL10 gl) {
+            if (divDone) {
+                init(surfaceWidth / resDiv, surfaceHeight / resDiv);
+            } else {
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
 
-			Log.d("Renderer", "onDrawFrame" );
+            Log.d("Renderer", "onDrawFrame END");
 
-			if (!divDone)
-				handlerUI.post(new Runnable() {				
-					@Override
-					public void run() {
-						mGLSurfaceView.getHolder().setFixedSize( surfaceWidth/resDiv, surfaceHeight/resDiv);	
-						divDone = true;
-					}
-				});
+        }
 
-			if (divDone)
-				init( surfaceWidth/resDiv, surfaceHeight/resDiv);
-			else
-			{
-				try {
-					Thread.sleep(200);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			
-			Log.d("Renderer", "onDrawFrame END" );
+        public void onSurfaceChanged(GL10 gl, int width, int height) {
+            Log.d("Renderer", String.format("onSurfaceChanged %dx%d", width, height));
 
-		}
+            if (surfaceWidth == -1) {
+                surfaceWidth = width;
+                surfaceHeight = height;
+            }
 
-		boolean SDLinited = false;
-		public void onSurfaceChanged(GL10 gl, int width, int height) {
-			Log.d("Renderer", String.format("onSurfaceChanged %dx%d", width,height) );
+            if (!SDLinited) {
+                SDLLib.nativeInit(false);
+                SDLLib.surfaceChanged(PixelFormat.RGBA_8888, surfaceWidth / resDiv, surfaceHeight / resDiv);
+                SDLinited = true;
+            }
 
-			if (surfaceWidth == -1)
-			{
-				surfaceWidth = width;
-				surfaceHeight = height;
-			}
+            //Display display = ((WindowManager) act.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+            //Point size = new Point();
+            //display.getSize(size);
+            controlInterp.setScreenSize(surfaceWidth, surfaceHeight);
 
-			if (!SDLinited)
-			{
-				SDLLib.nativeInit(false);
-				SDLLib.surfaceChanged(PixelFormat.RGBA_8888, surfaceWidth/resDiv, surfaceHeight/resDiv);
-				SDLinited = true;
-			}
+            //controlInterp.setScreenSize(width, height);
 
-			//Display display = ((WindowManager) act.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-			//Point size = new Point();
-			//display.getSize(size);
-			controlInterp.setScreenSize(surfaceWidth,surfaceHeight);
-
-			//controlInterp.setScreenSize(width, height);
-
-
-		}
-	} // end of QuakeRenderer
-
-
-
-	@Override
-	public boolean handleMessage(Message msg) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+        }
+    } // end of QuakeRenderer
 }
-
-

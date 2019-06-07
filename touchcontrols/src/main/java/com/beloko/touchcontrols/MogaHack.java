@@ -2,22 +2,22 @@ package com.beloko.touchcontrols;
 
 /**
  * Mupen64PlusAE, an N64 emulator for the Android platform
- *
+ * <p>
  * Copyright (C) 2013 Paul Lamb
- *
+ * <p>
  * This file is part of Mupen64PlusAE.
- *
+ * <p>
  * Mupen64PlusAE is free software: you can redistribute it and/or modify it under the terms of the
  * GNU General Public License as published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- *
+ * <p>
  * Mupen64PlusAE is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
- *
+ * <p>
  * You should have received a copy of the GNU General Public License along with Mupen64PlusAE. If
  * not, see <http://www.gnu.org/licenses/>.
- *
+ * <p>
  * Authors: Paul Lamb
  */
 
@@ -45,74 +45,55 @@ import java.util.List;
  *
  * @see <a href="http://www.mogaanywhere.com/developers/">MOGA developer site</a>
  * @see <a href="http://commonsware.com/blog/2014/06/29/dealing-deprecations-bindservice.html">
- *      Discussion on explicit intents</a>
+ * Discussion on explicit intents</a>
  */
-public class MogaHack
-{
-    public static void init( Controller controller, Context context )
-    {
-        if( android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP )
-        {
+public class MogaHack {
+    public static void init(Controller controller, Context context) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             boolean mIsBound = false;
             java.lang.reflect.Field fIsBound = null;
             android.content.ServiceConnection mServiceConnection = null;
             java.lang.reflect.Field fServiceConnection = null;
-            try
-            {
+            try {
                 Class<?> cMogaController = controller.getClass();
-                fIsBound = cMogaController.getDeclaredField( "mIsBound" );
-                fIsBound.setAccessible( true );
-                mIsBound = fIsBound.getBoolean( controller );
-                fServiceConnection = cMogaController.getDeclaredField( "mServiceConnection" );
-                fServiceConnection.setAccessible( true );
-                mServiceConnection = ( android.content.ServiceConnection ) fServiceConnection.get( controller );
-            }
-            catch( NoSuchFieldException e )
-            {
-                Log.e( "MogaHack", "MOGA Lollipop Hack NoSuchFieldException (get)", e );
-            }
-            catch( IllegalAccessException e )
-            {
-                Log.e( "MogaHack", "MOGA Lollipop Hack IllegalAccessException (get)", e );
-            }
-            catch( IllegalArgumentException e )
-            {
+                fIsBound = cMogaController.getDeclaredField("mIsBound");
+                fIsBound.setAccessible(true);
+                mIsBound = fIsBound.getBoolean(controller);
+                fServiceConnection = cMogaController.getDeclaredField("mServiceConnection");
+                fServiceConnection.setAccessible(true);
+                mServiceConnection = (android.content.ServiceConnection) fServiceConnection.get(controller);
+            } catch (NoSuchFieldException e) {
+                Log.e("MogaHack", "MOGA Lollipop Hack NoSuchFieldException (get)", e);
+            } catch (IllegalAccessException e) {
+                Log.e("MogaHack", "MOGA Lollipop Hack IllegalAccessException (get)", e);
+            } catch (IllegalArgumentException e) {
                 Log.e("MogaHack", "MOGA Lollipop Hack IllegalArgumentException (get)", e);
             }
-            if( ( !mIsBound ) && ( mServiceConnection != null ) )
-            {
+            if ((!mIsBound) && (mServiceConnection != null)) {
                 // Convert implicit intent to explicit intent, see http://stackoverflow.com/a/26318757
-                Intent intent = new Intent( IControllerService.class.getName() );
-                List<ResolveInfo> resolveInfos = context.getPackageManager().queryIntentServices( intent, 0 );
-                if( resolveInfos == null || resolveInfos.size() != 1 )
-                {
-                    Log.e( "MogaHack", "Somebody is trying to intercept our intent. Disabling MOGA controller for security." );
+                Intent intent = new Intent(IControllerService.class.getName());
+                List<ResolveInfo> resolveInfos = context.getPackageManager().queryIntentServices(intent, 0);
+                if (resolveInfos == null || resolveInfos.size() != 1) {
+                    Log.e("MogaHack", "Somebody is trying to intercept our intent. Disabling MOGA controller for security.");
                     return;
                 }
-                ServiceInfo serviceInfo = resolveInfos.get( 0 ).serviceInfo;
+                ServiceInfo serviceInfo = resolveInfos.get(0).serviceInfo;
                 String packageName = serviceInfo.packageName;
                 String className = serviceInfo.name;
-                intent.setComponent( new ComponentName( packageName, className ) );
+                intent.setComponent(new ComponentName(packageName, className));
 
                 // Start the service explicitly
-                context.startService( intent );
-                context.bindService( intent, mServiceConnection, Context.BIND_IMPORTANT );
-                try
-                {
-                    fIsBound.setBoolean( controller, true );
-                }
-                catch( IllegalAccessException e )
-                {
-                    Log.e( "MogaHack", "MOGA Lollipop Hack IllegalAccessException (set)", e );
-                }
-                catch( IllegalArgumentException e )
-                {
-                    Log.e( "MogaHack", "MOGA Lollipop Hack IllegalArgumentException (set)", e );
+                context.startService(intent);
+                context.bindService(intent, mServiceConnection, Context.BIND_IMPORTANT);
+                try {
+                    fIsBound.setBoolean(controller, true);
+                } catch (IllegalAccessException e) {
+                    Log.e("MogaHack", "MOGA Lollipop Hack IllegalAccessException (set)", e);
+                } catch (IllegalArgumentException e) {
+                    Log.e("MogaHack", "MOGA Lollipop Hack IllegalArgumentException (set)", e);
                 }
             }
-        }
-        else
-        {
+        } else {
             controller.init();
         }
     }
