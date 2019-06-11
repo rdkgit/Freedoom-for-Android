@@ -1,6 +1,5 @@
 package net.nullsum.freedoom
 
-
 class DoomWad(val file: String = "") {
     var args: String = ""
 

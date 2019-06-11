@@ -134,11 +134,15 @@ public class EntryActivity extends FragmentActivity {
                 AppSettings.createDirectories(this);
                 Utils.copyFreedoomFilesToSD(this);
 
-                // dirty hack :(
-                final ActionBar actionBar = getActionBar();
+//                // dirty hack :(
+//                final ActionBar actionBar = getActionBar();
+//                actionBar.setSelectedNavigationItem(1);
+//                actionBar.setSelectedNavigationItem(0);
 
-                actionBar.setSelectedNavigationItem(1);
-                actionBar.setSelectedNavigationItem(0);
+//                // Need to replace this hack since it is deprecated
+//                // Will now replace with a different hack (thanks Google! this is fun :/ )
+
+
             } else {
                 Toast.makeText(getActivity(), getResources().getString(R.string.file_permission_fail_toast),
                         Toast.LENGTH_LONG).show();

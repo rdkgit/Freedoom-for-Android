@@ -50,8 +50,8 @@ public class Utils {
     }
 
     static void copyFreedoomFilesToSD(Activity responsibleActivity) {
-        String iniFolderName = "/gzdoom_dev";
-        String iniFileName = "zdoom.ini";
+
+
         String fullBaseDir = AppSettings.getQuakeFullDir();
         String fullWadDir = fullBaseDir + "/" + "wads";
 
@@ -69,12 +69,22 @@ public class Utils {
 
 
         // copy a custom gzdoom iniFile to set midi device to fluidsynth
+        String iniFileName = "zdoom.ini";
+        String iniFolderName = "/gzdoom_dev";
         File tester = new File(fullBaseDir + iniFolderName + "/" + iniFileName);
         if (!tester.exists()) {
             Log.d(LOG, "zdoom.ini file not present, copying custom one");
             Utils.copyAsset(responsibleActivity, iniFileName, fullBaseDir + iniFolderName);
         } else {
             Log.d(LOG, "zdoom.ini file is already present");
+        }
+
+        // Nasty hack to refresh view if this is the first launch
+        File hasRunTester = new File ( fullBaseDir + "/" + "firstrun");
+        if (!hasRunTester.exists()) {
+            Log.d(LOG, "firstrun file not found, proceeding with first launch hack");
+            Utils.copyAsset(responsibleActivity, "firstrun", fullBaseDir);
+            // HACK HERE
         }
     }
 
