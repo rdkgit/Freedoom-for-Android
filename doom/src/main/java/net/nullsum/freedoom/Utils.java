@@ -82,16 +82,24 @@ public class Utils {
             Log.d(LOG, "zdoom.ini file is already present");
         }
 
-//        // Nasty hack to refresh view if this is the first launch
-//        File hasRunTester = new File ( fullBaseDir + "/" + "firstrun");
-//        if (!hasRunTester.exists()) {
-//            Log.d(LOG, "firstrun file not found, proceeding with first launch hack");
-//            Utils.copyAsset(responsibleActivity, "firstrun", fullBaseDir);
-//            // Info of hack
-//            // https://stackoverflow.com/questions/15262747/refresh-or-force-redraw-the-fragment
-//
-//
-//        }
+        // copy over gzdoom mod/package files
+        String modFolderName = "mods";
+        String fullModDir = fullBaseDir + "/" + modFolderName;
+
+        tester = new File( fullModDir + "/" + "brightmaps.pk3");
+        if (!tester.exists()) {
+            Utils.copyAsset(responsibleActivity, "brightmaps.pk3", fullModDir);
+        }
+
+        tester = new File( fullModDir + "/" + "gzdoom.pk3");
+        if (!tester.exists()) {
+            Utils.copyAsset(responsibleActivity, "gzdoom.pk3", fullModDir);
+        }
+
+        tester = new File( fullModDir + "/" + "lights.pk3");
+        if (!tester.exists()) {
+            Utils.copyAsset(responsibleActivity, "lights.pk3", fullModDir);
+        }
     }
 
     private static void copyFile(InputStream in, OutputStream out) throws IOException {

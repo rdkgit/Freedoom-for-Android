@@ -75,7 +75,7 @@ public class LaunchFragmentGZdoom extends Fragment {
 
         Utils.copyFreedoomFilesToSD(getActivity());
 
-//         Nasty hack to refresh view if this is the first launch and freedoom files were copied
+//         Nasty hack to refresh view if this is the first launch and Freedoom files were copied
         File hasRunTester = new File ( fullBaseDir + "/" + "firstrun");
         if (!hasRunTester.exists()) {
             Log.d(LOG, "firstrun file not found, proceeding with first launch hack");
