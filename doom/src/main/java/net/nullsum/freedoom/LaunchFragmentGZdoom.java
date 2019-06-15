@@ -3,7 +3,10 @@ package net.nullsum.freedoom;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -81,6 +84,18 @@ public class LaunchFragmentGZdoom extends Fragment {
             // Info of hack
             // https://stackoverflow.com/questions/15262747/refresh-or-force-redraw-the-fragment
 
+            // simple refresh of wad list
+            listAdapter.notifyDataSetChanged();
+
+            // // Extremely aggressive redraw of wad list
+            // listview.invalidateViews();
+
+            // Aggressive hack which forces the entire fragment to redraw
+            FragmentTransaction tr = getFragmentManager().beginTransaction();
+            tr.replace(((ViewGroup)getView().getParent()).getId(), this);
+            tr.commit();
+
+        // END HACK
         }
 
 

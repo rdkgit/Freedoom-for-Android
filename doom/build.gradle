@@ -22,9 +22,9 @@ android {
     signingConfigs {
         config {
             keyAlias 'key0'
-            keyPassword ''
+            keyPassword 'Ca$hm0n3y000'
             storeFile file('C:/Users/matth/Dropbox/Keystore/mkrupczak3.jks')
-            storePassword ''
+            storePassword 'Ca$hm0n3y000'
         }
     }
 
