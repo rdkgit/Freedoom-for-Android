@@ -72,6 +72,18 @@ public class LaunchFragmentGZdoom extends Fragment {
 
         Utils.copyFreedoomFilesToSD(getActivity());
 
+//         Nasty hack to refresh view if this is the first launch and freedoom files were copied
+        File hasRunTester = new File ( fullBaseDir + "/" + "firstrun");
+        if (!hasRunTester.exists()) {
+            Log.d(LOG, "firstrun file not found, proceeding with first launch hack");
+
+            Utils.copyAsset(getActivity(), "firstrun", fullBaseDir);
+            // Info of hack
+            // https://stackoverflow.com/questions/15262747/refresh-or-force-redraw-the-fragment
+
+        }
+
+
         argsEditText = mainView.findViewById(R.id.extra_args_edittext);
         gameArgsTextView = mainView.findViewById(R.id.extra_args_textview);
         listview = mainView.findViewById(R.id.listView);
