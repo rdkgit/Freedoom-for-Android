@@ -6,6 +6,7 @@ import android.app.ActionBar.Tab;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -63,6 +64,12 @@ public class EntryActivity extends FragmentActivity {
 
         gamePadFrag = (GamePadFragment) getFragmentManager().findFragmentByTag("gamepad");
 
+    }
+
+    public void restart(){
+        Intent intent = new Intent(this, EntryActivity.class);
+        this.startActivity(intent);
+        this.finishAffinity();
     }
 
     @Override

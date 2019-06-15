@@ -8,6 +8,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -85,15 +86,10 @@ public class LaunchFragmentGZdoom extends Fragment {
             // https://stackoverflow.com/questions/15262747/refresh-or-force-redraw-the-fragment
 
             // simple refresh of wad list
-            listAdapter.notifyDataSetChanged();
+            (new Handler()).postDelayed(this::listRefreshHack, 10000);
 
-            // // Extremely aggressive redraw of wad list
-            // listview.invalidateViews();
 
-            // Aggressive hack which forces the entire fragment to redraw
-            FragmentTransaction tr = getFragmentManager().beginTransaction();
-            tr.replace(((ViewGroup)getView().getParent()).getId(), this);
-            tr.commit();
+
 
         // END HACK
         }
@@ -152,6 +148,24 @@ public class LaunchFragmentGZdoom extends Fragment {
         refreshGames();
 
         return mainView;
+    }
+
+    void listRefreshHack() {
+        Log.d(LOG, "HACK refreshing wad list");
+
+        // Doesn't work
+        listAdapter.notifyDataSetChanged();
+
+//         // Extremely aggressive redraw of wad list
+//         listview.invalidateViews();
+
+        // Force the main activity to respawn (nuclear option) @TODO fix me
+        ((EntryActivity)getActivity()).restart();
+
+////         Aggressive hack which forces the entire fragment to redraw
+//        FragmentTransaction tr = getFragmentManager().beginTransaction();
+//        tr.replace(((ViewGroup)getView().getParent()).getId(), this);
+//        tr.commit();
     }
 
     void startGame(final String base, boolean ignoreMusic, final String moreArgs) {

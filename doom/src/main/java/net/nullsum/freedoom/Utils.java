@@ -91,11 +91,6 @@ public class Utils {
             Utils.copyAsset(responsibleActivity, "brightmaps.pk3", fullModDir);
         }
 
-        tester = new File( fullModDir + "/" + "gzdoom.pk3");
-        if (!tester.exists()) {
-            Utils.copyAsset(responsibleActivity, "gzdoom.pk3", fullModDir);
-        }
-
         tester = new File( fullModDir + "/" + "lights.pk3");
         if (!tester.exists()) {
             Utils.copyAsset(responsibleActivity, "lights.pk3", fullModDir);
