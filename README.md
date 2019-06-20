@@ -31,11 +31,12 @@ In addition, Freedoom is compatible with much of the vast library of fan-made "W
 
 
 ## Roadmap (not in order)
+- [ ] Add a simple download wad from URL fragment like so: https://github.com/mkrupczak3/Freedoom-for-Android/blob/master/Notes8_1.png
+- [ ] Integrate an idgames level browser/downloader
 - [ ] Update FluidSynth from 1.x.x to 2.x.x
 - [ ] Update SDL (and SDLActivity.java) from 1.x to 2.x.x
 - [ ] Update [OpenGL ES](https://developer.android.com/guide/topics/graphics/opengl) from 1.0/1.1 to 3.1 (supported by Android 5.0 (API level 21) and higher)
 - [ ] Switch from using [nvllsvm's MobileTouchControls](https://github.com/nvllsvm/MobileTouchControls) (which is archived, and also a fork of beloko's) to [beloko's](https://github.com/emileb/MobileTouchControls)
-- [ ] Integrate an idgames level browser/downloader
 - [ ] Add arm64 support to satisfy August 2019 Google Play requirements
 
 
