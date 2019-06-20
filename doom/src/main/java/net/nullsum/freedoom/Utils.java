@@ -70,6 +70,12 @@ public class Utils {
         // Credits
         Utils.copyAsset(responsibleActivity, "sigil.txt", fullWadDir);
 
+        // Add 10sector and 10sector2 wads, megawads with ultra small levels
+        Utils.copyAsset(responsibleActivity, "10sector.wad", fullWadDir);
+        Utils.copyAsset(responsibleActivity, "10sector.txt", fullWadDir);
+        Utils.copyAsset(responsibleActivity, "10secto2.wad", fullWadDir);
+        Utils.copyAsset(responsibleActivity,"10secto2.txt",fullWadDir);
+
 
         // copy a custom gzdoom iniFile to set midi device to fluidsynth
         String iniFileName = "zdoom.ini";

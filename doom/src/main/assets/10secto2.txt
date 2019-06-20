@@ -1,0 +1,747 @@
+===========================================================================
+Title                   : 10 Sectors Part 2
+Filename                : 10secto2.wad
+Release date            : November 26, 2000
+Author                  : Various
+
+Description             : From mid-August to mid-September, Doomworld.com
+                        : held a contest with a simple premise: design the
+                        : best Boom level you can with only 10 sectors.
+                        : This is the second level compilation from that
+                        : contest.
+                       
+Additional Credits to   : The over one hundred people who entered this
+                        : contest and made it as cool as it was.  Andrew 
+                        : Bassett, Matthew Dixon, Martin Friberg, and
+                        : Gaston Lahaut for judging.  Andrew Stine for
+                        : organizing and running the contest.  The authors
+                        : of all the countless utilities used in the
+                        : creation of the levels.  The Unreal Tournament 5
+                        : Cubes contest for providing the idea.
+                        : Telefragged.com for the first prize of a Voodoo
+                        : 5 5500 AGP.  Fanatic for some free CDs.  id
+                        : Software for Doom.
+
+===========================================================================
+* What is included *
+
+New levels              : Yes
+Sounds                  : No
+Music                   : No
+Graphics                : Yes
+Dehacked/BEX Patch      : Yes
+Demos Replaced          : No
+Other                   : No
+Other files required    : Boom-compatible source port
+
+
+* Play Information *
+
+Game                    : Doom 2
+Map #                   : Map01 - Map32
+Single Player           : Yes
+Cooperative 2-4 Player  : No
+Deathmatch 2-4 Player   : No
+Other Game Styles       : No
+Difficulty Settings     : Some
+
+Gameplay Notes          : Each of the 32 levels in this megawad was
+                        : designed to be played from scratch, i.e. 
+                        : 100% health, 0% armor, a pistol and 50 bullets.
+                        : Playing the "normal" way from level to level 
+                        : may cause some levels to become too easy as
+                        : the player brings in more weapons and ammunition
+                        : than the level was designed around.  For the 
+                        : best gameplay experience, start each level from 
+                        : scratch as you reach it, via either IDCLEV or
+                        : committing suicide.
+                        : Also, the levels in this WAD are in no particular
+                        : order, so don't expect a progression in size or
+                        : difficulty as you play through it.
+                        : Finally, there are no exits to Map31 or Map32, so
+                        : you'll have to IDCLEV there.
+
+* Construction *
+
+Base                    : From scratch
+Build Time              : One month
+Editor(s) used          : Various
+
+Known Bugs              : Due to the trickery used to make a mere 10 
+                        : sectors feel like many more, many of the levels
+                        : are impossible to play in co-op or deathmatch
+                        : mode.  Some levels may be able to be forced into
+                        : an unbeatable state, necessitating a fresh start
+                        : or savegame reload.
+
+Will Not Run With...    : ZDoom, any non-Boom-compatible port
+
+===========================================================================
+* The Levels *
+===========================================================================
+ ---------
+ * MAP01 *
+ ---------
+
+  Author      : Vick Bobkov
+  E-mail      : virgil_32@hotmail.com
+
+  Bassett     : Well, I have mixed feelings about this map. Lots of
+              : monsters, far too many monsters. Although it makes great
+              : use of ten sectors, it really doesn't look very nice. With
+              : a mix of textures through tofgether in square patterns on
+              : the walls. Good for length, not all that great for looks
+              : and playability.
+
+  Friberg     : Nice detail and architecture. Definately one to keep in
+              : mind. I got annoyed by all structures and items which kept
+              : me from backing up fighting with my fists which also kept
+              : me irritated. If those weren't there I would love this map
+              : even more.
+
+===========================================================================
+ ---------
+ * MAP02 *
+ ---------
+
+  Author      : Paul Corfiatis
+  E-mail      : pauldoom@microtech.com.au
+
+  Bassett     : Pretty nice looking. This level is of decent size, and has
+                good height and light variety. Looks impressive to me.
+
+  Friberg     : It made a pretty good 1st impression on me. The absolute
+              : first time I ran through it, all monsters seemed to be
+              : standing on a straight line, just waiting to get their guts
+              : blown away. But it grew on me and I had to try twice before
+              : I could play it all the way to the end.
+              : The end fight could be done way harder and some of the
+              : later hallways were unecessary long and dull.
+              : It felt like the author did a good job of using
+              : lightsources and details at the beginning of the map but
+              : forgot about it in the other parts.
+
+===========================================================================
+ ---------
+ * MAP03 *
+ ---------
+
+  Author      : Simon Howard
+  E-mail      : sfraggle14@hotmail.com
+
+  Bassett     : Rather compact. A very short level. Not much in the way of
+              : looks, or gameplay. I can't find the exit.
+
+  Friberg     : I was very much impressed of both gameplay and architecture
+              : when I played the first time. The very cool tech-theme was
+              : held very good throughout the whole map. But I found a few
+              : very minor texture misstakes or at least, bad texture-use.
+
+===========================================================================
+ ---------
+ * MAP04 *
+ ---------
+
+  Author      : Sascha \" The Prophet\" Müller
+  E-mail      : doom@theprophet.de
+
+  Bassett     : Hmm. If I saw this level in a public archive, I would never
+              : have guessed it only used ten sectors. The level plays very
+              : long, has some good puzzles, and good ammo balance. But
+              : still, detail is a little scarce. It doesn't look all that
+              : nice. It might make the megawad.
+
+  Friberg     : Nope!
+
+===========================================================================
+ ---------
+ * MAP05 *
+ ---------
+
+  Author      : Karl R. Peters
+  E-mail      : u1006057@warwick.net
+
+  Bassett     : A Map30 remake? Oh, no.. All that red lava and all that
+              : light green stone makes the level look just so easy.
+              : There's more to a challenging level than simply lots of
+              : monsters.
+
+  Friberg     : Pretty cool use of the endboss. The map was pretty
+              : origional IMO and deserves some credit for that, but when
+              : it comes to texture-use, details and architecture it is
+              : almost hopelessly boring. The greenmarble really hurt my
+              : eyes like knifes. Some wood in there might have looked
+              : good. Oh and never show Romero's head like that. Cover it
+              : up with something. You know, you still have to keep that a
+              : secret ;) 
+
+===========================================================================
+ ---------
+ * MAP06 *
+ ---------
+
+  Author      : Karl R. Peters
+  E-mail      : u1006057@warwick.net
+
+  Bassett     : This IS a pretty good level. The detail isn't too much
+              : there, but it still plays great. Nice ammo balance, good
+              : fun, nice fiery atmosphere. A good challenge of a level.
+
+  Friberg     : Somewhat weird ending.. Too uneven in its quality.
+
+===========================================================================
+ ---------
+ * MAP07 *
+ ---------
+
+  Author      : Dimiter Georgiev
+  E-mail      : d_georgiev@ns.prosyst.bg
+
+  Bassett     : Wow! This is a very large level! Very, very impressive.
+              : Very neat design. Lots and lots of diversity in the height!
+              : Not to mention the light levels, the textures, and
+              : everything else! Ammo seems a little tight, but that
+              : shouldn't be a problem if it's stuck into the later levels.
+
+===========================================================================
+ ---------
+ * MAP08 *
+ ---------
+
+  Author      : Patrick McCarthy
+  E-mail      : lowen@sandwich.net
+
+  Bassett     : Now this is interesting. Lots of crates, all three keys are
+              : used.. Very creative use of ten sectors. A dark techno
+              : warehouse is a theme I've been craving for a while.
+              : Although quick, an enjoyable level!
+
+  Friberg     : This one felt very ... unplanned. You get dropped into a
+              : chaos of crates and it is extremely hard to tell where to
+              : go. Oh and you have a few arch-viles, chaingun-snipers and
+              : mancubi on your back. Everything takes place in the same
+              : room so use the cover wisely. This is definately the
+              : toughest map so far!  When I played it a few times the
+              : fighting became more fun and challenging, but the feel of
+              : disorder doesn't make it topnotch.
+
+===========================================================================
+ ---------
+ * MAP09 *
+ ---------
+
+  Author      : Wim Vanrie
+  E-mail      : wim.van.rie@pandora.be
+
+  Bassett     : Nothing too special here. It's looks pretty nice, but the
+              : level is mostly a square pattern. And then it finally
+              : breaks loose into another area where the exit switch. Not
+              : too much effort is required to finish the level. Ehh.
+
+  Friberg     : Began looking pretty cool, but turned out to be just
+              : boring.
+
+===========================================================================
+ ---------
+ * MAP10 *
+ ---------
+  Author      : Paul Corfiatis
+  E-mail      : pauldoom@microtech.com.au
+
+  Bassett     : A good level. Some nice texture and light variations. Good
+              : playability. All around, pretty good.
+
+  Friberg     : Uhm.. ok, but nothing more. The two last arch-viles offered
+              : the best games. Pretty square and boring design and
+              : architecture, not that linear in layout though.
+
+===========================================================================
+ ---------
+ * MAP11 *
+ ---------
+
+  Author      : Cephaler
+  E-mail      : doctabeelo@yahoo.com
+
+  Bassett     : This is another good level. It looks very nice, it plays
+              : very nice. Still a little short, though.
+
+  Friberg     : Another very good map! The brownstone/metal theme (idmap01)
+              : is held throughout the complete map.  But why did I get the
+              : plasmagun at all? I never found it before I was about to
+              : run into the exit... Never got any use out of it and I had
+              : ammo left when I finished.
+
+===========================================================================
+ ---------
+ * MAP12 *
+ ---------
+
+  Author      : KinkaJoy
+  E-mail      : kinkajou02@yahoo.com
+
+  Bassett     : As much as I'd like to say good things about this level,
+              : with its nice length and all, the combination of green
+              : stone and lava, along with the achingly misaligned
+              : textures, and sectional design, I would definitely not want
+              : to see this level in the WAD.
+
+  Friberg     : Nope.
+
+===========================================================================
+ ---------
+ * MAP13 *
+ ---------
+
+  Author      : Slayer
+  E-mail      : mince@freeuk.co.uk
+
+  Bassett     : This level is great-looking and great playing. Good puzzles
+              : to solve, and good enemy/ammo balance. Should be one of my
+              : top picks.
+
+  Friberg     : Pretty cool use of the sectors and somewhat innovative.
+              : Should get a place in the first megawad.
+
+===========================================================================
+ ---------
+ * MAP14 *
+ ---------
+
+  Author      : Espi 
+  E-mail      : esa.repo@pp.nic.fi
+
+  Bassett     : This is a pretty good level. Diverse in height, light, not
+              : so much in textures, but the ammo balance is good, and it
+              : isn't too terribly impossible. It's all right.
+
+  Friberg     : Ok, but certainly not more.. Keep it in mind if lack of
+              : better maps occurs.
+
+===========================================================================
+ ---------
+ * MAP15 *
+ ---------
+
+  Author      : Marc Pullen
+  E-mail      : marcpullen@mindspring.com
+
+  Bassett     : This is a refreshing change. We have some very good height
+              : variations on this map. Not to mention texture variations,
+              : and some very nice subtle lighting effects. Still, the
+              : level is rather short. If you're going for 100% kills, then
+              : the Spider Mastermind at the end of the level will stretch
+              : things out.
+
+  Friberg     : No real flaws here, just boring layout, architecture and
+              : gameplay.  I survived the whole map and killed everything
+              : with only the shotgun and chaingun. And I didn't need the
+              : latter one. The rocketlauncher and plasmagun were just not
+              : needed. Ok not everyone wants to kill a Spider Mastermind
+              : with singleshotgun, but the author shouldn't have supplied
+              : the player with so many shells if so...
+
+===========================================================================
+ ---------
+ * MAP16 *
+ ---------
+
+  Author      : Paul Corfiatis
+  E-mail      : pauldoom@microtech.com.au
+
+  Bassett     : Hmm. Another square pattern level, with an exit tunnel. It
+              : looks nice, but the main concern seems to be monster-
+              : fighting, rather than puzzle solving. It kind of makes me
+              : *yawn*, but it's not too bad.
+
+===========================================================================
+ ---------
+ * MAP17 *
+ ---------
+
+  Author      : pagb666
+  E-mail      : pagb666@virtualciber.net
+
+  Bassett     : A decent level. Mostly flat, but some nice texture
+              : variables.. And it plays reasonably long.. Ammo balance is
+              : a little lax, though.. It's all right.
+
+  Friberg     : This map was very nicely built, but the final fight is just
+              : too bore-some. Too many enemies and not enough cool weapons
+              : to play with.
+
+===========================================================================
+ ---------
+ * MAP18 *
+ ---------
+
+  Author      : Paul Corfiatis
+  E-mail      : pauldoom@microtech.com.au
+
+  Bassett     : The level looks nice, but a little patternized, and the
+              : detail could be better. Dare I say, the height variations
+              : are good. There isn't too much ammo, which is nice. But
+              : still, a little short for my tastes. Overall, it's one of
+              : the better ones.
+
+===========================================================================
+ ---------
+ * MAP19 *
+ ---------
+
+  Author      : David Shywayismyway
+  E-mail      : litendavid@antisocial.com
+
+  Bassett     : This is oddly different. So many Former Humans, so many
+              : Sargeants!! Waiting for the pillar to come down.. Oh, it
+              : takes forever. Well, not really, but it is a challenge to
+              : stay alive.. They just keep coming! Okay, so the map
+              : doesn't look great, and the gameplay isn't my favorite.
+              : I'd say ehh.
+
+  Friberg     : A little bit origional... 1 mancubus, zillions of zombiemen
+              : being teleported into the map.. exit lowers from above.
+              : Could deserve a place in one of the wads.
+
+===========================================================================
+ ---------
+ * MAP20 *
+ ---------
+
+  Author      : Paul L. Ming
+  E-mail      : pming@home.com
+
+  Bassett     : There's lots of detail in this level. Strangely enough, the
+              : detail tends to stick more to the floors and ceilings,
+              : rather than the walls. Its length is decent. It uses a key.
+              : It's okay.
+
+  Friberg     : Everything was ok in this one. Using the tekbrown texture 
+              : (I think that was it) didn't work out that well and
+              : everything seemed so big and "clumpsy."  And why was that
+              : rocketlauncher there? I had two demons and two seargents
+              : left when I got it. And that can hardly be called a worthy
+              : endsequence...
+
+===========================================================================
+ ---------
+ * MAP21 *
+ ---------
+
+  Author      : pagb666
+  E-mail      : pagb666@virtualciber.net 
+
+  Bassett     : Pretty nice. Mostly 90° linedefs, but that's okay.
+              : Architecture is very nice, monsters are placed well,
+              : although the level isn't all that long. We're seeing some
+              : pretty nice levels here.
+
+  Friberg     : This reminds me of an earlier map.. maybe this version was
+              : more worked out.. I liked it anyway and I will keep this
+              : one in mind.
+
+===========================================================================
+ ---------
+ * MAP22 *
+ ---------
+
+  Author      : Andrew Apted 
+  E-mail      : ajapted@netspace.net.au
+
+  Bassett     : I'm not sure about this level. It starts out looking weird
+              : with a bunch of different textures. Lots of creative,
+              : decorative linedef artwork, though. Pretty good use of ten
+              : sectors. Still, it doesn't play all that well. Not one of
+              : my top picks.
+
+  Friberg     : The rocketship was goofy.
+
+===========================================================================
+ ---------
+ * MAP23 *
+ ---------
+
+  Author      : Nick Baker
+  E-mail      : nick@frad.org
+
+  Bassett     : Wow, I like this level... It's not the best in eye candy,
+              : but it took me over seven minutes to finish. And it looks
+              : diverse enough as well! While playing, I completely forgot
+              : that the level was only ten sectors. But still, far too
+              : many monsters for the amount of ammo given. Pretty nice.
+
+  Friberg     : Hard, even too hard if you want to kill all enemies (which
+              : is usually) the way to go.
+
+===========================================================================
+ ---------
+ * MAP24 *
+ ---------
+
+  Author      : Mikhail Yakshin
+  E-mail      : yakshin@online.ru
+
+  Bassett     : Hey, this is more like it! Some very nice creativity. A
+              : boat with cranes, diverse textures and lighting, as well as
+              : height. Quite impressive, for ten sectors.
+
+  Friberg     : I am very impressed by the architecture and design but
+              : where did the playability go? But I am almost certain this
+              : one will gain a place in the final megawad.
+
+===========================================================================
+ ---------
+ * MAP25 *
+ ---------
+
+  Author      : Cronley
+  E-mail      : vcronley@digipax.com
+
+  Bassett     : Nice level! Large, diverse in its textures, height.. But
+              : not its light levels, and the detail isn't there. Still,
+              : it could make the top 32. We'll see about that, too.
+
+===========================================================================
+ ---------
+ * MAP26 *
+ ---------
+
+  Author      : Rick Clark
+  E-mail      : rickclark@rickclark.20m.com
+
+  Bassett     : This is a higher-quality level. Good textures, a well-
+              : defined atmosphere, and pretty good playability. Still
+              : somewhat short, but a good level.
+
+  Friberg     : Pretty simple in layout but nice details. Followed the
+              : theme very good. I'll take a note even though it wasn't
+              : anything special.
+
+===========================================================================
+ ---------
+ * MAP27 *
+ ---------
+
+  Author      : Drakker
+  E-mail      : drakker@cgocable.ca
+
+  Bassett     : Yet another, very nice level! Diverse in its height,
+              : textures, and light levels. Ammo balance is a little lax,
+              : but still, lots of detail.. I think it could go fitting in
+              : the top 32, maybe. We'll see.
+
+===========================================================================
+ ---------
+ * MAP28 *
+ ---------
+
+  Author      : Stefan Maes
+  E-mail      : stefan_maes@hotmail.com
+
+  Bassett     : Well, the detail isn't there. The light levels are okay.
+              : But very small, and that maze doesn't help matter much.
+              : *Sigh*, next..
+
+===========================================================================
+ ---------
+ * MAP29 *
+ ---------
+
+  Author      : Stephen Robinson
+  E-mail      : stphrz@yahoo.com
+
+  Bassett     : This is a decent level. But there isn't much detail, and
+              : the light differences could be better. Simply too many
+              : monsters, I think. It's okay, but overall, I don't think
+              : it's enough for the top 32.
+
+===========================================================================
+ ---------
+ * MAP30 *
+ ---------
+
+  Author      : Tomi Rajala
+  E-mail      : rajala@algonet.se
+
+  Bassett     : Well, this is a small level, and it is mostly square... But
+              : it does have some nice detail, and the monster/ammo balance
+              : is pretty good. We might be able to use it if we need a
+              : smaller level. It's okay!
+
+===========================================================================
+ ---------
+ * MAP31 *
+ ---------
+
+  Author      : Dave Kiddell
+  E-mail      : umkiddel@cc.UManitoba.CA
+
+  Bassett     : Wolfenstien textures and SS Nazis? Don't we have enough of
+              : those levels? *Yawn*, next...
+
+  Friberg     : Wolfenstein theme... awful gameplay!
+
+===========================================================================
+ ---------
+ * MAP32 *
+ ---------
+
+  Author      : Adam Williamson
+  E-mail      : adam.williamson1@btinternet.com
+
+  Bassett     : I'm stumped! This level is just a little bit too tricky for
+              : my tastes. Requiring a little dexterity to complete the
+              : level is often a missing quality, but this is just pushing!
+
+  Friberg     : Not only was the map total crap but the puzzles were
+              : impossible.
+
+===========================================================================
+
+* Megawad Judging Information *
+
+The Doomworld 10 Sectors Contest ran from August 22, 2000 to September 22, 
+2000.  During that time, 138 WADs were submitted.
+
+The judging panel originally consisted of five people: Andrew Bassett, 
+Matthew Dixon, Martin Friberg, Gaston Lahaut, and Malcolm Sailor.
+Unfortunately, Malcolm Sailor had to drop out due to time constraints.  The
+four remaining judges then took about 5 weeks to sort through the 138 WADs,
+with judging reaching completion on November 1, 2000.
+
+The 138 submitted levels were merged into 5 megawads for judging purposes, 
+with the first four containing 30 levels each and the 5th containing 18
+levels.  Judges then designated their picks by saying which megawad of the 
+5 the level was in, and which map slot it filled within that megawad.  The 
+judges were asked to list their favorite 32, 10, 3, and 1, with levels
+within the lists in no particular order.
+
+Here are the judging results.
+
+Mord  = Gaston Lahaut
+Matt  = Matthew Dixon
+AndrB = Andrew Bassett
+Cocnn = Martin Friberg
+
+Top 32:
+
+Mord   Matt   AndrB  Cocnn
+01/07  01/02  01/05  01/02
+01/08  01/04  01/07  01/06
+01/18  01/05  01/08  01/08
+01/27  01/08  01/16  01/09
+01/29  01/11  01/19  01/16
+02/05  01/16  01/29  01/17
+02/07  01/17  02/07  01/27
+02/15  01/27  02/08  01/29
+02/16  01/29  02/15  02/01
+02/18  02/01  02/21  02/07
+02/22  02/07  02/26  02/08
+02/25  02/15  02/28  02/11
+02/28  02/28  02/30  02/15
+02/30  02/30  03/01  02/16
+03/01  03/08  03/02  02/28
+03/02  03/12  03/05  02/30
+03/03  03/13  03/08  03/01
+03/08  03/29  03/12  03/12
+03/13  04/02  03/13  03/29
+03/14  04/12  03/29  04/02
+03/17  04/13  04/02  04/10
+03/21  04/14  04/10  04/13
+03/22  04/20  04/12  04/15
+04/02  04/26  04/13  04/16
+04/12  04/27  04/18  04/20
+04/13  05/05  04/20  04/26
+04/14  05/07  04/26  04/27
+04/20  05/12  04/27  04/30
+05/05  05/14  04/28  05/05
+05/12  05/17  05/04  05/07
+              05/12  05/12
+                     05/17
+
+Top 10:
+
+Mord   Matt   AndrB  Cocnn
+01/29  01/08  01/08  01/08
+02/07  01/17  02/15  02/15
+02/30  02/15  02/21  02/28
+03/01  02/30  02/30  04/13
+03/22  04/12  03/01  04/15
+04/12  04/14  03/12  04/16
+04/20  04/20  04/12  04/20
+05/05  05/05  04/20  04/27
+05/07  05/07  04/27  05/05
+05/12  05/12  05/12  05/12
+
+Top 3:
+
+Mord   Matt   AndrB  Cocnn
+01/29  04/20  02/15  02/28
+04/12  05/05  04/12  04/15
+05/12  05/12  05/12  05/05
+
+Top 1:
+
+Mord   Matt   AndrB  Cocnn
+05/12  05/05  05/12  05/05
+
+===========================================================================
+
+* The Second 32 *
+
+The second 32 levels out of the 138 submitted were chosen by first taking
+every WAD which was chosen by either one or two judges as one of their top
+32 levels.  This added up to 27 levels.  Linguica then chose 5 levels to
+fill it to an even 32.
+
+01/01 -- 10secpc.wad          -- Paul Corfiatis * 
+01/02 -- 10sector-fraggle.wad -- Simon Howard 
+01/04 -- 2marx10s.wad         -- Karl R. Peters
+01/06 -- boxed.wad            -- Patrick McCarthy 
+01/07 -- brute10.wad          -- Paul Corfiatis 
+01/09 -- cephaler.wad         -- Cephaler 
+01/11 -- fanatic.wad          -- Marc Pullen
+01/18 -- level9.wad           -- Paul L. Ming 
+01/19 -- nb10_1.wad           -- Nick Baker 
+01/28 -- vertigo.wad          -- Adam Williamson * 
+02/01 -- 10s_vrgl.wad         -- Vick Bobkov 
+02/05 -- brownwim.wad         -- Wim Vanrie 
+02/08 -- def monsters.wad     -- Slayer
+02/11 -- gris10.wad           -- Paul Corfiatis 
+02/16 -- kodo10.wad           -- Paul Corfiatis 
+02/18 -- ld-survi.wad         -- David Shywayismyway
+02/22 -- mbarena.wad          -- pagb666
+02/25 -- pirate.wad           -- Mikhail Yakshin
+02/26 -- rdc10s.wad           -- Rick Clark 
+03/02 -- 1dayhell.wad         -- Sascha \" The Prophet\" Müller 
+03/03 -- 2mrx10s3.wad         -- Karl R. Peters 
+03/14 -- epismap.wad          -- Espi 
+03/21 -- minemars.wad         -- Andrew Apted 
+04/01 -- 10mewse.wad          -- Dave Kiddell *
+04/09 -- cross.wad            -- KinkaJoy *
+04/18 -- hellbase.wad         -- pagb666
+04/28 -- refinery.wad         -- Drakker 
+04/30 -- tomi10.wad           -- Tomi Rajala 
+05/04 -- atomanom.wad         -- Dimiter Georgiev 
+05/14 -- ragebase.wad         -- Cronley 
+05/16 -- stm10.wad            -- Stefan Maes *
+05/17 -- stphrz.wad           -- Stephen Robinson
+
+===========================================================================
+
+* Copyright / Permissions *
+
+Authors may NOT use the contents of this file as a base for
+modification or reuse.
+
+You MAY distribute this file, provided you include this text file, with
+no modifications.  You may distribute this file in any electronic
+format (BBS, Diskette, CD, etc) as long as you include this file 
+intact.  I have received permission from the original authors of any
+modified or included content in this file to allow further distribution.
+
+
+* Where to get the file that this text file describes *
+
+The Usual: ftp://ftp.cdrom.com/pub/idgames/ and mirrors
+Web sites: http://www.doomworld.com/
