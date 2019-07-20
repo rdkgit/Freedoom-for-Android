@@ -89,6 +89,8 @@ public class WadDownloader extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    // not using radio buttons to select wad/mod since
+    // we are only supporting downloading of wad files
     public void onRadioButtonClicked(View view)
     {
         //boolean checked = ((RadioButton) view).isChecked();
