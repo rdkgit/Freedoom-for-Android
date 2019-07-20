@@ -57,7 +57,7 @@ public class EntryActivity extends FragmentActivity {
         actionBar.addTab(actionBar.newTab().setText(R.string.app_name).setTabListener(new TabListener<>(this, "Gzdoom", LaunchFragmentGZdoom.class)));
         actionBar.addTab(actionBar.newTab().setText(R.string.gamepad_tab).setTabListener(new TabListener<>(this, "gamepad", GamePadFragment.class)));
         actionBar.addTab(actionBar.newTab().setText(R.string.options_tab).setTabListener(new TabListener<>(this, "options", OptionsFragment.class)));
-
+        actionBar.addTab(actionBar.newTab().setText(R.string.options_tab).setTabListener(new TabListener<>(this,"waddownloader",WadDownloader.class)));
 
         String last_tab = AppSettings.getStringOption(getApplicationContext(), "last_tab", "");
         actionBar.setSelectedNavigationItem(0);

@@ -62,6 +62,12 @@
             android:launchMode="singleTop"
             android:process=":Game"
             android:screenOrientation="sensorLandscape" />
+
+        <activity
+            android:name=".WadDownloader"
+            android:label="WAD File Downloader"
+            android:screenOrientation="sensorLandscape" />
+
     </application>
 
 </manifest>
