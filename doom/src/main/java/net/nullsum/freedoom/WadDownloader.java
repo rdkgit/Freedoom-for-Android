@@ -35,7 +35,7 @@ import java.util.zip.ZipInputStream;
 // URLs must be https for the url connection code to work
 // code by rdk with mods/snippets taken from various websites (see comments below)
 
-public class WadDownloader extends AppCompatActivity
+public class WadDownloader extends Fragment
 {
     public static String TAG = "WadDownloader";
     TextView textView;
@@ -51,9 +51,14 @@ public class WadDownloader extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.download_layout);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+    } // onCreate
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState)
+    {
+        View mainView = inflater.inflate(R.layout.download_layout, null);
 
         textView = (TextView) findViewById(R.id.download_text_view);
         urlText = (EditText) findViewById(R.id.EnterURL);
@@ -65,47 +70,7 @@ public class WadDownloader extends AppCompatActivity
         progressBar.setProgress(0);
         progressBar.setVisibility(View.INVISIBLE);
 
-    } // onCreate
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    // not using radio buttons to select wad/mod since
-    // we are only supporting downloading of wad files
-    public void onRadioButtonClicked(View view)
-    {
-        //boolean checked = ((RadioButton) view).isChecked();
-
-        //switch (view.getId()) {
-
-        //case R.id.radio_wad:
-        //    // either a pwad or an iwad
-        //    wType = WadType.WAD;
-        //    break;
-        //case R.id.radio_mod:
-        //    wType = WadType.MODWAD;
-        //    break;
-        //}
-    }
+    } // onCreateView
 
     // user mashed "Download"
     public void onDownload(View view)
