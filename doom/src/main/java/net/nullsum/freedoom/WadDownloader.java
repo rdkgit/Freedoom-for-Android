@@ -35,6 +35,9 @@ import java.util.zip.ZipInputStream;
 // URLs must be https for the url connection code to work
 // code by rdk with mods/snippets taken from various websites (see comments below)
 
+// use class AppSettingsfreedoomBaseDir to fetch app dir where we want to copy files
+//
+
 public class WadDownloader extends Fragment
 {
     public static String TAG = "WadDownloader";
@@ -198,7 +201,8 @@ public class WadDownloader extends Fragment
                 // mod goes into mods directory
                 // Output stream
 
-                appDir = getApplicationContext().getFilesDir()+"/";
+                //appDir = getApplicationContext().getFilesDir()+"/";
+                appDir = AppSettings.freedoomBaseDir;
                 fullPath = appDir+destFilename;
 
                 Log.d(TAG,"doInBackground: appDir is "+appDir);
@@ -293,7 +297,7 @@ public class WadDownloader extends Fragment
                     case PWAD:
                         // move into pwad directory
                         appendText("Download is a PWAD file\n");
-                        newFilename = new String(appDir+"pwad/"+aFile.getName());
+                        newFilename = new String(appDir+"wads/"+aFile.getName());
                         Log.d(TAG,"doInBackground: pwad location to move to is "+newFilename);
                         appendText("Moving to "+newFilename+"\n");
                         aFile.renameTo(new File(newFilename));
