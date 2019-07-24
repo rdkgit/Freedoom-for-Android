@@ -203,7 +203,7 @@ public class WadDownloader extends Fragment
 
                 //appDir = getApplicationContext().getFilesDir()+"/";
                 appDir = AppSettings.freedoomBaseDir;
-                fullPath = appDir+destFilename;
+                fullPath = appDir+"/"+destFilename;
 
                 Log.d(TAG,"doInBackground: appDir is "+appDir);
                 appendText("App directory is "+appDir+"\n");
@@ -289,7 +289,7 @@ public class WadDownloader extends Fragment
                     case IWAD:
                         // move into main appDir
                         appendText("Download is an IWAD file\n");
-                        newFilename = new String(appDir+aFile.getName());
+                        newFilename = new String(appDir+"/"+aFile.getName());
                         Log.d(TAG,"doInBackground: iwad location to move to is "+newFilename);
                         appendText("Moving to "+newFilename+"\n");
                         aFile.renameTo(new File(newFilename));
@@ -297,7 +297,7 @@ public class WadDownloader extends Fragment
                     case PWAD:
                         // move into pwad directory
                         appendText("Download is a PWAD file\n");
-                        newFilename = new String(appDir+"wads/"+aFile.getName());
+                        newFilename = new String(appDir+"/wads/"+aFile.getName());
                         Log.d(TAG,"doInBackground: pwad location to move to is "+newFilename);
                         appendText("Moving to "+newFilename+"\n");
                         aFile.renameTo(new File(newFilename));
